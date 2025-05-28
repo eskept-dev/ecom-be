@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to your Eskept account</title>
+    <style>
+        /* Reset styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .content {
+            padding: 20px;
+            color: #333333;
+        }
+        
+        .button-container {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .login-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666666;
+            font-size: 12px;
+        }
+        
+        .warning {
+            color: #dc3545;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- <img src="[ESKEPT_LOGO_URL]" alt="Eskept Logo" class="logo"> -->
+            <h1>Sign in to your Eskept account</h1>
+        </div>
+        
+        <div class="content">
+            <h2>Secure Sign In Link</h2>
+            <p>Hello,</p>
+            <p>We received a request to sign in to your Eskept account. Click the button below to securely sign in:</p>
+            
+            <div class="button-container">
+                <a href="{{ sign_in_url }}" class="login-button">Sign In Securely</a>
+            </div>
+            
+            <p class="warning">⚠️ This sign in link will expire in 15 minutes for security reasons.</p>
+            
+            <p>If you didn't request this sign in link, please ignore this email or contact our support team if you have any concerns about your account security.</p>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 Eskept. All rights reserved.</p>
+            <p>Address: 43 Le Thi Hong Gam, District 1, Ho Chi Minh City, Vietnam</p>
+            <p>This is an automated message, please do not reply to this email.</p>
+        </div>
+    </div>
+</body>
+</html>

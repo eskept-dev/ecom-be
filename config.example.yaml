@@ -1,0 +1,19 @@
+postgres:
+  db_name: eskept
+  user: postgres.admin
+  password: postgres.password
+
+redis:
+  password: redis.password
+
+minio:
+  root_user: minio.user
+  root_password: minio.password
+
+mailer:
+  host: smtp.gmail.com
+  port: 587
+  use_tls: true
+  host_user: email.host.user
+  host_password: email.host.password
+  default_sender_email: admin@eskept.com
