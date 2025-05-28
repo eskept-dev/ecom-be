@@ -25,6 +25,9 @@ def load_config():
         config_file_name = f'config.{APP_ENV}.yaml'
     else:
         config_file_name = 'config.yaml'
+        
+    print(f"Loading config from {config_file_name}")
+
     config_path = BASE_DIR.parent / config_file_name
     if not config_path.exists():
         raise FileNotFoundError(f"{config_file_name} not found at {config_path}")
@@ -41,10 +44,9 @@ config = load_config()
 SECRET_KEY = config['server']['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config['server']['debug']
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = config['server']['allowed_hosts']
 
 # Application definition
 
@@ -127,8 +129,9 @@ else:
 MINIO_ENDPOINT = config['minio']['host']
 MINIO_ACCESS_KEY = config['minio']['access_key']
 MINIO_SECRET_KEY = config['minio']['secret_key']
-MINIO_BUCKET_NAME = 'eskept'
-MINIO_SECURE = False
+MINIO_BUCKET_NAME = config['minio']['bucket_name']
+MINIO_PUBLIC_URL = config['minio']['public_url']
+MINIO_SECURE = config['minio']['secure']
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = DEBUG
@@ -159,9 +162,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = config['server']['language_code']
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = config['server']['timezone']
 
 USE_I18N = True
 
