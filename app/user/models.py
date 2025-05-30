@@ -29,7 +29,12 @@ class UserManager(BaseUserManager):
             raise ValueError(_('The Email field must be set'))
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
-        user.set_password(password)
+        
+        if not password:
+            user.set_unusable_password()
+        else:
+            user.set_password(password)
+            
         user.save()
         return user
 
@@ -111,6 +116,10 @@ class User(AbstractUser):
         
     def reject(self):
         self.status = UserStatus.REJECTED
+        self.save()
+        
+    def renew_activation_code(self):
+        self.activation_code = generate_activation_code()
         self.save()
 
 

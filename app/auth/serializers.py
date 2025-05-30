@@ -2,6 +2,8 @@ from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 
+
+from app.auth.enums import VerificationTypeEnum
 from app.user.models import User
 
 
@@ -10,12 +12,28 @@ class SignUpSerializer(serializers.ModelSerializer):
         model = User
         exclude = ['groups', 'user_permissions']
         extra_kwargs = {
-            'password': {'write_only': True}
+            'password': {'write_only': True, 'required': False, 'allow_blank': True}
         }
         
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+
+
+class ResendVerificationEmailSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    verification_type = serializers.ChoiceField(choices=VerificationTypeEnum.choices())
+
+    def validate(self, attrs):
+        email = attrs.get('email')
+        if not email:
+            raise serializers.ValidationError('Email is required.')
+        
+        user = User.objects.filter(email=email).first()
+        if not user:
+            raise serializers.ValidationError('User not found.')
+        
+        return attrs
 
 
 class ActivationCodeSerializer(serializers.Serializer):
@@ -26,11 +44,6 @@ class ActivationCodeSerializer(serializers.Serializer):
         if not activation_code:
             raise serializers.ValidationError('Activation code is required.')
         return attrs
-    
-    def save(self, **kwargs):
-        user = User.objects.get(activation_code=self.validated_data['activation_code'])
-        user.activate()
-        return user
 
 
 class SignInSerializer(serializers.Serializer):
@@ -84,3 +97,8 @@ class RefreshTokenSerializer(serializers.Serializer):
             'access_token': str(refresh.access_token),
             'refresh_token': str(refresh),
         }
+
+
+class VerifyEmailQuerySerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    verification_type = serializers.ChoiceField(choices=VerificationTypeEnum.choices())

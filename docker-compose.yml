@@ -76,6 +76,21 @@ services:
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
       MINIO_BUCKET_NAME: ${MINIO_BUCKET_NAME}
 
+  celery:
+    image: eskeptdev/ecommerce-backend:20250529_033430_54dd91f
+    container_name: celery
+    env_file:
+      - .env
+    command: celery -A app.core.celery worker --loglevel=info
+    environment:
+      APP_ENV: production
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      MINIO_BUCKET_NAME: ${MINIO_BUCKET_NAME}
+
 volumes:
   postgres_data:
   redis_data:

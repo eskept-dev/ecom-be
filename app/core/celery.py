@@ -14,7 +14,7 @@ celery_app = Celery(
     task_serializer=settings.CELERY_TASK_SERIALIZER,
     result_serializer=settings.CELERY_RESULT_SERIALIZER,
     timezone=settings.CELERY_TIMEZONE,
-
 )
+
 celery_app.config_from_object('django.conf:settings', namespace='CELERY')
 celery_app.autodiscover_tasks()
