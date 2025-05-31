@@ -6,6 +6,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 from app.base.pagination import CustomPagination
+from app.core.utils.string import slugify
 from app.location import serializers
 from app.location.models import Location
 
@@ -21,6 +22,11 @@ class LocationModelViewSet(ModelViewSet):
 
     def get_queryset(self):
         search_query = self.request.query_params.get('search', None)
+        location_type = self.request.query_params.get('type', None)
+        province = self.request.query_params.get('province', None)
+        city = self.request.query_params.get('city', None)
+        district = self.request.query_params.get('district', None)
+        ward = self.request.query_params.get('ward', None)
         
         queryset = super().get_queryset()
         queryset = queryset.filter(is_enabled=True)
@@ -32,6 +38,21 @@ class LocationModelViewSet(ModelViewSet):
                 output_field=IntegerField(),
             )
         ).order_by('custom_order', 'name')
+
+        if location_type:
+            queryset = queryset.filter(type=location_type)
+
+        if province:
+            queryset = queryset.filter(province=slugify(province))
+
+        if city:
+            queryset = queryset.filter(city=slugify(city))
+
+        if district:
+            queryset = queryset.filter(district=slugify(district))
+
+        if ward:
+            queryset = queryset.filter(ward=slugify(ward))
 
         if search_query:
             queryset = queryset.filter(

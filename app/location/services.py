@@ -26,3 +26,25 @@ def import_airports():
     Location.objects.bulk_create(to_create)
     
     logger.info(f"Imported {len(to_create)} airports")
+
+
+def import_hotels():
+    with open('app/location/__data__/hotels.json', 'r') as f:
+        data = json.load(f)
+
+    location_names = [item['name'] for item in data]
+    existing_locations = Location.objects.filter(name__in=location_names)
+    
+    to_create = []
+    for item in data:
+        if item['name'] not in existing_locations:
+            item['type'] = LocationType.HOTEL
+            item['province'] = slugify(item['province'])
+            item['city'] = slugify(item['city'])
+            item['district'] = slugify(item['district'])
+            item['ward'] = slugify(item['ward'])
+            to_create.append(Location(**item))
+
+    Location.objects.bulk_create(to_create)
+
+    logger.info(f"Imported {len(to_create)} hotels")

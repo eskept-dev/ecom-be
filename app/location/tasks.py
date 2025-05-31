@@ -8,3 +8,10 @@ def import_airports_task():
     logger.info("Importing airports")
     location_services.import_airports()
     logger.info("Imported airports")
+
+
+@celery_app.task(name='location.tasks.import_hotels_task')
+def import_hotels_task():
+    logger.info("Importing hotels")
+    location_services.import_hotels()
+    logger.info("Imported hotels")
