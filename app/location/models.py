@@ -14,6 +14,7 @@ class Location(BaseModel):
     code = models.CharField(max_length=255)
     type = models.CharField(max_length=255, choices=LocationType.choices)
     order = models.IntegerField(default=0)
+    is_enabled = models.BooleanField(default=True)
     
     address = models.CharField(max_length=255)
     province = models.CharField(max_length=255)

@@ -1,4 +1,4 @@
-from django.db.models import Q
+from django.db.models import Q, Case, When, Value, IntegerField
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 
@@ -11,6 +11,7 @@ from app.location.models import Location
 
 
 DEFAULT_CACHE_TIME = 60 * 60 * 24
+LARGE_NUMBER = 999999
 
 
 class LocationModelViewSet(ModelViewSet):
@@ -19,8 +20,19 @@ class LocationModelViewSet(ModelViewSet):
     pagination_class = CustomPagination
 
     def get_queryset(self):
-        queryset = super().get_queryset()
         search_query = self.request.query_params.get('search', None)
+        
+        queryset = super().get_queryset()
+        queryset = queryset.filter(is_enabled=True)
+
+        queryset = queryset.annotate(
+            custom_order=Case(
+                When(order=0, then=Value(LARGE_NUMBER)),
+                default='order',
+                output_field=IntegerField(),
+            )
+        ).order_by('custom_order', 'name')
+
         if search_query:
             queryset = queryset.filter(
                 Q(name__icontains=search_query) |
@@ -31,6 +43,7 @@ class LocationModelViewSet(ModelViewSet):
                 Q(district__icontains=search_query) |
                 Q(ward__icontains=search_query)
             )
+
         return queryset
 
     def get_permissions(self):
@@ -43,9 +56,14 @@ class LocationModelViewSet(ModelViewSet):
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
 
-    @method_decorator(cache_page(DEFAULT_CACHE_TIME))
     def list(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
+        _list_action = lambda req, *a, **k: super(LocationModelViewSet, self).list(req, *a, **k)
+
+        if request.query_params.get('search', None):
+            return _list_action(request, *args, **kwargs)
+        else:
+            cached_list_view = cache_page(DEFAULT_CACHE_TIME)(_list_action)
+            return cached_list_view(request, *args, **kwargs)
 
     @method_decorator(cache_page(DEFAULT_CACHE_TIME))
     def retrieve(self, request, *args, **kwargs):
