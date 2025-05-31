@@ -95,6 +95,12 @@ class User(AbstractUser):
     @property
     def is_new(self):
         return self.status == UserStatus.NEW
+    
+    @property
+    def can_sign_in_by_password(self):
+        if self.password is None:
+            return False
+        return self.is_active and not self.password.startswith('!')
 
     def activate(self):
         if self.role == UserRole.CUSTOMER:

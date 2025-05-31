@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from app.auth import serializers
@@ -11,6 +11,9 @@ from app.auth.enums import VerificationTypeEnum
 from app.user.models import User
 
 
+# ===============================
+# Sign Up
+# ===============================
 class SignUpView(APIView):
     permission_classes = [AllowAny]
 
@@ -27,7 +30,11 @@ class SignUpView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         user = serializer.save()
-        auth_services.send_verification_email_for_sign_up(user)
+
+        auth_tasks.send_verification_email_for_sign_up_task.apply_async(
+            kwargs={'user_id': user.id}
+        )
+
         return Response(serializers.SignUpSerializer(user).data, status=status.HTTP_201_CREATED)
 
 
@@ -63,6 +70,7 @@ class ResendVerificationEmailView(APIView):
             )
 
         user.renew_activation_code()
+
         auth_tasks.send_verification_email_for_sign_up_task.apply_async(
             kwargs={'user_id': user.id}
         )
@@ -98,19 +106,47 @@ class ActivateUserView(APIView):
         )
 
 
+# ===============================
+# Sign In
+# ===============================
+class CanSignInByPasswordView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        email = request.query_params.get('email')
+        if not email:
+            return Response(
+                {'error': 'Email is required'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+            
+        user = User.objects.filter(email=email).first()
+        if not user:
+            return Response(
+                {'error': 'User not found'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        return Response(
+            {'can_sign_in_by_password': user.can_sign_in_by_password},
+            status=status.HTTP_200_OK
+        )
+
+
 class SignInView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
         serializer = serializers.SignInSerializer(data=request.data)
-        if serializer.is_valid():
-            user = serializer.validated_data['user']
-            refresh = RefreshToken.for_user(user)
-            return Response(serializers.SignInResponseSerializer({
-                'access_token': str(refresh.access_token),
-                'refresh_token': str(refresh),
-            }).data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if not serializer.is_valid():
+            return Response({'message': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        user = serializer.validated_data['user']
+        refresh = RefreshToken.for_user(user)
+        return Response(serializers.SignInResponseSerializer({
+            'access_token': str(refresh.access_token),
+            'refresh_token': str(refresh),
+        }).data)
 
 
 class SendSignInEmailView(APIView):
@@ -118,8 +154,24 @@ class SendSignInEmailView(APIView):
 
     def post(self, request):
         serializer = serializers.SendSignInEmailSerializer(data=request.data)
-        if serializer.is_valid():
-            user = serializer.validated_data['user']
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        user = User.objects.filter(email=serializer.validated_data['email']).first()
+        if not user:
+            return Response(
+                {'error': 'User not found'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        auth_tasks.send_sign_in_email_task.apply_async(
+            kwargs={'user_id': user.id}
+        )
+
+        return Response(
+            {'message': 'Sign in email sent'},
+            status=status.HTTP_200_OK
+        )
 
 
 class RefreshTokenView(APIView):
@@ -134,3 +186,51 @@ class RefreshTokenView(APIView):
                 'refresh_token': str(refresh),
             })
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+# ===============================
+# Reset Password
+# ===============================
+class SendResetPasswordEmailView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = serializers.ResetPasswordSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        user = User.objects.filter(email=serializer.validated_data['email']).first()
+        if not user:
+            return Response(
+                {'error': 'User not found'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        auth_tasks.send_reset_password_email_task.apply_async(
+            kwargs={'user_id': user.id}
+        )
+
+        return Response(
+            {'message': 'Reset password email sent'},
+            status=status.HTTP_200_OK
+        )
+
+
+class ResetPasswordView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = serializers.ResetPasswordSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        auth_services.reset_password(
+            user=request.user,
+            password=serializer.validated_data['password']
+        )
+
+        return Response(
+            {'message': 'Password reset successfully'},
+            status=status.HTTP_200_OK
+        )

@@ -1,12 +1,15 @@
-from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 
 
 from app.auth.enums import VerificationTypeEnum
+from app.auth import services as auth_services
 from app.user.models import User
 
 
+# ===============================
+# Sign Up
+# ===============================
 class SignUpSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -46,6 +49,9 @@ class ActivationCodeSerializer(serializers.Serializer):
         return attrs
 
 
+# ===============================
+# Sign In
+# ===============================
 class SignInSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
@@ -55,7 +61,7 @@ class SignInSerializer(serializers.Serializer):
         password = attrs.get('password')
         
         if email and password:
-            user = authenticate(username=email, password=password)
+            user = auth_services.authenticate(email, password)
             if not user:
                 raise serializers.ValidationError('User not found')
             if not user.is_active:
@@ -102,3 +108,16 @@ class RefreshTokenSerializer(serializers.Serializer):
 class VerifyEmailQuerySerializer(serializers.Serializer):
     email = serializers.EmailField()
     verification_type = serializers.ChoiceField(choices=VerificationTypeEnum.choices())
+
+
+# ===============================
+# Reset Password
+# ===============================
+class ResetPasswordSerializer(serializers.Serializer):
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        password = attrs.get('password')
+        if not password:
+            raise serializers.ValidationError('Password is required.')
+        return attrs
