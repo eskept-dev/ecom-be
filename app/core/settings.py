@@ -243,6 +243,14 @@ AUTH_USER_MODEL = 'user.User'
 APPEND_SLASH = False
 FRONTEND_URL = config['server']['frontend_url']
 
+# Cache Configuration
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'api_cache_table',
+    }
+}
+
 # Celery Configuration
 CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL

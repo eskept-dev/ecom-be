@@ -1,13 +1,16 @@
-from rest_framework import status
-from rest_framework.decorators import action
-from rest_framework.response import Response
+from django.db.models import Q
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
-from django.db.models import Q
 
 from app.base.pagination import CustomPagination
 from app.location import serializers
 from app.location.models import Location
+
+
+DEFAULT_CACHE_TIME = 60 * 60 * 24
 
 
 class LocationModelViewSet(ModelViewSet):
@@ -39,3 +42,11 @@ class LocationModelViewSet(ModelViewSet):
         else:
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
+
+    @method_decorator(cache_page(DEFAULT_CACHE_TIME))
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
+    @method_decorator(cache_page(DEFAULT_CACHE_TIME))
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
