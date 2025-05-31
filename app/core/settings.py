@@ -66,7 +66,9 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     
     # Local apps
+    'app.base',
     'app.user',
+    'app.location',
 ]
 
 MIDDLEWARE = [
@@ -199,7 +201,7 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'app.base.pagination.CustomPagination',
     'PAGE_SIZE': 10,
 }
 
