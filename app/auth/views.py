@@ -197,7 +197,7 @@ class SendResetPasswordEmailView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
-        serializer = serializers.ResetPasswordSerializer(data=request.data)
+        serializer = serializers.SendResetPasswordEmailSerializer(data=request.data)
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

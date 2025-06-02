@@ -113,6 +113,16 @@ class VerifyEmailQuerySerializer(serializers.Serializer):
 # ===============================
 # Reset Password
 # ===============================
+class SendResetPasswordEmailSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate(self, attrs):
+        email = attrs.get('email')
+        if not email:
+            raise serializers.ValidationError('Email is required.')
+        return attrs
+
+
 class ResetPasswordSerializer(serializers.Serializer):
     password = serializers.CharField(write_only=True)
 
