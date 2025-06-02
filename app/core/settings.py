@@ -69,6 +69,8 @@ INSTALLED_APPS = [
     'app.base',
     'app.user',
     'app.location',
+    'app.product',
+    'app.supplier',
 ]
 
 MIDDLEWARE = [
@@ -137,10 +139,7 @@ MINIO_SECURE = config['minio']['secure']
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = DEBUG
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+CORS_ALLOWED_ORIGINS = config['server']['cors_allowed_origins']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -261,12 +260,15 @@ CELERY_TIMEZONE = TIME_ZONE
 
 # Mailer settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_PROVIDER = config['smtp']['provider']
 EMAIL_HOST = config['smtp']['host']
 EMAIL_PORT = config['smtp']['port']
 EMAIL_USE_TLS = config['smtp']['use_tls']
 EMAIL_HOST_USER = config['smtp']['host_user']
 EMAIL_HOST_PASSWORD = config['smtp']['host_password']
 DEFAULT_FROM_EMAIL = config['smtp']['default_sender_email']
+
+SENDGRID_API_KEY = config['sendgrid']['api_key']
 
 # Logging Configuration
 LOGGING = {
@@ -324,3 +326,4 @@ LOGGING = {
 # Create logs directory if it doesn't exist
 LOGS_DIR = BASE_DIR / 'logs'
 LOGS_DIR.mkdir(exist_ok=True)
+CELERYD_HIJACK_ROOT_LOGGER = False

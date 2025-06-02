@@ -71,9 +71,10 @@ class ResendVerificationEmailView(APIView):
 
         user.renew_activation_code()
 
-        auth_tasks.send_verification_email_for_sign_up_task.apply_async(
-            kwargs={'user_id': user.id}
-        )
+        # auth_tasks.send_verification_email_for_sign_up_task.apply_async(
+        #     kwargs={'user_id': user.id}
+        # )
+        auth_services.send_verification_email_for_sign_up_sendgrid(user)
 
         return Response(
             {'message': 'Verification email sent'},

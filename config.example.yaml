@@ -1,3 +1,37 @@
+server:
+  port: 8000
+  secret_key: secure-secret-key
+  frontend_url: http://localhost:5173
+  allowed_hosts:
+    - 206.189.206.114
+    - localhost
+    - 127.0.0.1
+    - vietnamairports.com
+    - www.vietnamairports.com
+    - https://vietnamairports.com
+    - https://www.vietnamairports.com
+    - http://vietnamairports.com
+    - http://www.vietnamairports.com
+    - api.vietnamairports.com
+    - www.api.vietnamairports.com
+    - https://api.vietnamairports.com
+    - https://www.api.vietnamairports.com
+    - http://api.vietnamairports.com
+    - http://www.api.vietnamairports.com
+    - www.google.com
+  cors_allowed_origins:
+    - http://localhost:5173
+    - https://localhost:5173
+    - https://vietnamairports.com
+    - https://www.vietnamairports.com
+    - http://vietnamairports.com
+    - http://www.vietnamairports.com
+    - https://api.vietnamairports.com
+    - https://www.api.vietnamairports.com
+  debug: false
+  language_code: en-us
+  timezone: Asia/Ho_Chi_Minh
+
 postgres:
   db_name: eskept
   user: postgres.admin
@@ -10,10 +44,14 @@ minio:
   root_user: minio.user
   root_password: minio.password
 
-mailer:
-  host: smtp.gmail.com
+smtp:
+  provider: "sendgrid"
+  host: "smtp.gmail.com"
   port: 587
   use_tls: true
-  host_user: email.host.user
-  host_password: email.host.password
-  default_sender_email: admin@eskept.com
+  host_user: "nguyenduylan711@gmail.com"
+  host_password: "rnvm seer eznk ffda"
+  default_sender_email: "info@vietnamairports.com"
+
+sendgrid:
+  api_key: ""

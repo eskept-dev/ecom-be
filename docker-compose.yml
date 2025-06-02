@@ -54,7 +54,7 @@ services:
       retries: 3
 
   backend:
-    image: eskeptdev/ecommerce-backend:20250529_033430_54dd91f
+    image: eskeptdev/ecommerce-backend:20250531_174320_0ca2d56
     container_name: backend
     ports:
       - "8000:8000"
@@ -75,13 +75,15 @@ services:
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
       MINIO_BUCKET_NAME: ${MINIO_BUCKET_NAME}
+    volumes:
+      - /var/log/ecommerce/backend:/app/app/logs
 
   celery:
-    image: eskeptdev/ecommerce-backend:20250529_033430_54dd91f
+    image: eskeptdev/ecommerce-backend:20250531_174320_0ca2d56
     container_name: celery
     env_file:
       - .env
-    command: celery -A app.core.celery worker --loglevel=info
+    command: celery -A app.core.celery worker --loglevel=info --logfile=./app/logs/celery.log
     environment:
       APP_ENV: production
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
@@ -90,6 +92,16 @@ services:
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
       MINIO_BUCKET_NAME: ${MINIO_BUCKET_NAME}
+    volumes:
+      - /var/log/ecommerce/celery:/app/app/logs
+
+  frontend:
+    image: eskeptdev/ecommerce-frontend:20250531_173509_5f462c1
+    container_name: frontend
+    ports:
+      - "3000:80"
+    environment:
+      NODE_ENV: production
 
 volumes:
   postgres_data:

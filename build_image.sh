@@ -1,10 +1,23 @@
 #!/bin/bash
 
 # Registry name
+SERVICE=$1
 REGISTRY_PROJECT="eskeptdev"
-SERVICE_NAME="ecommerce-backend"
-
 REGISTRY_USER="eskeptdev"
+
+if [ -z "$SERVICE" ]; then
+    SERVICE="backend"
+    echo "No service specified, defaulting to backend."
+fi
+
+if [ "$SERVICE" == "backend" ]; then
+    SERVICE_NAME="ecommerce-backend"
+elif [ "$SERVICE" == "worker" ]; then
+    SERVICE_NAME="ecommerce-worker"
+else
+    echo "Invalid service: ${SERVICE}"
+    exit 1
+fi
 
 # Get the current timestamp
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)

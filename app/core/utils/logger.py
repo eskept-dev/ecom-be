@@ -39,4 +39,4 @@ class LoggerMixin:
     """
     @property
     def logger(self):
-        return logging.getLogger(f"app.{self.__class__.__name__}") 
+        return logging.getLogger(f"app.{self.__class__.__name__}")

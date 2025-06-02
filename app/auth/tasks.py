@@ -8,8 +8,8 @@ from app.core.utils.logger import logger
 def send_verification_email_for_sign_up_task(user_id):
     logger.info(f"Sending verification email for sign up to user #{user_id}")
     user = User.objects.get(id=user_id)
-    auth_services.send_verification_email_for_sign_up(user)
-    logger.info(f"Sent activation email to user #{user_id}")
+    auth_services.send_verification_email_for_sign_up_brevo(user)
+    logger.info(f"Sent verification email for sign up to user #{user_id}")
 
 
 @celery_app.task(name='auth.tasks.send_sign_in_email_task')
