@@ -79,19 +79,19 @@ class User(AbstractUser):
     @property
     def is_business(self):
         return self.role == UserRole.BUSINESS
-    
+
     @property
     def is_admin(self):
         return self.role == UserRole.ADMIN
-    
+
     @property
     def is_active(self):
         return self.status == UserStatus.ACTIVE
-    
+
     @property
     def is_inactive(self):
         return self.status == UserStatus.INACTIVE
-    
+
     @property
     def is_new(self):
         return self.status == UserStatus.NEW

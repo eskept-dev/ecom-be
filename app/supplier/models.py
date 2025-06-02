@@ -18,6 +18,8 @@ class Supplier(BaseModel):
     address = models.TextField(null=True, blank=True)
     tax_id = models.CharField(max_length=128, null=True, blank=True)
 
+    available_locations = models.JSONField(default=list, null=True, blank=True)
+
     contact_profile = models.JSONField(default=dict, null=True, blank=True)
     contact_phone_number = models.CharField(max_length=128, null=True, blank=True, unique=True)
     contact_email = models.EmailField(null=True, blank=True, unique=True)

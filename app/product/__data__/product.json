@@ -1,0 +1,1718 @@
+{
+  "airport_transfer": [
+    {
+      "name": "Luxury SUV Airport Transfer",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/luxury_suv_airport_transfer.jpg",
+      "unit": "round",
+      "price_vnd": "1792999.96",
+      "price_usd": "117.70",
+      "rating": "4.29",
+      "review_count": 912,
+      "details": {
+        "number_of_travellers": 4,
+        "number_of_luggage": 4
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Executive Sedan Pickup",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/executive_sedan_pickup.jpg",
+      "unit": "round",
+      "price_vnd": "2653345.63",
+      "price_usd": "121.31",
+      "rating": "4.65",
+      "review_count": 616,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 2
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Airport Limousine Ride",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/airport_limousine_ride.jpg",
+      "unit": "round",
+      "price_vnd": "1571872.64",
+      "price_usd": "56.30",
+      "rating": "4.92",
+      "review_count": 379,
+      "details": {
+        "number_of_travellers": 6,
+        "number_of_luggage": 5
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Private Van for Family",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/private_van_for_family.jpg",
+      "unit": "round",
+      "price_vnd": "2535309.09",
+      "price_usd": "68.05",
+      "rating": "3.42",
+      "review_count": 198,
+      "details": {
+        "number_of_travellers": 8,
+        "number_of_luggage": 6
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Premium Arrival Service",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/premium_arrival_service.jpg",
+      "unit": "round",
+      "price_vnd": "2379772.97",
+      "price_usd": "98.76",
+      "rating": "4.05",
+      "review_count": 968,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 3
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "VIP Departure Car",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/vip_departure_car.jpg",
+      "unit": "round",
+      "price_vnd": "2879642.23",
+      "price_usd": "180.68",
+      "rating": "3.17",
+      "review_count": 814,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 3
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Standard Airport Shuttle",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/standard_airport_shuttle.jpg",
+      "unit": "round",
+      "price_vnd": "2345000.83",
+      "price_usd": "55.12",
+      "rating": "3.28",
+      "review_count": 91,
+      "details": {
+        "number_of_travellers": 10,
+        "number_of_luggage": 5
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Business Class Ride",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/business_class_ride.jpg",
+      "unit": "round",
+      "price_vnd": "4436960.06",
+      "price_usd": "92.45",
+      "rating": "4.29",
+      "review_count": 402,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 2
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Shared Airport Transfer",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/shared_airport_transfer.jpg",
+      "unit": "round",
+      "price_vnd": "2192071.39",
+      "price_usd": "84.89",
+      "rating": "3.43",
+      "review_count": 524,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 3
+      },
+      "available_locations": [
+        {
+          "province": "can_tho",
+          "city": "can_tho",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Night Airport Pickup",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/night_airport_pickup.jpg",
+      "unit": "round",
+      "price_vnd": "1958883.66",
+      "price_usd": "66.09",
+      "rating": "4.46",
+      "review_count": 658,
+      "details": {
+        "number_of_travellers": 4,
+        "number_of_luggage": 3
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Airport to Hotel Transfer",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/airport_to_hotel_transfer.jpg",
+      "unit": "round",
+      "price_vnd": "4724474.09",
+      "price_usd": "187.47",
+      "rating": "4.26",
+      "review_count": 862,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 3
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Luxury Airport Commute",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/luxury_airport_commute.jpg",
+      "unit": "round",
+      "price_vnd": "3941390.96",
+      "price_usd": "131.86",
+      "rating": "3.09",
+      "review_count": 106,
+      "details": {
+        "number_of_travellers": 4,
+        "number_of_luggage": 3
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Group Airport Minibus",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/group_airport_minibus.jpg",
+      "unit": "round",
+      "price_vnd": "1688782.21",
+      "price_usd": "45.48",
+      "rating": "3.74",
+      "review_count": 234,
+      "details": {
+        "number_of_travellers": 12,
+        "number_of_luggage": 8
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Eco-Friendly Airport Taxi",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/eco-friendly_airport_taxi.jpg",
+      "unit": "round",
+      "price_vnd": "2444945.58",
+      "price_usd": "148.62",
+      "rating": "4.37",
+      "review_count": 658,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 2
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Pet-Friendly Airport Ride",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/pet-friendly_airport_ride.jpg",
+      "unit": "round",
+      "price_vnd": "3000900.07",
+      "price_usd": "182.42",
+      "rating": "3.23",
+      "review_count": 966,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 2
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Late Night Pickup Service",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/late_night_pickup_service.jpg",
+      "unit": "round",
+      "price_vnd": "3783548.83",
+      "price_usd": "142.95",
+      "rating": "4.24",
+      "review_count": 184,
+      "details": {
+        "number_of_travellers": 4,
+        "number_of_luggage": 3
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Express Airport Transport",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/express_airport_transport.jpg",
+      "unit": "round",
+      "price_vnd": "2081227.58",
+      "price_usd": "161.40",
+      "rating": "3.66",
+      "review_count": 840,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 3
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Inclusive Airport Service",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/inclusive_airport_service.jpg",
+      "unit": "round",
+      "price_vnd": "2248159.35",
+      "price_usd": "86.82",
+      "rating": "4.77",
+      "review_count": 806,
+      "details": {
+        "number_of_travellers": 3,
+        "number_of_luggage": 3
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Top-Tier SUV Transfer",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/top-tier_suv_transfer.jpg",
+      "unit": "round",
+      "price_vnd": "1624505.98",
+      "price_usd": "63.68",
+      "rating": "4.55",
+      "review_count": 909,
+      "details": {
+        "number_of_travellers": 4,
+        "number_of_luggage": 4
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Comfort Airport Shuttle",
+      "status": "active",
+      "service_type": "airport_service",
+      "image_url": "https://example.com/images/comfort_airport_shuttle.jpg",
+      "unit": "round",
+      "price_vnd": "3887211.13",
+      "price_usd": "191.59",
+      "rating": "4.73",
+      "review_count": 466,
+      "details": {
+        "number_of_travellers": 10,
+        "number_of_luggage": 5
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    }
+  ],
+  "fast_track": [
+    {
+      "name": "Urgent Fast Track (under 4 hours)",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/urgent_fast_track_(under_4_hours).jpg",
+      "unit": "person",
+      "price_vnd": "3268877.93",
+      "price_usd": "134.87",
+      "rating": "3.86",
+      "review_count": 421,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "VIP Fast Track Immigration",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/vip_fast_track_immigration.jpg",
+      "unit": "person",
+      "price_vnd": "2546092.26",
+      "price_usd": "97.16",
+      "rating": "4.44",
+      "review_count": 861,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Standard Arrival Fast Track",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/standard_arrival_fast_track.jpg",
+      "unit": "person",
+      "price_vnd": "2360957.82",
+      "price_usd": "157.84",
+      "rating": "4.98",
+      "review_count": 659,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Departure Fast Lane Service",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/departure_fast_lane_service.jpg",
+      "unit": "person",
+      "price_vnd": "4253901.91",
+      "price_usd": "75.35",
+      "rating": "4.00",
+      "review_count": 68,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Family Fast Track Service",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/family_fast_track_service.jpg",
+      "unit": "person",
+      "price_vnd": "3369646.01",
+      "price_usd": "191.58",
+      "rating": "4.91",
+      "review_count": 91,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Corporate Fast Track Entry",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/corporate_fast_track_entry.jpg",
+      "unit": "person",
+      "price_vnd": "4064686.41",
+      "price_usd": "146.49",
+      "rating": "4.31",
+      "review_count": 354,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Elite VIP Airport Fast Track",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/elite_vip_airport_fast_track.jpg",
+      "unit": "person",
+      "price_vnd": "3325386.94",
+      "price_usd": "181.57",
+      "rating": "4.35",
+      "review_count": 517,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Night Arrival Fast Track",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/night_arrival_fast_track.jpg",
+      "unit": "person",
+      "price_vnd": "1662225.82",
+      "price_usd": "185.70",
+      "rating": "3.88",
+      "review_count": 936,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "24/7 Fast Track Support",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/24/7_fast_track_support.jpg",
+      "unit": "person",
+      "price_vnd": "1886476.24",
+      "price_usd": "80.17",
+      "rating": "4.53",
+      "review_count": 969,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "can_tho",
+          "city": "can_tho",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Express Security Clearance",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/express_security_clearance.jpg",
+      "unit": "person",
+      "price_vnd": "2007657.39",
+      "price_usd": "147.55",
+      "rating": "4.24",
+      "review_count": 848,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Customs Bypass Service",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/customs_bypass_service.jpg",
+      "unit": "person",
+      "price_vnd": "4379387.09",
+      "price_usd": "111.19",
+      "rating": "4.53",
+      "review_count": 837,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "can_tho",
+          "city": "can_tho",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Quick Immigration Line",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/quick_immigration_line.jpg",
+      "unit": "person",
+      "price_vnd": "2613570.55",
+      "price_usd": "96.71",
+      "rating": "3.25",
+      "review_count": 966,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Priority Entry Fast Track",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/priority_entry_fast_track.jpg",
+      "unit": "person",
+      "price_vnd": "2747341.73",
+      "price_usd": "180.05",
+      "rating": "3.45",
+      "review_count": 47,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Arrival + Baggage Support",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/arrival_+_baggage_support.jpg",
+      "unit": "person",
+      "price_vnd": "4673779.77",
+      "price_usd": "136.71",
+      "rating": "3.35",
+      "review_count": 353,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Business Class Fast Entry",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/business_class_fast_entry.jpg",
+      "unit": "person",
+      "price_vnd": "3093589.87",
+      "price_usd": "137.47",
+      "rating": "3.79",
+      "review_count": 262,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "can_tho",
+          "city": "can_tho",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Fast Track with Lounge Access",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/fast_track_with_lounge_access.jpg",
+      "unit": "person",
+      "price_vnd": "2030035.33",
+      "price_usd": "130.85",
+      "rating": "4.75",
+      "review_count": 260,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Fast Track for Elderly",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/fast_track_for_elderly.jpg",
+      "unit": "person",
+      "price_vnd": "1630546.16",
+      "price_usd": "182.55",
+      "rating": "3.22",
+      "review_count": 9,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Personal Escort Service",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/personal_escort_service.jpg",
+      "unit": "person",
+      "price_vnd": "1075725.68",
+      "price_usd": "140.22",
+      "rating": "3.01",
+      "review_count": 579,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Luxury Terminal Fast Track",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/luxury_terminal_fast_track.jpg",
+      "unit": "person",
+      "price_vnd": "2711345.79",
+      "price_usd": "169.24",
+      "rating": "3.43",
+      "review_count": 801,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Top-tier Arrival Fast Track",
+      "status": "active",
+      "service_type": "fast_track",
+      "image_url": "https://example.com/images/top-tier_arrival_fast_track.jpg",
+      "unit": "person",
+      "price_vnd": "2569204.18",
+      "price_usd": "166.78",
+      "rating": "3.44",
+      "review_count": 484,
+      "details": {
+        "available_time_from": "08:00",
+        "available_time_to": "20:00"
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    }
+  ],
+  "e_visa": [
+    {
+      "name": "Vietnam Tourist E-Visa",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/vietnam_tourist_e-visa.jpg",
+      "unit": "person",
+      "price_vnd": "4603749.82",
+      "price_usd": "58.57",
+      "rating": "4.08",
+      "review_count": 471,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Urgent E-Visa Service (4h)",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/urgent_e-visa_service_(4h).jpg",
+      "unit": "person",
+      "price_vnd": "4317673.58",
+      "price_usd": "99.26",
+      "rating": "4.91",
+      "review_count": 219,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Standard E-Visa Processing",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/standard_e-visa_processing.jpg",
+      "unit": "person",
+      "price_vnd": "3365908.94",
+      "price_usd": "65.39",
+      "rating": "3.68",
+      "review_count": 881,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Business E-Visa Package",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/business_e-visa_package.jpg",
+      "unit": "person",
+      "price_vnd": "4541535.25",
+      "price_usd": "122.19",
+      "rating": "3.21",
+      "review_count": 636,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "One-month Tourist Visa",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/one-month_tourist_visa.jpg",
+      "unit": "person",
+      "price_vnd": "1708997.27",
+      "price_usd": "40.70",
+      "rating": "4.73",
+      "review_count": 43,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "can_tho",
+          "city": "can_tho",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Three-month Business Visa",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/three-month_business_visa.jpg",
+      "unit": "person",
+      "price_vnd": "1703312.15",
+      "price_usd": "104.18",
+      "rating": "3.59",
+      "review_count": 360,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Visa Extension Service",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/visa_extension_service.jpg",
+      "unit": "person",
+      "price_vnd": "3843117.42",
+      "price_usd": "164.77",
+      "rating": "3.62",
+      "review_count": 35,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "can_tho",
+          "city": "can_tho",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Family Application Support",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/family_application_support.jpg",
+      "unit": "person",
+      "price_vnd": "2736786.10",
+      "price_usd": "41.18",
+      "rating": "4.26",
+      "review_count": 74,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Express E-Visa Delivery",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/express_e-visa_delivery.jpg",
+      "unit": "person",
+      "price_vnd": "4396942.29",
+      "price_usd": "87.03",
+      "rating": "4.37",
+      "review_count": 324,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Vietnam Re-entry Visa",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/vietnam_re-entry_visa.jpg",
+      "unit": "person",
+      "price_vnd": "4196462.26",
+      "price_usd": "106.39",
+      "rating": "4.83",
+      "review_count": 511,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Student Visa Application",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/student_visa_application.jpg",
+      "unit": "person",
+      "price_vnd": "3382874.95",
+      "price_usd": "114.40",
+      "rating": "3.13",
+      "review_count": 357,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "E-Visa + Airport Pickup Combo",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/e-visa_+_airport_pickup_combo.jpg",
+      "unit": "person",
+      "price_vnd": "3500264.50",
+      "price_usd": "135.43",
+      "rating": "4.40",
+      "review_count": 304,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Long Stay Visa Processing",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/long_stay_visa_processing.jpg",
+      "unit": "person",
+      "price_vnd": "2313451.56",
+      "price_usd": "64.69",
+      "rating": "4.79",
+      "review_count": 281,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Fast Approval Visa",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/fast_approval_visa.jpg",
+      "unit": "person",
+      "price_vnd": "3685538.95",
+      "price_usd": "77.61",
+      "rating": "3.68",
+      "review_count": 567,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "can_tho",
+          "city": "can_tho",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Online Visa Assistance",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/online_visa_assistance.jpg",
+      "unit": "person",
+      "price_vnd": "4882796.17",
+      "price_usd": "105.42",
+      "rating": "3.02",
+      "review_count": 583,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": null,
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Multiple Entry Visa",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/multiple_entry_visa.jpg",
+      "unit": "person",
+      "price_vnd": "1558285.53",
+      "price_usd": "165.49",
+      "rating": "4.47",
+      "review_count": 588,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ho_chi_minh",
+          "city": "ho_chi_minh",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "24h Rush Visa",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/24h_rush_visa.jpg",
+      "unit": "person",
+      "price_vnd": "2605799.77",
+      "price_usd": "136.68",
+      "rating": "3.44",
+      "review_count": 383,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "can_tho",
+          "city": "can_tho",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Weekend Visa Service",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/weekend_visa_service.jpg",
+      "unit": "person",
+      "price_vnd": "3044174.23",
+      "price_usd": "103.49",
+      "rating": "4.86",
+      "review_count": 159,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "da_nang",
+          "city": "da_nang",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Government Visa Processing",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/government_visa_processing.jpg",
+      "unit": "person",
+      "price_vnd": "2957292.66",
+      "price_usd": "66.21",
+      "rating": "4.48",
+      "review_count": 496,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    },
+    {
+      "name": "Eco Visa Service",
+      "status": "active",
+      "service_type": "e_visa",
+      "image_url": "https://example.com/images/eco_visa_service.jpg",
+      "unit": "person",
+      "price_vnd": "1391197.56",
+      "price_usd": "150.55",
+      "rating": "4.07",
+      "review_count": 352,
+      "details": {
+        "processing_time": "2"
+      },
+      "available_locations": [
+        {
+          "province": "ha_noi",
+          "city": "ha_noi",
+          "district": null,
+          "ward": null
+        }
+      ],
+      "highlights": [
+        "Fast processing",
+        "VIP service"
+      ],
+      "description": "<p>This is a premium service with exceptional convenience and reliability.</p>",
+      "cancellation_policy": "<p>Free cancellation up to 24 hours before departure.</p>",
+      "supplier": null
+    }
+  ]
+}

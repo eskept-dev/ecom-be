@@ -24,6 +24,7 @@ api_v1_patterns = [
     path('user/', include('app.user.urls')),
     path('location/', include('app.location.urls')),
     path('supplier/', include('app.supplier.urls')),
+    path('product/', include('app.product.urls')),
 ]
 
 urlpatterns = [
