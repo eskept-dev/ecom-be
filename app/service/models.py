@@ -1,5 +1,4 @@
 from django.db import models
-from django.forms import ValidationError
 
 from app.base.models import BaseModel
 from app.booking.models import Booking
@@ -88,23 +87,23 @@ class EVisaApplicant(BaseModel):
 
     def save(self, *args, **kwargs):
         if not self.validate_data():
-            raise ValidationError("Invalid data")
+            raise ValueError("Invalid data")
         super().save(*args, **kwargs)
 
     def validate_data(self):
-        personal_information = self.data.get("personal_information")
+        personal_information = self.personal_information
         if not self.validate_visa_section(personal_information, PERSONAL_INFORMATION_REQUIRED_FIELDS):
             return False
 
-        contact_information = self.data.get("contact_information")
+        contact_information = self.contact_information
         if not self.validate_visa_section(contact_information, CONTACT_INFORMATION_REQUIRED_FIELDS):
             return False
 
-        requested_information = self.data.get("requested_information")
+        requested_information = self.requested_information
         if not self.validate_visa_section(requested_information, REQUESTED_INFORMATION_REQUIRED_FIELDS):
             return False
 
-        trip_information = self.data.get("trip_information")
+        trip_information = self.trip_information
         if not self.validate_visa_section(trip_information, TRIP_INFORMATION_REQUIRED_FIELDS):
             return False
 

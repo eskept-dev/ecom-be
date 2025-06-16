@@ -1,4 +1,4 @@
-from app.core.enums import BaseEnum
+from app.base.enums import BaseEnum
 
 
 class VerificationTypeEnum(BaseEnum):

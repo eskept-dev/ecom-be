@@ -63,3 +63,17 @@ class Product(BaseModel):
     @property
     def is_active(self):
         return self.status == ProductStatus.ACTIVE
+    
+    def get_price_vnd(self):
+        return self.price_vnd
+    
+    def get_price_usd(self):
+        return self.price_usd
+    
+    def get_price(self, currency):
+        if currency == Currency.VND:
+            return self.price_vnd
+        elif currency == Currency.USD:
+            return self.price_usd
+        else:
+            raise ValueError(f'Invalid currency: {currency}')

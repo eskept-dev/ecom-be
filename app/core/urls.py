@@ -21,10 +21,12 @@ def health_check(request):
 
 api_v1_patterns = [
     path('auth/', include('app.auth.urls')),
-    path('user/', include('app.user.urls')),
+    path('booking/', include('app.booking.urls')),
     path('location/', include('app.location.urls')),
-    path('supplier/', include('app.supplier.urls')),
     path('product/', include('app.product.urls')),
+    path('service/', include('app.service.urls')),
+    path('supplier/', include('app.supplier.urls')),
+    path('user/', include('app.user.urls')),
 ]
 
 urlpatterns = [

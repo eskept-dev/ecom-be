@@ -80,16 +80,20 @@ class ProductFilter(django_filters.FilterSet):
             return queryset.filter(price_vnd__lte=value)
         return queryset.filter(price_usd__lte=value)
 
-    # # Airport service
-    # def filter_by_number_of_travellers(self, queryset, name, value):
-    #     return queryset.filter(details__contains=[{'number_of_travellers': value}])
+    # Airport service
+    def filter_by_number_of_travellers(self, queryset, name, value):
+        return queryset.filter(details__contains=[{'number_of_travellers': value}])
     
-    # def filter_by_number_of_days(self, queryset, name, value):
-    #     return queryset.filter(details__contains=[{'number_of_days': value}])
+    def filter_by_number_of_days(self, queryset, name, value):
+        return queryset.filter(details__contains=[{'number_of_days': value}])
     
-    # # Fast track
-    # def filter_by_available_time_from(self, queryset, name, value):
-    #     return queryset.filter(details__available_time_from=value)
+    # Fast track
+    def filter_by_available_time_from(self, queryset, name, value):
+        return queryset.filter(details__available_time_from=value)
     
-    # def filter_by_available_time_to(self, queryset, name, value):
-    #     return queryset.filter(details__available_time_to=value)
+    def filter_by_available_time_to(self, queryset, name, value):
+        return queryset.filter(details__available_time_to=value)
+    
+    # E-visa
+    def filter_by_processing_time(self, queryset, name, value):
+        return queryset.filter(details__contains=[{'processing_time': value}])
