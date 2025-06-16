@@ -67,10 +67,12 @@ INSTALLED_APPS = [
     
     # Local apps
     'app.base',
-    'app.user',
+    'app.booking',
     'app.location',
     'app.product',
+    'app.service',
     'app.supplier',
+    'app.user',
 ]
 
 MIDDLEWARE = [
