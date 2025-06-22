@@ -5,6 +5,7 @@ from app.booking.models import (
     Booking, BookingItem,
     CONTACT_INFO_REQUIRED_FIELDS,
     GUEST_INFO_REQUIRED_FIELDS,
+    PaymentMethod,
 )
 
 from app.product.models import Product
@@ -155,3 +156,12 @@ class BookingItemSerializer(serializers.ModelSerializer):
             'total': {'read_only': True},
             'index': {'read_only': True},
         }
+
+
+########################
+# Payment Method
+########################
+class PaymentMethodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PaymentMethod
+        fields = '__all__'

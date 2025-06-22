@@ -37,8 +37,10 @@ class PaymentType(models.TextChoices):
     CASH = 'cash'
 
 
-class PaymentMethod(BaseModel):
-    type = models.CharField(max_length=32, choices=PaymentType.choices, unique=True)
+class PaymentMethod(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    type = models.CharField(max_length=32, choices=PaymentType.choices, unique=True, primary_key=True)
     description = models.TextField(blank=True, null=True)
     is_enabled = models.BooleanField(default=True)
 
@@ -48,7 +50,12 @@ class Booking(BaseModel):
     
     code = models.CharField(max_length=16, unique=True)
     status = models.CharField(max_length=32, choices=BookingStatus.choices, default=BookingStatus.NEW)
-    payment_type = models.ForeignKey(PaymentMethod, on_delete=models.CASCADE, null=True, blank=True)
+    payment_method = models.ForeignKey(
+        PaymentMethod,
+        on_delete=models.CASCADE,
+        to_field='type',
+        db_column='payment_method_type',
+    )
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
 
     currency = models.CharField(max_length=3, choices=Currency.choices, default=Currency.VND)
