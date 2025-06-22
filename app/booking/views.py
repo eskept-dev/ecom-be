@@ -1,18 +1,16 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.exceptions import MethodNotAllowed
-from rest_framework.views import APIView
 
-from app.booking.models import Booking, BookingItem, PaymentMethod
+from app.booking.models import Booking, BookingItem
 from app.booking.serializers import (
     BookingSerializer,
     BookingItemSerializer,
     AddBookingItemsPayloadSerializer,
     DeleteBookingItemsPayloadSerializer,
-    PaymentMethodSerializer,
 )
 from app.base.pagination import CustomPagination
 
@@ -76,12 +74,3 @@ class BookingItemModelViewSet(viewsets.ModelViewSet):
             raise MethodNotAllowed(action)
 
         return super().get_queryset()
-
-
-class PaymentMethodApiView(APIView):
-    permission_classes = [AllowAny]
-
-    def get(self, request, *args, **kwargs):
-        payment_methods = PaymentMethod.objects.filter(is_enabled=True)
-        serializer = PaymentMethodSerializer(payment_methods, many=True)
-        return Response({'data': serializer.data})

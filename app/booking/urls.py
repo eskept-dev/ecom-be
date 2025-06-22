@@ -10,7 +10,5 @@ router.register(r'items', views.BookingItemModelViewSet, basename='booking-item'
 
 
 urlpatterns = [
-    path('payment-methods', views.PaymentMethodApiView.as_view(), name='payment-methods'),
-
     path('', include(router.urls)),
 ]

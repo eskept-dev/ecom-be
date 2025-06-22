@@ -31,31 +31,11 @@ class BookingStatus(models.TextChoices):
     CANCELLED = 'cancelled'
 
 
-class PaymentType(models.TextChoices):
-    CREDIT_CARD = 'credit_card'
-    BANK_TRANSFER = 'bank_transfer'
-    CASH = 'cash'
-
-
-class PaymentMethod(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    type = models.CharField(max_length=32, choices=PaymentType.choices, unique=True, primary_key=True)
-    description = models.TextField(blank=True, null=True)
-    is_enabled = models.BooleanField(default=True)
-
-
 class Booking(BaseModel):
     PREFIX_CODE = 'BK'
-    
+
     code = models.CharField(max_length=16, unique=True)
     status = models.CharField(max_length=32, choices=BookingStatus.choices, default=BookingStatus.NEW)
-    payment_method = models.ForeignKey(
-        PaymentMethod,
-        on_delete=models.CASCADE,
-        to_field='type',
-        db_column='payment_method_type',
-    )
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
 
     currency = models.CharField(max_length=3, choices=Currency.choices, default=Currency.VND)
@@ -65,11 +45,11 @@ class Booking(BaseModel):
     note = models.TextField(blank=True, null=True)
 
     # booking detail
-    is_self_booking = models.BooleanField(default=True)    
+    is_self_booking = models.BooleanField(default=True)
     contact_info = models.JSONField(default=dict)
     guest_info = models.JSONField(default=dict)
     details = models.JSONField(default=dict)
-    
+
     def save(self, *args, **kwargs):
         if not self.code:
             self.code = self.generate_unique_code()
@@ -124,18 +104,18 @@ class BookingItem(BaseModel):
 
     index = models.IntegerField(default=0)
     quantity = models.IntegerField()
-    
+
     price = models.DecimalField(max_digits=16, decimal_places=2)
     total = models.DecimalField(max_digits=16, decimal_places=2)
-    
+
     def save(self, *args, **kwargs):
         self.total = self.price * self.quantity
-        
+
         if not self.index:
             self.index = self.get_index()
 
         return super().save(*args, **kwargs)
-    
+
     def get_index(self):
         return self.booking.bookingitem_set.filter(index__lt=self.index).count() + 1
 

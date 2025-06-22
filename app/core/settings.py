@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'app.base',
     'app.booking',
     'app.location',
+    'app.payment',
     'app.product',
     'app.service',
     'app.supplier',

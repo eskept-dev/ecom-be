@@ -23,6 +23,7 @@ api_v1_patterns = [
     path('auth/', include('app.auth.urls')),
     path('booking/', include('app.booking.urls')),
     path('location/', include('app.location.urls')),
+    path('payment/', include('app.payment.urls')),
     path('product/', include('app.product.urls')),
     path('service/', include('app.service.urls')),
     path('supplier/', include('app.supplier.urls')),
