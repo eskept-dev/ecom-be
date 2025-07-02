@@ -7,7 +7,12 @@ from app.booking.models import (
     GUEST_INFO_REQUIRED_FIELDS,
 )
 
+from app.payment.models import (
+    PaymentMethod,
+    PaymentMethodType,
+)
 from app.product.models import Product
+from app.product.serializers import ProductSerializer
 
 
 ########################
@@ -18,7 +23,7 @@ class BookingSerializer(serializers.ModelSerializer):
         model = Booking
         fields = '__all__'
         extra_kwargs = {
-            'customer': {'read_only': True},
+            'customer': {'read_only': True, 'required': False},
             'code': {'read_only': True},
             'currency': {'required': True},
             'is_self_booking': {'required': True},
@@ -31,6 +36,7 @@ class BookingSerializer(serializers.ModelSerializer):
         validated_data = super().validate(attrs)
 
         is_self_booking = validated_data.get('is_self_booking', True)
+        is_confirmed_to_cancellation_policy = validated_data.get('is_confirmed_to_cancellation_policy', False)
 
         if not Booking.validate_booking_detail_section(validated_data.get('contact_info'), CONTACT_INFO_REQUIRED_FIELDS):
             raise serializers.ValidationError({'contact_info': 'Invalid contact info'})
@@ -40,12 +46,16 @@ class BookingSerializer(serializers.ModelSerializer):
         
         if is_self_booking:
             validated_data['guest_info'] = validated_data.get('contact_info')
+            
+        if not is_confirmed_to_cancellation_policy:
+            raise serializers.ValidationError({'is_confirmed_to_cancellation_policy': 'You must confirm to the cancellation policy'})
+
+        if self.context['request'].user.is_authenticated:
+            validated_data['customer'] = self.context['request'].user
+        else:
+            validated_data['customer'] = None
 
         return validated_data
-
-    def create(self, validated_data):
-        validated_data['customer'] = self.context['request'].user
-        return super().create(validated_data)
         
         
 class AddBookingItemSerializer(serializers.ModelSerializer):
@@ -145,7 +155,15 @@ class DeleteBookingItemsPayloadSerializer(serializers.Serializer):
 ########################
 # Booking Item
 ########################
+class BookingItemProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'code_name', 'name', 'image_url', 'price_vnd', 'price_usd']
+
+
 class BookingItemSerializer(serializers.ModelSerializer):
+    product = ProductSerializer()
+    
     class Meta:
         model = BookingItem
         fields = '__all__'

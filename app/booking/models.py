@@ -8,17 +8,17 @@ from app.user.models import User
 
 
 CONTACT_INFO_REQUIRED_FIELDS = [
-    'full_name',
-    'phone_number',
+    'fullName',
+    'phoneNumber',
     'email',
 ]
 GUEST_INFO_REQUIRED_FIELDS = [
-    'full_name',
-    'phone_number',
+    'fullName',
+    'phoneNumber',
     'email',
 ]
 
-
+    
 class BookingStatus(models.TextChoices):
     NEW = 'new'
     CONFIRMED = 'confirmed'
@@ -36,7 +36,7 @@ class Booking(BaseModel):
 
     code = models.CharField(max_length=16, unique=True)
     status = models.CharField(max_length=32, choices=BookingStatus.choices, default=BookingStatus.NEW)
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     currency = models.CharField(max_length=3, choices=Currency.choices, default=Currency.VND)
     total_price = models.DecimalField(max_digits=16, decimal_places=2, default=0)
@@ -46,6 +46,7 @@ class Booking(BaseModel):
 
     # booking detail
     is_self_booking = models.BooleanField(default=True)
+    is_confirmed_to_cancellation_policy = models.BooleanField(default=False)
     contact_info = models.JSONField(default=dict)
     guest_info = models.JSONField(default=dict)
     details = models.JSONField(default=dict)

@@ -19,8 +19,8 @@ class Currency(models.TextChoices):
 class ProductStatus(models.TextChoices):
     ACTIVE = 'active'
     INACTIVE = 'inactive'
-    
-    
+
+
 class ProductUnit(models.TextChoices):
     ROUND = 'round'
     PERSON = 'person'
@@ -47,6 +47,7 @@ class Product(BaseModel):
     highlights = models.JSONField(default=list, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     cancellation_policy = models.TextField(null=True, blank=True)
+    what_nexts = models.JSONField(default=list, null=True, blank=True)
 
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, null=True, blank=True)
 

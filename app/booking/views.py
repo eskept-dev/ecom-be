@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import action
@@ -13,14 +13,27 @@ from app.booking.serializers import (
     DeleteBookingItemsPayloadSerializer,
 )
 from app.base.pagination import CustomPagination
+from app.payment.serializers import PaymentTransactionSerializer
 
 
 class BookingModelViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
-    permission_classes = [IsAuthenticated]
     serializer_class = BookingSerializer
     pagination_class = CustomPagination
     lookup_field = 'code'
+
+    def get_permissions(self):
+        if self.action in ['create', 'retrieve', 'items', 'payment_transaction']:
+            return [AllowAny()]
+        else:
+            return [IsAuthenticated()]
+
+    @action(detail=True, methods=['get'], url_path='payment_transaction')
+    def payment_transaction(self, request, *args, **kwargs):
+        booking = self.get_object()
+        payment_transactions = booking.payment_transactions.first()
+        serializer = PaymentTransactionSerializer(payment_transactions)
+        return Response({'data': serializer.data})
 
     @action(detail=True, methods=['post', 'get', 'delete'], url_path='items')
     def items(self, request, *args, **kwargs):
@@ -40,7 +53,7 @@ class BookingModelViewSet(viewsets.ModelViewSet):
         serializer.save()
         booking_items = booking.bookingitem_set.all()
         booking.update_total_price()
-        
+
         booking_items_serializer = BookingItemSerializer(booking_items, many=True)
         return Response({'data': booking_items_serializer.data}, status=status.HTTP_201_CREATED)
 
@@ -49,7 +62,7 @@ class BookingModelViewSet(viewsets.ModelViewSet):
         booking_items = booking.bookingitem_set.all()
         serializer = BookingItemSerializer(booking_items, many=True)
         return Response({'data': serializer.data})
-    
+
     def delete_items(self, request, *args, **kwargs):
         booking = self.get_object()
         serializer = DeleteBookingItemsPayloadSerializer(data=request.data, context={'booking': booking})

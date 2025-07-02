@@ -47,9 +47,9 @@ class PaymentTransaction(BaseModel):
     amount = models.DecimalField(max_digits=16, decimal_places=2)
     currency = models.CharField(max_length=8, default='VND')
 
-    buyer_name = models.CharField(max_length=128)
-    buyer_email = models.EmailField()
-    buyer_phone = models.CharField(max_length=20)
+    buyer_name = models.CharField(max_length=128, blank=True, null=True)
+    buyer_email = models.EmailField(blank=True, null=True)
+    buyer_phone = models.CharField(max_length=20, blank=True, null=True)
     buyer_address = models.CharField(max_length=255, blank=True, null=True)
     buyer_city = models.CharField(max_length=128, blank=True, null=True)
     buyer_country = models.CharField(max_length=128, blank=True, null=True)
@@ -74,3 +74,37 @@ class PaymentTransaction(BaseModel):
     request_payload = models.JSONField(blank=True, null=True)
     response_payload = models.JSONField(blank=True, null=True)
     webhook_payload = models.JSONField(blank=True, null=True)
+    
+    def __str__(self):
+        return f"{self.booking.code} - {self.payment_method_type}"
+    
+    def is_new(self):
+        return self.status == PaymentTransactionStatus.NEW
+    
+    def is_pending(self):
+        return self.status == PaymentTransactionStatus.PENDING
+    
+    def is_success(self):
+        return self.status == PaymentTransactionStatus.SUCCESS
+    
+    def is_failed(self):
+        return self.status == PaymentTransactionStatus.FAILED
+    
+    def is_cancelled(self):
+        return self.status == PaymentTransactionStatus.CANCELLED
+
+    def purchase(self):
+        self.status = PaymentTransactionStatus.PENDING
+        self.save()
+        
+    def purchase_success(self):
+        self.status = PaymentTransactionStatus.SUCCESS
+        self.save()
+        
+    def purchase_failed(self):
+        self.status = PaymentTransactionStatus.FAILED
+        self.save()
+        
+    def purchase_cancelled(self):
+        self.status = PaymentTransactionStatus.CANCELLED
+        self.save()
