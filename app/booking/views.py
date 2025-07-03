@@ -5,14 +5,21 @@ from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.exceptions import MethodNotAllowed
 
-from app.booking.models import Booking, BookingItem
+from app import booking
+from app.booking.models import (
+    Booking, BookingStatus, BookingItem,
+    BookingEventHistory, BookingInstanceTypeEnum,
+)
 from app.booking.serializers import (
     BookingSerializer,
     BookingItemSerializer,
+    BookingEventHistorySerializer,
     AddBookingItemsPayloadSerializer,
     DeleteBookingItemsPayloadSerializer,
 )
+from app.product.models import ServiceType, Product
 from app.base.pagination import CustomPagination
+from app.payment.models import PaymentTransactionStatus
 from app.payment.serializers import PaymentTransactionSerializer
 
 
@@ -23,7 +30,7 @@ class BookingModelViewSet(viewsets.ModelViewSet):
     lookup_field = 'code'
 
     def get_permissions(self):
-        if self.action in ['create', 'retrieve', 'items', 'payment_transaction']:
+        if self.action in ['create', 'retrieve', 'items', 'payment_transaction', 'event_histories', 'next_action']:
             return [AllowAny()]
         else:
             return [IsAuthenticated()]
@@ -73,6 +80,70 @@ class BookingModelViewSet(viewsets.ModelViewSet):
         booking.update_total_price()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(detail=True, methods=['get'], url_path='event_histories')
+    def event_histories(self, request, *args, **kwargs):
+        def get_unique_event_histories(event_histories):
+            unique_event_histories = []
+            unique_keys = []
+            for event_history in event_histories:
+                key = '_'.join([
+                    str(event_history['event_type']),
+                    str(event_history['instance_type']),
+                    str(event_history['instance_id']),
+                    str(event_history['description']),
+                ])
+                if key not in unique_keys:
+                    unique_event_histories.append(event_history)
+                    unique_keys.append(key)
+            return unique_event_histories
+
+        booking = self.get_object()
+        event_histories = BookingEventHistory.objects.filter(
+            instance_type=BookingInstanceTypeEnum.BOOKING,
+            instance_id=str(booking.id),
+        ).order_by('created_at')
+        serializer = BookingEventHistorySerializer(event_histories, many=True)
+
+        unique_event_histories = get_unique_event_histories(serializer.data)
+        
+        return Response({'data': unique_event_histories})
+
+    @action(detail=True, methods=['get'], url_path='next_action')
+    def next_action(self, request, *args, **kwargs):
+        def get_service_types(booking):
+            product_ids = booking.bookingitem_set.values_list('product', flat=True)
+            service_types = Product.objects.filter(id__in=product_ids).values_list('service_type', flat=True).distinct()
+            return service_types
+        
+        def get_next_action(current_status, service_types):
+            if current_status == BookingStatus.NEW:
+                return {
+                    'action': 'pending_payment',
+                    'description': 'Pending payment',
+                }
+            elif current_status == BookingStatus.PENDING_PAYMENT:
+                return {
+                    'action': 'purchase',
+                    'description': 'Purchase booking',
+                }
+            elif current_status == BookingStatus.CONFIRMED:
+                return {
+                    'action': 'processing',
+                    'description': 'Processing booking',
+                }
+            elif current_status == BookingStatus.PROCESSING and ServiceType.E_VISA in service_types:
+                return {
+                    'action': 'processing_by_government',
+                    'description': 'Processing booking by government',
+                }
+
+        booking = self.get_object()
+        service_types = get_service_types(booking)
+
+        next_action = get_next_action(booking.status, service_types)
+
+        return Response({'data': next_action}, status=status.HTTP_200_OK)
 
 
 class BookingItemModelViewSet(viewsets.ModelViewSet):

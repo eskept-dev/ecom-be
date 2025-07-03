@@ -3,6 +3,7 @@ from datetime import datetime
 from django.db import models
 
 from app.base.models import BaseModel
+from app.base.enums import BaseEnum
 from app.product.models import Currency, Product
 from app.user.models import User
 
@@ -18,12 +19,12 @@ GUEST_INFO_REQUIRED_FIELDS = [
     'email',
 ]
 
-    
+
 class BookingStatus(models.TextChoices):
     NEW = 'new'
-    CONFIRMED = 'confirmed'
     PENDING_PAYMENT = 'pending_payment'
     PAID = 'paid'
+    CONFIRMED = 'confirmed'
     PROCESSING = 'processing'
     PROCESSING_BY_GOVERNMENT = 'processing_by_government'
     REJECTED = 'rejected'
@@ -121,6 +122,19 @@ class BookingItem(BaseModel):
         return self.booking.bookingitem_set.filter(index__lt=self.index).count() + 1
 
 
+class BookingInstanceTypeEnum(str, BaseEnum):
+    BOOKING = 'booking'
+    BOOKING_ITEM = 'booking_item'
+    PAYMENT_TRANSACTION = 'payment_transaction'
+    
+    
+class BookingEventTypeEnum(str, BaseEnum):
+    CREATE = 'create'
+    UPDATE = 'update'
+    PURCHASE = 'purchase'
+    DELETE = 'delete'
+
+
 class BookingEventHistory(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -128,5 +142,7 @@ class BookingEventHistory(models.Model):
     is_system = models.BooleanField(default=False)
 
     event_type = models.CharField(max_length=128)
-    message = models.TextField(blank=True, null=True)
-    metadata = models.JSONField(blank=True, null=True)
+    instance_type = models.CharField(max_length=128, null=True, blank=True)
+    instance_id = models.CharField(max_length=128, null=True, blank=True)
+    value = models.JSONField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)

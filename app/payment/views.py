@@ -48,7 +48,7 @@ class PaymentTransactionModelViewSet(viewsets.ModelViewSet):
         serializer = PurchaseBookingSerializer(data=request.data)
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
+
         payment_transaction.purchase()
         payment_transaction.refresh_from_db()
         

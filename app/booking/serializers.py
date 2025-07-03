@@ -2,7 +2,7 @@ from rest_framework import serializers
 from django.db import transaction
 
 from app.booking.models import (
-    Booking, BookingItem,
+    Booking, BookingEventHistory, BookingItem,
     CONTACT_INFO_REQUIRED_FIELDS,
     GUEST_INFO_REQUIRED_FIELDS,
 )
@@ -56,8 +56,8 @@ class BookingSerializer(serializers.ModelSerializer):
             validated_data['customer'] = None
 
         return validated_data
-        
-        
+
+
 class AddBookingItemSerializer(serializers.ModelSerializer):
     product_code_name = serializers.CharField(required=True)
 
@@ -173,3 +173,12 @@ class BookingItemSerializer(serializers.ModelSerializer):
             'total': {'read_only': True},
             'index': {'read_only': True},
         }
+
+
+########################
+# Booking Event History
+########################
+class BookingEventHistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BookingEventHistory
+        fields = ('created_at', 'event_type', 'instance_type', 'instance_id', 'description')
