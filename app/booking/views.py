@@ -9,6 +9,7 @@ from app import booking
 from app.booking.models import (
     Booking, BookingStatus, BookingItem,
     BookingEventHistory, BookingInstanceTypeEnum,
+    BookingEventTypeEnum,
 )
 from app.booking.serializers import (
     BookingSerializer,
@@ -34,6 +35,15 @@ class BookingModelViewSet(viewsets.ModelViewSet):
             return [AllowAny()]
         else:
             return [IsAuthenticated()]
+
+    def get_queryset(self):
+        if self.action in ['create', 'retrieve', 'items', 'payment_transaction', 'event_histories', 'next_action']:
+            return super().get_queryset()
+        else:
+            if self.request.user.is_admin:
+                return super().get_queryset()
+            else:
+                return super().get_queryset().filter(customer=self.request.user)
 
     @action(detail=True, methods=['get'], url_path='payment_transaction')
     def payment_transaction(self, request, *args, **kwargs):
@@ -144,6 +154,17 @@ class BookingModelViewSet(viewsets.ModelViewSet):
         next_action = get_next_action(booking.status, service_types)
 
         return Response({'data': next_action}, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=['post'], url_path='cancel')
+    def cancel(self, request, *args, **kwargs):
+        booking = self.get_object()
+
+        try:
+            booking.cancel()
+        except ValueError as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class BookingItemModelViewSet(viewsets.ModelViewSet):

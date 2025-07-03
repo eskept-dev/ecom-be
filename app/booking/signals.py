@@ -46,16 +46,20 @@ def create_payment_transaction(sender, instance, created, **kwargs):
             payment_transaction.currency = instance.currency
             payment_transaction.save()
             
-    def handle_paid_booking():
+    def track_booking_event():
         if instance.status == BookingStatus.PAID:
             instance.status = BookingStatus.CONFIRMED
             instance.save()
-            add_booking_history(instance, f'Booking status updated to {instance.status}')
+            add_booking_history(instance, f'Confirmed booking')
+        elif instance.status == BookingStatus.CANCELLED:
+            add_booking_history(instance, f'Cancelled booking')
 
     if created:
         init_payment_transaction()
         customer = create_booking_customer(instance.id)
         init_booking_history(customer)
     else:
-        update_payment_transaction()
-        handle_paid_booking()        
+        if instance.status == BookingStatus.NEW:
+            update_payment_transaction()
+        else:
+            track_booking_event()

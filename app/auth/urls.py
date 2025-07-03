@@ -1,6 +1,7 @@
 from django.urls import path
 from app.auth import views  
 
+
 urlpatterns = [
     # Sign Up
     path('sign_up', views.SignUpView.as_view(), name='sign_up'),
@@ -14,4 +15,6 @@ urlpatterns = [
     # Reset Password
     path('send_reset_password_email', views.SendResetPasswordEmailView.as_view(), name='send_reset_password_email'),
     path('reset_password', views.ResetPasswordView.as_view(), name='reset_password'),
+    # Token
+    path('pairs_token', views.GetPairsTokenView.as_view(), name='get_pairs_token'),
 ]

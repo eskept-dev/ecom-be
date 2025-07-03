@@ -143,6 +143,7 @@ class PhoneNumberChannels(models.TextChoices):
 
 class UserProfile(models.Model):
     avatar_url = models.URLField(null=True, blank=True)
+    full_name = models.CharField(max_length=128, null=True, blank=True)
     first_name = models.CharField(max_length=128, null=True, blank=True)
     last_name = models.CharField(max_length=128, null=True, blank=True)
     phone_number = models.CharField(max_length=128, null=True, blank=True)

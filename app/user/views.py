@@ -16,8 +16,8 @@ class UserModelViewSet(ModelViewSet):
     
     def get_queryset(self):
         return User.objects.filter(id=self.request.user.id)
-    
-    @action(detail=False, methods=['put'], url_path='change-password')
+
+    @action(detail=False, methods=['put'], url_path='change_password')
     def change_password(self, request):
         serializer = serializers.ChangePasswordSerializer(
             data=request.data,
@@ -43,7 +43,7 @@ class UserModelViewSet(ModelViewSet):
             status=status.HTTP_200_OK,
         )
 
-    @action(detail=False, methods=['get', 'put'], url_path='user-profile')
+    @action(detail=False, methods=['get', 'put'], url_path='user_profile')
     def get_profile(self, request):
         if request.method == 'GET':
             return self.get_object(request)
@@ -75,7 +75,7 @@ class UserModelViewSet(ModelViewSet):
             status=status.HTTP_400_BAD_REQUEST,
         )
 
-    @action(detail=False, methods=['get', 'put'], url_path='business-profile')
+    @action(detail=False, methods=['get', 'put'], url_path='business_profile')
     def get_business_profile(self, request):
         if not request.user.is_business:
             return Response(

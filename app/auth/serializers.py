@@ -5,6 +5,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from app.auth.enums import VerificationTypeEnum
 from app.auth import services as auth_services
 from app.user.models import User
+from app.core.utils.url_path import format_url_path
 
 
 # ===============================
@@ -25,6 +26,7 @@ class SignUpSerializer(serializers.ModelSerializer):
 
 class ResendVerificationEmailSerializer(serializers.Serializer):
     email = serializers.EmailField()
+    redirect_to = serializers.CharField(required=False, allow_blank=True)
     verification_type = serializers.ChoiceField(choices=VerificationTypeEnum.choices())
 
     def validate(self, attrs):
@@ -35,6 +37,9 @@ class ResendVerificationEmailSerializer(serializers.Serializer):
         user = User.objects.filter(email=email).first()
         if not user:
             raise serializers.ValidationError('User not found.')
+        
+        redirect_to = attrs.get('redirect_to')
+        attrs['redirect_to'] = format_url_path(redirect_to)
         
         return attrs
 
@@ -80,11 +85,16 @@ class SignInResponseSerializer(serializers.Serializer):
 
 class SendSignInEmailSerializer(serializers.Serializer):    
     email = serializers.EmailField()
+    redirect_to = serializers.CharField(required=False, allow_blank=True)
 
     def validate(self, attrs):
         email = attrs.get('email')
         if not email:
             raise serializers.ValidationError('Email is required.')
+
+        redirect_to = attrs.get('redirect_to')
+        attrs['redirect_to'] = format_url_path(redirect_to)
+
         return attrs
 
 
@@ -115,6 +125,7 @@ class VerifyEmailQuerySerializer(serializers.Serializer):
 # ===============================
 class SendResetPasswordEmailSerializer(serializers.Serializer):
     email = serializers.EmailField()
+    redirect_to = serializers.CharField(required=False)
 
     def validate(self, attrs):
         email = attrs.get('email')

@@ -24,7 +24,7 @@ def authenticate(email: str, password: str):
 # ===============================
 # Sign Up
 # ===============================
-def send_verification_email_for_sign_up(user: User):
+def send_verification_email_for_sign_up(user: User, redirect_to: str):
     email_template = "email/verification_sign_up.html"
     email_subject = "Activate your account"
     email_from = settings.DEFAULT_FROM_EMAIL
@@ -35,6 +35,10 @@ def send_verification_email_for_sign_up(user: User):
         f"/en/auth/sign-up?step=activate-account"
         f"&activation_code={user.activation_code}"
     )
+
+    if redirect_to:
+        activation_url += f"&redirect_to={redirect_to}"
+
     email_context = {"activation_url": activation_url}
 
     html_content = render_to_string(email_template, email_context)
@@ -50,7 +54,7 @@ def send_verification_email_for_sign_up(user: User):
 # ===============================
 # Sign In
 # ===============================
-def send_sign_in_email(user: User):
+def send_sign_in_email(user: User, redirect_to: str):
     email_template = "email/sign_in_by_email.html"
     email_subject = "Sign in to your Eskept account"
     email_from = settings.DEFAULT_FROM_EMAIL
@@ -64,6 +68,10 @@ def send_sign_in_email(user: User):
         f"/en/auth/sign-in?step=verify-token"
         f"&access_token={access_token}"
     )
+
+    if redirect_to:
+        sign_in_url += f"&redirect_to={redirect_to}"
+
     email_context = {"sign_in_url": sign_in_url}
 
     html_content = render_to_string(email_template, email_context)

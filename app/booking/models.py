@@ -96,6 +96,18 @@ class Booking(BaseModel):
         else:
             self.total_price = sum(item.total for item in booking_items)
         self.save()
+        
+    def cancel(self):
+        if self.status in [
+            BookingStatus.NEW,
+            BookingStatus.PENDING_PAYMENT,
+            BookingStatus.PAID,
+            BookingStatus.CONFIRMED,
+        ]:
+            self.status = BookingStatus.CANCELLED
+            self.save()
+        else:
+            raise ValueError('Booking is not cancellable')
 
 
 class BookingItem(BaseModel):
@@ -131,8 +143,9 @@ class BookingInstanceTypeEnum(str, BaseEnum):
 class BookingEventTypeEnum(str, BaseEnum):
     CREATE = 'create'
     UPDATE = 'update'
-    PURCHASE = 'purchase'
     DELETE = 'delete'
+    PURCHASE = 'purchase'
+    CONFIRM = 'confirm'
 
 
 class BookingEventHistory(models.Model):

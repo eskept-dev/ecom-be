@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.decorators import action
 
+from app.booking.models import BookingStatus
 from app.payment.serializers import (
     PaymentTransactionSerializer,
     PurchaseBookingSerializer,
@@ -48,6 +49,10 @@ class PaymentTransactionModelViewSet(viewsets.ModelViewSet):
         serializer = PurchaseBookingSerializer(data=request.data)
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        booking = payment_transaction.booking
+        if booking.status not in [BookingStatus.NEW, BookingStatus.PENDING_PAYMENT]:
+            return Response({'error': 'Can not purchase this booking'}, status=status.HTTP_400_BAD_REQUEST)
 
         payment_transaction.purchase()
         payment_transaction.refresh_from_db()
@@ -55,4 +60,3 @@ class PaymentTransactionModelViewSet(viewsets.ModelViewSet):
         process_payment_task.delay(payment_transaction.id)
 
         return Response({ 'data': PaymentTransactionSerializer(payment_transaction).data }, status=status.HTTP_200_OK)
-        

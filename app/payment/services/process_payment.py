@@ -26,10 +26,10 @@ def process_payment(payment_transaction_id):
             value={
                 'payment_transaction': {
                     'id': str(payment_transaction.id),
-                    'status': payment_transaction.status,
-                    'amount': payment_transaction.amount,
-                    'currency': payment_transaction.currency,
-                    'payment_method_type': payment_transaction.payment_method_type,
+                    'status': str(payment_transaction.status),
+                    'amount': float(payment_transaction.amount),
+                    'currency': str(payment_transaction.currency),
+                    'payment_method_type': str(payment_transaction.payment_method_type),
                 },
             },
         )
