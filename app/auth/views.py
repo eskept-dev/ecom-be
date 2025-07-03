@@ -71,10 +71,9 @@ class ResendVerificationEmailView(APIView):
 
         user.renew_activation_code()
 
-        # auth_tasks.send_verification_email_for_sign_up_task.apply_async(
-        #     kwargs={'user_id': user.id}
-        # )
-        auth_services.send_verification_email_for_sign_up_sendgrid(user)
+        auth_tasks.send_verification_email_for_sign_up_task.apply_async(
+            kwargs={'user_id': user.id}
+        )
 
         return Response(
             {'message': 'Verification email sent'},
@@ -164,10 +163,16 @@ class SendSignInEmailView(APIView):
                 {'error': 'User not found'},
                 status=status.HTTP_400_BAD_REQUEST
             )
-
-        auth_tasks.send_sign_in_email_task.apply_async(
-            kwargs={'user_id': user.id}
-        )
+            
+        if user.is_active:
+            auth_tasks.send_sign_in_email_task.apply_async(
+                kwargs={'user_id': user.id}
+            )
+        else:
+            user.renew_activation_code()
+            auth_tasks.send_verification_email_for_sign_up_task.apply_async(
+                kwargs={'user_id': user.id}
+            )
 
         return Response(
             {'message': 'Sign in email sent'},
