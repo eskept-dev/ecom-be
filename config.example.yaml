@@ -1,7 +1,8 @@
 server:
   port: 8000
   secret_key: secure-secret-key
-  frontend_url: http://localhost:5173
+  frontend_url: http://localhost:4000
+  admin_url: http://localhost:3000
   allowed_hosts:
     - 206.189.206.114
     - localhost

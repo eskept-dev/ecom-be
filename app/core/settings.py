@@ -244,6 +244,7 @@ AUTH_USER_MODEL = 'user.User'
 # App settings
 APPEND_SLASH = False
 FRONTEND_URL = config['server']['frontend_url']
+ADMIN_URL = config['server']['admin_url']
 
 # Cache Configuration
 CACHES = {
