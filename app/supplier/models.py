@@ -1,6 +1,6 @@
 from django.db import models
 
-from app.base.models import BaseModel
+from app.base.models import BaseModel, SoftDeleteMixin
 
 
 class SupplierStatus(models.TextChoices):
@@ -10,10 +10,10 @@ class SupplierStatus(models.TextChoices):
     INACTIVE = 'inactive'
 
 
-class Supplier(BaseModel):
+class Supplier(BaseModel, SoftDeleteMixin):
     name = models.CharField(max_length=255)
     status = models.CharField(
-        max_length=20, choices=SupplierStatus.choices, default=SupplierStatus.APPROVED)
+        max_length=20, choices=SupplierStatus.choices, default=SupplierStatus.NEW)
     description = models.TextField(null=True, blank=True)
     address = models.TextField(null=True, blank=True)
     tax_id = models.CharField(max_length=128, null=True, blank=True)

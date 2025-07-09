@@ -7,6 +7,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from app.auth import serializers
 from app.auth import services as auth_services
 from app.auth import tasks as auth_tasks
+from app.auth.permissions import IsAdminUser
 from app.auth.enums import VerificationTypeEnum
 from app.user.models import User
 
@@ -36,6 +37,20 @@ class SignUpView(APIView):
         )
 
         return Response(serializers.SignUpSerializer(user).data, status=status.HTTP_201_CREATED)
+
+
+class AdminCreateInternalUserView(APIView):
+    # permission_classes = [IsAuthenticated, IsAdminUser]
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = serializers.AdminCreateInternalUserSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        user = serializer.save()
+
+        return Response(serializers.AdminCreateInternalUserSerializer(user).data, status=status.HTTP_201_CREATED)
 
 
 class ResendVerificationEmailView(APIView):
@@ -147,6 +162,43 @@ class SignInView(APIView):
             'access_token': str(refresh.access_token),
             'refresh_token': str(refresh),
         }).data)
+
+
+class AdminSignInView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = serializers.SignInSerializer(data=request.data)
+        if not serializer.is_valid():
+            first_error_message = list(serializer.errors.values())[0][0]
+            return Response({'message': first_error_message}, status=status.HTTP_401_UNAUTHORIZED)
+
+        user = serializer.validated_data['user']
+        if not user.is_internal:
+            return Response({'message': 'You don not have permission'}, status=status.HTTP_403_FORBIDDEN)
+
+        refresh = RefreshToken.for_user(user)
+        return Response(serializers.SignInResponseSerializer({
+            'access_token': str(refresh.access_token),
+            'refresh_token': str(refresh),
+        }).data)
+
+
+class AdminActivateUserView(APIView):
+    permission_classes = [IsAuthenticated, IsAdminUser]
+
+    def post(self, request):
+        serializer = serializers.AdminActivateUserSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        user = User.objects.filter(email=serializer.validated_data['email']).first()
+        if not user:
+            return Response({'message': 'User not found'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user.admin_activate()
+
+        return Response({'message': 'User activated successfully'}, status=status.HTTP_200_OK)
 
 
 class SendSignInEmailView(APIView):

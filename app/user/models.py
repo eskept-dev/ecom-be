@@ -10,6 +10,7 @@ from app.user.helpers import generate_activation_code
 
 class UserRole(models.TextChoices):
     ADMIN = 'admin'
+    STAFF = 'staff'
     CUSTOMER = 'customer'
     BUSINESS = 'business'
 
@@ -83,6 +84,14 @@ class User(AbstractUser):
     @property
     def is_admin(self):
         return self.role == UserRole.ADMIN
+    
+    @property
+    def is_staff(self):
+        return self.role == UserRole.STAFF
+
+    @property
+    def is_internal(self):
+        return self.role in [UserRole.ADMIN, UserRole.STAFF]
 
     @property
     def is_active(self):
@@ -107,6 +116,12 @@ class User(AbstractUser):
             self.status = UserStatus.ACTIVE
         else:
             self.status = UserStatus.WAITING_FOR_APPROVAL
+        self.activated_at = timezone.now()
+        self.activation_code = None
+        self.save()
+        
+    def admin_activate(self):
+        self.status = UserStatus.ACTIVE
         self.activated_at = timezone.now()
         self.activation_code = None
         self.save()

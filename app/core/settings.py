@@ -61,13 +61,13 @@ INSTALLED_APPS = [
     # Third party apps
     'rest_framework',
     'corsheaders',
-    'storages',
     'drf_spectacular',
     'rest_framework_simplejwt',
     
     # Local apps
     'app.base',
     'app.booking',
+    'app.file',
     'app.location',
     'app.payment',
     'app.product',
@@ -133,12 +133,13 @@ else:
     REDIS_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}/0'
 
 # MinIO Configuration
-MINIO_ENDPOINT = config['minio']['host']
+MINIO_UPLOAD_ENDPOINT = config['minio']['upload_endpoint']
+MINIO_PUBLIC_ENDPOINT = config['minio']['public_endpoint']
 MINIO_ACCESS_KEY = config['minio']['access_key']
 MINIO_SECRET_KEY = config['minio']['secret_key']
 MINIO_BUCKET_NAME = config['minio']['bucket_name']
-MINIO_PUBLIC_URL = config['minio']['public_url']
 MINIO_SECURE = config['minio']['secure']
+MINIO_MAX_SIZE = config['minio']['max_size']
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = DEBUG

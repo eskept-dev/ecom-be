@@ -1,6 +1,6 @@
 from django.db import models
 
-from app.base.models import BaseModel
+from app.base.models import BaseModel, SoftDeleteMixin  
 from app.core.utils.string import slugify
 from app.supplier.models import Supplier
 
@@ -26,7 +26,7 @@ class ProductUnit(models.TextChoices):
     PERSON = 'person'
 
 
-class Product(BaseModel):
+class Product(BaseModel, SoftDeleteMixin):
     name = models.CharField(max_length=255)
     code_name = models.CharField(max_length=255, unique=True)
     status = models.CharField(

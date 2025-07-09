@@ -4,7 +4,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from app.auth.enums import VerificationTypeEnum
 from app.auth import services as auth_services
-from app.user.models import User
+from app.user.models import User, UserRole
 from app.core.utils.url_path import format_url_path
 
 
@@ -22,6 +22,44 @@ class SignUpSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+
+
+class AdminCreateInternalUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        exclude = ['groups', 'user_permissions']
+        extra_kwargs = {
+            'password': {'write_only': True, 'required': False, 'allow_blank': True},
+            'role': {'required': True}
+        }
+
+    def validate(self, attrs):
+        email = attrs.get('email')
+        if not email:
+            raise serializers.ValidationError('Email is required.')
+
+        if User.objects.filter(email=email).exists():
+            raise serializers.ValidationError('User with this email already exists.')
+
+        role = attrs.get('role')
+        if role not in [UserRole.ADMIN, UserRole.STAFF]:
+            raise serializers.ValidationError('Invalid role.')
+
+        return attrs
+        
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        return user
+
+
+class AdminActivateUserSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate(self, attrs):
+        email = attrs.get('email')
+        if not email:
+            raise serializers.ValidationError('Email is required.')
+        return attrs
 
 
 class ResendVerificationEmailSerializer(serializers.Serializer):

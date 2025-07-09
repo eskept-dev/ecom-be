@@ -1,6 +1,6 @@
-from django.urls import path
-from app.auth import views  
+from django.urls import path, include
 
+from app.auth import views  
 
 urlpatterns = [
     # Sign Up
@@ -17,4 +17,9 @@ urlpatterns = [
     path('reset_password', views.ResetPasswordView.as_view(), name='reset_password'),
     # Token
     path('pairs_token', views.GetPairsTokenView.as_view(), name='get_pairs_token'),
+
+    # Admin
+    path('admin/sign_in', views.AdminSignInView.as_view(), name='admin_sign_in'),
+    path('admin/internal_user', views.AdminCreateInternalUserView.as_view(), name='admin_create_internal_user'),
+    path('admin/activate_user', views.AdminActivateUserView.as_view(), name='admin_activate_user'),
 ]
