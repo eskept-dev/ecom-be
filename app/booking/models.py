@@ -2,7 +2,7 @@ import uuid
 from datetime import datetime
 from django.db import models
 
-from app.base.models import BaseModel
+from app.base.models import BaseModel, SoftDeleteMixin
 from app.base.enums import BaseEnum
 from app.product.models import Currency, Product
 from app.user.models import User
@@ -32,7 +32,7 @@ class BookingStatus(models.TextChoices):
     CANCELLED = 'cancelled'
 
 
-class Booking(BaseModel):
+class Booking(BaseModel, SoftDeleteMixin):
     PREFIX_CODE = 'BK'
 
     code = models.CharField(max_length=16, unique=True)

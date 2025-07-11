@@ -40,7 +40,7 @@ class Product(BaseModel, SoftDeleteMixin):
 
     price_vnd = models.DecimalField(max_digits=10, decimal_places=2)
     price_usd = models.DecimalField(max_digits=10, decimal_places=2)
-    rating = models.DecimalField(max_digits=3, decimal_places=2)
+    rating = models.DecimalField(max_digits=3, decimal_places=2, default=0)
     review_count = models.IntegerField(default=0)
 
     details = models.JSONField(default=dict, null=True, blank=True)

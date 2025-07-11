@@ -1,15 +1,19 @@
+from django_filters.rest_framework import DjangoFilterBackend
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+from django.core.cache import cache
+
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.exceptions import MethodNotAllowed
+from rest_framework.filters import SearchFilter, OrderingFilter
 
-from app import booking
 from app.booking.models import (
     Booking, BookingStatus, BookingItem,
     BookingEventHistory, BookingInstanceTypeEnum,
-    BookingEventTypeEnum,
 )
 from app.booking.serializers import (
     BookingSerializer,
@@ -20,15 +24,25 @@ from app.booking.serializers import (
 )
 from app.product.models import ServiceType, Product
 from app.base.pagination import CustomPagination
-from app.payment.models import PaymentTransactionStatus
 from app.payment.serializers import PaymentTransactionSerializer
+from app.base.mixins import SoftDeleteViewSetMixin
 
 
-class BookingModelViewSet(viewsets.ModelViewSet):
-    queryset = Booking.objects.all()
+class BookingModelViewSet(viewsets.ModelViewSet, SoftDeleteViewSetMixin):
+    queryset = Booking.objects.filter(is_deleted=False)
     serializer_class = BookingSerializer
     pagination_class = CustomPagination
     lookup_field = 'code'
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    search_fields = ["code"]
+    ordering_fields = [
+        "code",
+        "created_at",
+        "status",
+        "total_price",
+        "total_guest"
+    ]
+    ordering = ["-created_at"]
 
     def get_permissions(self):
         if self.action in ['create', 'retrieve', 'items', 'payment_transaction', 'event_histories', 'next_action']:
@@ -40,10 +54,38 @@ class BookingModelViewSet(viewsets.ModelViewSet):
         if self.action in ['create', 'retrieve', 'items', 'payment_transaction', 'event_histories', 'next_action']:
             return super().get_queryset()
         else:
-            if self.request.user.is_admin:
+            if self.request.user.is_internal:
                 return super().get_queryset()
             else:
                 return super().get_queryset().filter(customer=self.request.user)
+
+    @method_decorator(cache_page(60 * 60 * 24, key_prefix="booking_list"))
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+    
+    @method_decorator(cache_page(60 * 60 * 24, key_prefix="booking_retrieve"))
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
+
+    def _clear_cache(self):
+        keys = cache.keys(f"*booking*")
+        cache.delete_many(keys)
+
+    def create(self, request, *args, **kwargs):
+        self._clear_cache()
+        return super().create(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        self._clear_cache()
+        return super().update(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        self._clear_cache()
+        return super().destroy(request, *args, **kwargs)
+    
+    def partial_update(self, request, *args, **kwargs):
+        self._clear_cache()
+        return super().partial_update(request, *args, **kwargs)
 
     @action(detail=True, methods=['get'], url_path='payment_transaction')
     def payment_transaction(self, request, *args, **kwargs):

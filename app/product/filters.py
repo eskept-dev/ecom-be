@@ -7,6 +7,8 @@ from app.product.models import Product, ServiceType, Currency
 class ProductFilter(django_filters.FilterSet):
     # Shared
     service = django_filters.CharFilter(method='filter_by_service')
+    services = django_filters.CharFilter(method='filter_by_services')
+    statuses = django_filters.CharFilter(method='filter_by_statuses')
     rating = django_filters.NumberFilter(field_name='rating', lookup_expr='gte')
     price_min = django_filters.NumberFilter(method='filter_by_price_min')
     price_max = django_filters.NumberFilter(method='filter_by_price_max')
@@ -31,7 +33,7 @@ class ProductFilter(django_filters.FilterSet):
     class Meta:
         model = Product
         fields = [
-            'service', 'rating', 'price_min', 'price_max',
+            'service', 'services', 'rating', 'price_min', 'price_max',
             'suppliers', 'currency', 'province', 'city', 'district', 'ward',
         ]
 
@@ -53,15 +55,18 @@ class ProductFilter(django_filters.FilterSet):
 
     def filter_by_service(self, queryset, name, value):
         if value == ServiceType.AIRPORT_TRANSFER.value:
-            service_value_to_filter = ServiceType.AIRPORT_TRANSFER
+            return queryset.filter(service_type=ServiceType.AIRPORT_TRANSFER)
         elif value == ServiceType.FAST_TRACK.value:
-            service_value_to_filter = ServiceType.FAST_TRACK
+            return queryset.filter(service_type=ServiceType.FAST_TRACK)
         elif value == ServiceType.E_VISA.value:
-            service_value_to_filter = ServiceType.E_VISA
+            return queryset.filter(service_type=ServiceType.E_VISA)
         else:
             return queryset
-        
-        return queryset.filter(service_type=service_value_to_filter)
+
+    def filter_by_services(self, queryset, name, value):
+        services_to_filter = value.split(',')
+
+        return queryset.filter(service_type__in=services_to_filter)
     
     def filter_by_currency(self, queryset, name, value):
         return queryset
@@ -79,6 +84,10 @@ class ProductFilter(django_filters.FilterSet):
         if currency_selected == Currency.VND.value:
             return queryset.filter(price_vnd__lte=value)
         return queryset.filter(price_usd__lte=value)
+
+    def filter_by_statuses(self, queryset, name, value):
+        statuses_to_filter = value.split(',')
+        return queryset.filter(status__in=statuses_to_filter)
 
     # Airport service
     def filter_by_number_of_travellers(self, queryset, name, value):

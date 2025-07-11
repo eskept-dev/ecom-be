@@ -9,5 +9,7 @@ router.register(r'', views.ProductModelViewSet, basename='product')
 
 
 urlpatterns = [
+    path('unit', views.ProductUnitAPIView.as_view(), name='product-units'),
+
     path('', include(router.urls)),
 ]

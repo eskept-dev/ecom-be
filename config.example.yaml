@@ -33,6 +33,18 @@ server:
     - http://www.vietnamairports.com
     - https://api.vietnamairports.com
     - https://www.api.vietnamairports.com
+  cors_allowed_headers:
+    - accept
+    - accept-encoding
+    - authorization
+    - content-type
+    - dnt
+    - origin
+    - user-agent
+    - x-csrftoken
+    - x-requested-with
+    - cache-control
+    - x-api-key
   debug: false
   language_code: en-us
   timezone: Asia/Ho_Chi_Minh
