@@ -5,7 +5,7 @@ from app.core.utils.logger import logger
 
 
 class SoftDeleteViewSetMixin(object):
-    def delete(self, request, *args, **kwargs):
+    def destroy(self, request, *args, **kwargs):
         obj = self.get_object()
         if not obj:
             return Response(status=status.HTTP_404_NOT_FOUND)

@@ -3,9 +3,14 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import SearchFilter, OrderingFilter
 
+from django_filters.rest_framework import DjangoFilterBackend
+
+from app.auth.permissions import IsInternalUser
+from app.base.mixins import SoftDeleteViewSetMixin
 from app.user import serializers
-from app.user.models import User
+from app.user.models import User, UserRole
 
 
 class UserModelViewSet(ModelViewSet):
@@ -112,3 +117,13 @@ class UserModelViewSet(ModelViewSet):
             serializer.errors, 
             status=status.HTTP_400_BAD_REQUEST,
         )
+
+
+class CustomerModelViewSet(ModelViewSet, SoftDeleteViewSetMixin):
+    queryset = User.objects.filter(role__in=[UserRole.CUSTOMER, UserRole.BUSINESS], is_deleted=False)
+    serializer_class = serializers.CustomerSerializer
+    permission_classes = [IsInternalUser]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    search_fields = ["id", "email"]
+    ordering_fields = ["id", "email", "role", "status"]
+    ordering = ["-id"]

@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {'write_only': True}
         }
-        
+
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
@@ -156,3 +156,20 @@ class BusinessProfileSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
+
+
+
+# ===============================
+# Customer
+# ===============================
+
+class CustomerSerializer(serializers.ModelSerializer):
+    user_profile = UserProfileSerializer(read_only=True)
+    business_profile = BusinessProfileSerializer(read_only=True)
+
+    class Meta:
+        model = User
+        exclude = ['groups', 'user_permissions']
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }

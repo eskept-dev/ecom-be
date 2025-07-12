@@ -5,6 +5,7 @@ from django.contrib.auth.models import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 from multiselectfield import MultiSelectField
 
+from app.base.models import SoftDeleteMixin
 from app.user.helpers import generate_activation_code
 
 
@@ -48,7 +49,7 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
-class User(AbstractUser):
+class User(AbstractUser, SoftDeleteMixin):
     username = None
     first_name = None
     last_name = None
@@ -167,7 +168,7 @@ class UserProfile(models.Model):
     gender = models.CharField(max_length=8, choices=Gender.choices, null=True, blank=True)
     nationality = models.CharField(max_length=128, null=True, blank=True)
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
