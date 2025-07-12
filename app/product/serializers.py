@@ -14,3 +14,16 @@ class ProductSerializer(serializers.ModelSerializer):
             'rating': {'read_only': True},
             'review_count': {'read_only': True},
         }
+
+    def validate(self, attrs):
+        attrs = super().validate(attrs)
+
+        what_nexts = attrs.get('what_nexts')
+        if not what_nexts:
+            attrs['what_nexts'] = []
+
+        highlights = attrs.get('highlights')
+        if not highlights:
+            attrs['highlights'] = []
+
+        return attrs

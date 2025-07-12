@@ -19,6 +19,8 @@ from app.product.serializers import ProductSerializer
 # Booking
 ########################
 class BookingSerializer(serializers.ModelSerializer):
+    service_types = serializers.SerializerMethodField()
+
     class Meta:
         model = Booking
         fields = '__all__'
@@ -30,7 +32,11 @@ class BookingSerializer(serializers.ModelSerializer):
             'contact_info': {'required': True},
             'guest_info': {'required': True},
             'details': {'required': True},
+            'service_types': {'read_only': True},
         }
+        
+    def get_service_types(self, obj):
+        return obj.bookingitem_set.values_list('product__service_type', flat=True)
         
     def validate(self, attrs):
         validated_data = super().validate(attrs)

@@ -1,8 +1,8 @@
 server:
   port: 8000
   secret_key: secure-secret-key
-  frontend_url: http://localhost:4000
-  admin_url: http://localhost:3000
+  frontend_url: http://localhost:3000
+  admin_url: http://localhost:4000
   allowed_hosts:
     - 206.189.206.114
     - localhost
@@ -20,6 +20,8 @@ server:
     - http://api.vietnamairports.com
     - http://www.api.vietnamairports.com
     - www.google.com
+    - https://admin.vietnamairports.com
+    - http://admin.vietnamairports.com
   cors_allowed_origins:
     - http://localhost:5173
     - https://localhost:5173
@@ -33,6 +35,8 @@ server:
     - http://www.vietnamairports.com
     - https://api.vietnamairports.com
     - https://www.api.vietnamairports.com
+    - https://admin.vietnamairports.com
+    - http://admin.vietnamairports.com
   cors_allowed_headers:
     - accept
     - accept-encoding
