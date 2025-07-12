@@ -20,15 +20,15 @@ def health_check(request):
     return Response(data={"status": "ok"}, status=status.HTTP_200_OK)
 
 api_v1_patterns = [
-    path('auth/', include('app.auth.urls')),
-    path('booking/', include('app.booking.urls')),
-    path('file/', include('app.file.urls')),
-    path('location/', include('app.location.urls')),
-    path('payment/', include('app.payment.urls')),
-    path('product/', include('app.product.urls')),
-    path('service/', include('app.service.urls')),
-    path('supplier/', include('app.supplier.urls')),
-    path('user/', include('app.user.urls')),
+    path('', include('app.auth.urls')),
+    path('', include('app.booking.urls')),
+    path('', include('app.file.urls')),
+    path('', include('app.location.urls')),
+    path('', include('app.payment.urls')),
+    path('', include('app.product.urls')),
+    path('', include('app.service.urls')),
+    path('', include('app.supplier.urls')),
+    path('', include('app.user.urls')),
 ]
 
 urlpatterns = [

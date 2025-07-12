@@ -9,5 +9,5 @@ router.register(r'', views.SupplierModelViewSet, basename='supplier')
 
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('supplier/', include(router.urls)),
 ]

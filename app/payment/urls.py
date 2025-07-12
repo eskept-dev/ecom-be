@@ -8,7 +8,7 @@ router.register(r'transaction', views.PaymentTransactionModelViewSet, basename='
 
 
 urlpatterns = [
-    path('methods', views.PaymentMethodAPIView.as_view(), name='payment-methods'),
+    path('payment/methods', views.PaymentMethodAPIView.as_view(), name='payment-methods'),
 
-    path('', include(router.urls)),
+    path('payment', include(router.urls)),
 ]

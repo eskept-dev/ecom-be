@@ -9,6 +9,6 @@ router.register(r'', views.LocationModelViewSet, basename='location')
 
 
 urlpatterns = [
-    path('search-osm/', views.OpenStreetMapSearchAPIView.as_view(), name='search-osm'),
-    path('', include(router.urls)),
+    path('location/search-osm/', views.OpenStreetMapSearchAPIView.as_view(), name='search-osm'),
+    path('location', include(router.urls)),
 ]

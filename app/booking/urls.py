@@ -10,5 +10,5 @@ router.register(r'items', views.BookingItemModelViewSet, basename='booking-item'
 
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('booking/', include(router.urls)),
 ]
