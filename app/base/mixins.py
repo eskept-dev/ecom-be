@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from app.core.utils.logger import logger
 
 
-class SoftDeleteViewSetMixin(object):
+class SoftDeleteViewSetMixin:
     def destroy(self, request, *args, **kwargs):
         obj = self.get_object()
         if not obj:
@@ -17,3 +17,4 @@ class SoftDeleteViewSetMixin(object):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+

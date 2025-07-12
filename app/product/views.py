@@ -10,15 +10,15 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from app.base.pagination import CustomPagination
-from app.base.mixins import (
-    SoftDeleteViewSetMixin,
-)
+from app.base.mixins import SoftDeleteViewSetMixin
+from app.core.utils.logger import logger
+
 from app.product import serializers
 from app.product.filters import ProductFilter
 from app.product.models import Product, ProductUnit
 
 
-class ProductModelViewSet(ModelViewSet, SoftDeleteViewSetMixin):    
+class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):    
     queryset = Product.objects.filter(is_deleted=False)
     serializer_class = serializers.ProductSerializer
     pagination_class = CustomPagination
@@ -64,7 +64,7 @@ class ProductModelViewSet(ModelViewSet, SoftDeleteViewSetMixin):
     def update(self, request, *args, **kwargs):
         self._clear_cache()
         return super().update(request, *args, **kwargs)
-
+        
     def destroy(self, request, *args, **kwargs):
         self._clear_cache()
         return super().destroy(request, *args, **kwargs)
