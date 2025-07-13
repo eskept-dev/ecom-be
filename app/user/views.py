@@ -151,6 +151,9 @@ class CustomerModelViewSet(ModelViewSet, SoftDeleteViewSetMixin):
         if query_params.get('search'):
             search_query = query_params.get('search')
             bookings_query = bookings_query.filter(code__icontains=search_query)
+            
+        if query_params.get('ordering'):
+            bookings_query = bookings_query.order_by(query_params.get('ordering'))
 
         paginator = CustomPagination()
         page = paginator.paginate_queryset(bookings_query, request)
