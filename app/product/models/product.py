@@ -34,6 +34,7 @@ class Product(BaseModel, SoftDeleteMixin):
     service_type = models.CharField(max_length=20, choices=ServiceType.choices)
 
     available_locations = models.JSONField(default=list, null=True, blank=True)
+    max_quantity = models.IntegerField(default=1)
 
     image_url = models.URLField(null=True, blank=True)
     unit = models.CharField(max_length=20, choices=ProductUnit.choices)
