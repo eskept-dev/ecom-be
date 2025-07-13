@@ -3,8 +3,12 @@ from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from app.user.models import (
-    User, UserProfile, BusinessProfile, PhoneNumberChannels,
+    User,
+    UserProfile,
+    BusinessProfile,
+    PhoneNumberChannels,
 )
+from app.base.serializers import FlexibleDateField
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -98,6 +102,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         required=False,
         allow_empty=True
     )
+    date_of_birth = FlexibleDateField(required=False, allow_null=True)
 
     class Meta:
         model = UserProfile
@@ -162,10 +167,9 @@ class BusinessProfileSerializer(serializers.ModelSerializer):
 # ===============================
 # Customer
 # ===============================
-
 class CustomerSerializer(serializers.ModelSerializer):
-    user_profile = UserProfileSerializer(read_only=True)
-    business_profile = BusinessProfileSerializer(read_only=True)
+    user_profile = serializers.SerializerMethodField()
+    business_profile = serializers.SerializerMethodField()
 
     class Meta:
         model = User
@@ -173,3 +177,29 @@ class CustomerSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {'write_only': True}
         }
+        
+    def get_user_profile(self, obj):
+        try:
+            return UserProfileSerializer(obj.userprofile).data
+        except:
+            return {}
+    
+    def get_business_profile(self, obj):
+        try:
+            return BusinessProfileSerializer(obj.businessprofile).data
+        except:
+            return {}
+
+
+class CustomerListingSerializer(serializers.ModelSerializer):
+    total_bookings = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = User
+        exclude = ['groups', 'user_permissions']
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
+
+    def get_total_bookings(self, obj):
+        return obj.booking_set.count()

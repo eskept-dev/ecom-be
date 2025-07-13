@@ -9,8 +9,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from app.auth.permissions import IsInternalUser
 from app.base.mixins import SoftDeleteViewSetMixin
+from app.booking.models import Booking
+from app.booking.serializers import CustomerBookingSerializer
 from app.user import serializers
 from app.user.models import User, UserRole
+from app.user.serializers import UserProfileSerializer
+from app.base.pagination import CustomPagination
 
 
 class UserModelViewSet(ModelViewSet):
@@ -127,3 +131,63 @@ class CustomerModelViewSet(ModelViewSet, SoftDeleteViewSetMixin):
     search_fields = ["id", "email"]
     ordering_fields = ["id", "email", "role", "status"]
     ordering = ["-id"]
+    
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return serializers.CustomerListingSerializer
+        return serializers.CustomerSerializer
+    
+    def filter_queryset(self, queryset):
+        if self.action == 'get_bookings':
+            return queryset
+        return super().filter_queryset(queryset)
+
+    @action(detail=True, methods=['get'], url_path='bookings')
+    def get_bookings(self, request, *args, **kwargs):
+        query_params = request.query_params
+        
+        bookings_query = Booking.objects.filter(customer=self.get_object())
+
+        if query_params.get('search'):
+            search_query = query_params.get('search')
+            bookings_query = bookings_query.filter(code__icontains=search_query)
+
+        paginator = CustomPagination()
+        page = paginator.paginate_queryset(bookings_query, request)
+        if page is not None:
+            serializer = CustomerBookingSerializer(page, many=True)
+            return paginator.get_paginated_response(serializer.data)
+
+        serializer = CustomerBookingSerializer(bookings_query, many=True)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=['get'], url_path='profile')
+    def get_profile(self, request, *args, **kwargs):
+        customer = self.get_object()
+
+        return Response(
+            serializers.CustomerSerializer(customer).data, 
+            status=status.HTTP_200_OK,
+        )
+
+    @action(detail=True, methods=['patch'], url_path='user_profile')
+    def update_partial_user_profile(self, request, *args, **kwargs):
+        customer = self.get_object()
+        serializer = UserProfileSerializer(
+            data=request.data,
+            instance=customer.userprofile,
+            partial=True
+        )
+
+        if not serializer.is_valid():
+            return Response(
+                serializer.errors, 
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        serializer.save()
+        return Response(
+            serializers.UserProfileSerializer(customer.userprofile).data, 
+            status=status.HTTP_200_OK,
+        )

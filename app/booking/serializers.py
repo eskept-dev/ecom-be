@@ -188,3 +188,28 @@ class BookingEventHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = BookingEventHistory
         fields = ('created_at', 'event_type', 'instance_type', 'instance_id', 'description')
+
+
+########################
+# Customer Booking
+########################
+class CustomerBookingSerializer(serializers.ModelSerializer):
+    service_types = serializers.SerializerMethodField()
+    # booking_items = BookingItemSerializer(many=True, source='bookingitem_set')
+
+    class Meta:
+        model = Booking
+        fields = '__all__'
+        extra_kwargs = {
+            'customer': {'read_only': True, 'required': False},
+            'code': {'read_only': True},
+            'currency': {'required': True},
+            'is_self_booking': {'required': True},
+            'contact_info': {'required': True},
+            'guest_info': {'required': True},
+            'details': {'required': True},
+            'service_types': {'read_only': True},
+        }
+        
+    def get_service_types(self, obj):
+        return obj.bookingitem_set.values_list('product__service_type', flat=True)
