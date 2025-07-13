@@ -26,6 +26,16 @@ class ProductUnit(models.TextChoices):
     PERSON = 'person'
 
 
+class ProductAvailableLocationType(models.TextChoices):
+    COUNTRY = 'country'
+    PROVINCE = 'province'
+    CITY = 'city'
+    DISTRICT = 'district'
+    WARD = 'ward'
+    HOTEL = 'hotel'
+    AIRPORT = 'airport'
+
+
 class Product(BaseModel, SoftDeleteMixin):
     name = models.CharField(max_length=255)
     code_name = models.CharField(max_length=255, unique=True)

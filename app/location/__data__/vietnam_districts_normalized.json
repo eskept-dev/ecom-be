@@ -1,0 +1,2770 @@
+[
+  {
+    "name": "Huyện Tân Hồng",
+    "normalized_name": "huyen_tan_hong"
+  },
+  {
+    "name": "Huyện Cần Giờ",
+    "normalized_name": "huyen_can_gio"
+  },
+  {
+    "name": "Huyện Như Thanh",
+    "normalized_name": "huyen_nhu_thanh"
+  },
+  {
+    "name": "Huyện Trà Cú",
+    "normalized_name": "huyen_tra_cu"
+  },
+  {
+    "name": "Huyện Phú Xuyên",
+    "normalized_name": "huyen_phu_xuyen"
+  },
+  {
+    "name": "Huyện Long Mỹ",
+    "normalized_name": "huyen_long_my"
+  },
+  {
+    "name": "Huyện Ba Tơ",
+    "normalized_name": "huyen_ba_to"
+  },
+  {
+    "name": "Thành phố Nam Định",
+    "normalized_name": "thanh_pho_nam_inh"
+  },
+  {
+    "name": "Huyện Bình Lục",
+    "normalized_name": "huyen_binh_luc"
+  },
+  {
+    "name": "Huyện Gò Công Tây",
+    "normalized_name": "huyen_go_cong_tay"
+  },
+  {
+    "name": "Huyện Tràng Định",
+    "normalized_name": "huyen_trang_inh"
+  },
+  {
+    "name": "Huyện Lệ Thủy",
+    "normalized_name": "huyen_le_thuy"
+  },
+  {
+    "name": "Huyện Trà Bồng",
+    "normalized_name": "huyen_tra_bong"
+  },
+  {
+    "name": "Huyện Lộc Ninh",
+    "normalized_name": "huyen_loc_ninh"
+  },
+  {
+    "name": "Huyện Bắc Trà My",
+    "normalized_name": "huyen_bac_tra_my"
+  },
+  {
+    "name": "Huyện Bến Cầu",
+    "normalized_name": "huyen_ben_cau"
+  },
+  {
+    "name": "Huyện Trà Ôn",
+    "normalized_name": "huyen_tra_on"
+  },
+  {
+    "name": "Huyện Sa Pa",
+    "normalized_name": "huyen_sa_pa"
+  },
+  {
+    "name": "Quận Hai Bà Trưng",
+    "normalized_name": "quan_hai_ba_trung"
+  },
+  {
+    "name": "Huyện Mai Châu",
+    "normalized_name": "huyen_mai_chau"
+  },
+  {
+    "name": "Thị xã Kỳ Anh",
+    "normalized_name": "thi_xa_ky_anh"
+  },
+  {
+    "name": "Huyện Nậm Nhùn",
+    "normalized_name": "huyen_nam_nhun"
+  },
+  {
+    "name": "Huyện Thạnh Trị",
+    "normalized_name": "huyen_thanh_tri"
+  },
+  {
+    "name": "Huyện Hàm Thuận Nam",
+    "normalized_name": "huyen_ham_thuan_nam"
+  },
+  {
+    "name": "Huyện Kỳ Sơn",
+    "normalized_name": "huyen_ky_son"
+  },
+  {
+    "name": "Huyện Tánh Linh",
+    "normalized_name": "huyen_tanh_linh"
+  },
+  {
+    "name": "Quận Sơn Trà",
+    "normalized_name": "quan_son_tra"
+  },
+  {
+    "name": "Huyện Bắc Tân Uyên",
+    "normalized_name": "huyen_bac_tan_uyen"
+  },
+  {
+    "name": "Huyện Nhơn Trạch",
+    "normalized_name": "huyen_nhon_trach"
+  },
+  {
+    "name": "Huyện Ba Tri",
+    "normalized_name": "huyen_ba_tri"
+  },
+  {
+    "name": "Thị xã Dĩ An",
+    "normalized_name": "thi_xa_di_an"
+  },
+  {
+    "name": "Huyện Đông Hải",
+    "normalized_name": "huyen_ong_hai"
+  },
+  {
+    "name": "Thị xã Ngã Bảy",
+    "normalized_name": "thi_xa_nga_bay"
+  },
+  {
+    "name": "Huyện Lạc Thủy",
+    "normalized_name": "huyen_lac_thuy"
+  },
+  {
+    "name": "Huyện Định Quán",
+    "normalized_name": "huyen_inh_quan"
+  },
+  {
+    "name": "Huyện Thanh Chương",
+    "normalized_name": "huyen_thanh_chuong"
+  },
+  {
+    "name": "Huyện Hoài Đức",
+    "normalized_name": "huyen_hoai_uc"
+  },
+  {
+    "name": "Huyện Củ Chi",
+    "normalized_name": "huyen_cu_chi"
+  },
+  {
+    "name": "Huyện Yên Sơn",
+    "normalized_name": "huyen_yen_son"
+  },
+  {
+    "name": "Huyện Càng Long",
+    "normalized_name": "huyen_cang_long"
+  },
+  {
+    "name": "Huyện Cam Lộ",
+    "normalized_name": "huyen_cam_lo"
+  },
+  {
+    "name": "Huyện An Dương",
+    "normalized_name": "huyen_an_duong"
+  },
+  {
+    "name": "Huyện Nghi Xuân",
+    "normalized_name": "huyen_nghi_xuan"
+  },
+  {
+    "name": "Huyện Thông Nông",
+    "normalized_name": "huyen_thong_nong"
+  },
+  {
+    "name": "Huyện Cẩm Thủy",
+    "normalized_name": "huyen_cam_thuy"
+  },
+  {
+    "name": "Huyện Thanh Trì",
+    "normalized_name": "huyen_thanh_tri"
+  },
+  {
+    "name": "Huyện Hậu Lộc",
+    "normalized_name": "huyen_hau_loc"
+  },
+  {
+    "name": "Huyện Phụng Hiệp",
+    "normalized_name": "huyen_phung_hiep"
+  },
+  {
+    "name": "Huyện Nghĩa Hưng",
+    "normalized_name": "huyen_nghia_hung"
+  },
+  {
+    "name": "Thị Xã Mường Lay",
+    "normalized_name": "thi_xa_muong_lay"
+  },
+  {
+    "name": "Huyện Yên Châu",
+    "normalized_name": "huyen_yen_chau"
+  },
+  {
+    "name": "Thành phố Sầm Sơn",
+    "normalized_name": "thanh_pho_sam_son"
+  },
+  {
+    "name": "Huyện Kế Sách",
+    "normalized_name": "huyen_ke_sach"
+  },
+  {
+    "name": "Huyện Trà Lĩnh",
+    "normalized_name": "huyen_tra_linh"
+  },
+  {
+    "name": "Thành phố Hải Dương",
+    "normalized_name": "thanh_pho_hai_duong"
+  },
+  {
+    "name": "Huyện Chư Prông",
+    "normalized_name": "huyen_chu_prong"
+  },
+  {
+    "name": "Huyện Tam Nông",
+    "normalized_name": "huyen_tam_nong"
+  },
+  {
+    "name": "Huyện Lương Tài",
+    "normalized_name": "huyen_luong_tai"
+  },
+  {
+    "name": "Huyện Đông Giang",
+    "normalized_name": "huyen_ong_giang"
+  },
+  {
+    "name": "Huyện Cư M'gar",
+    "normalized_name": "huyen_cu_m_gar"
+  },
+  {
+    "name": "Thị xã Bỉm Sơn",
+    "normalized_name": "thi_xa_bim_son"
+  },
+  {
+    "name": "Huyện Thoại Sơn",
+    "normalized_name": "huyen_thoai_son"
+  },
+  {
+    "name": "Huyện Mỹ Đức",
+    "normalized_name": "huyen_my_uc"
+  },
+  {
+    "name": "Huyện Quảng Xương",
+    "normalized_name": "huyen_quang_xuong"
+  },
+  {
+    "name": "Thành phố Kon Tum",
+    "normalized_name": "thanh_pho_kon_tum"
+  },
+  {
+    "name": "Thành phố Yên Bái",
+    "normalized_name": "thanh_pho_yen_bai"
+  },
+  {
+    "name": "Thành phố Vĩnh Yên",
+    "normalized_name": "thanh_pho_vinh_yen"
+  },
+  {
+    "name": "Huyện Ninh Sơn",
+    "normalized_name": "huyen_ninh_son"
+  },
+  {
+    "name": "Huyện Tân Thạnh",
+    "normalized_name": "huyen_tan_thanh"
+  },
+  {
+    "name": "Huyện Ngọc Lặc",
+    "normalized_name": "huyen_ngoc_lac"
+  },
+  {
+    "name": "Huyện Văn Yên",
+    "normalized_name": "huyen_van_yen"
+  },
+  {
+    "name": "Huyện Quỳ Hợp",
+    "normalized_name": "huyen_quy_hop"
+  },
+  {
+    "name": "Huyện Quan Sơn",
+    "normalized_name": "huyen_quan_son"
+  },
+  {
+    "name": "Huyện Đồng Văn",
+    "normalized_name": "huyen_ong_van"
+  },
+  {
+    "name": "Huyện Trùng Khánh",
+    "normalized_name": "huyen_trung_khanh"
+  },
+  {
+    "name": "Huyện Quỳnh Lưu",
+    "normalized_name": "huyen_quynh_luu"
+  },
+  {
+    "name": "Thành phố Bạc Liêu",
+    "normalized_name": "thanh_pho_bac_lieu"
+  },
+  {
+    "name": "Huyện Nông Cống",
+    "normalized_name": "huyen_nong_cong"
+  },
+  {
+    "name": "Huyện Thanh Thuỷ",
+    "normalized_name": "huyen_thanh_thuy"
+  },
+  {
+    "name": "Thành phố Chí Linh",
+    "normalized_name": "thanh_pho_chi_linh"
+  },
+  {
+    "name": "Huyện Long Điền",
+    "normalized_name": "huyen_long_ien"
+  },
+  {
+    "name": "Huyện Mỹ Lộc",
+    "normalized_name": "huyen_my_loc"
+  },
+  {
+    "name": "Huyện Yên Thành",
+    "normalized_name": "huyen_yen_thanh"
+  },
+  {
+    "name": "Huyện Thanh Oai",
+    "normalized_name": "huyen_thanh_oai"
+  },
+  {
+    "name": "Huyện Ea Súp",
+    "normalized_name": "huyen_ea_sup"
+  },
+  {
+    "name": "Quận 2",
+    "normalized_name": "quan_2"
+  },
+  {
+    "name": "Huyện Quản Bạ",
+    "normalized_name": "huyen_quan_ba"
+  },
+  {
+    "name": "Huyện Tiền Hải",
+    "normalized_name": "huyen_tien_hai"
+  },
+  {
+    "name": "Huyện An Biên",
+    "normalized_name": "huyen_an_bien"
+  },
+  {
+    "name": "Quận Bình Tân",
+    "normalized_name": "quan_binh_tan"
+  },
+  {
+    "name": "Huyện Xuyên Mộc",
+    "normalized_name": "huyen_xuyen_moc"
+  },
+  {
+    "name": "Huyện Hoà Bình",
+    "normalized_name": "huyen_hoa_binh"
+  },
+  {
+    "name": "Huyện Bình Chánh",
+    "normalized_name": "huyen_binh_chanh"
+  },
+  {
+    "name": "Thị xã Hồng Lĩnh",
+    "normalized_name": "thi_xa_hong_linh"
+  },
+  {
+    "name": "Huyện Thiệu Hóa",
+    "normalized_name": "huyen_thieu_hoa"
+  },
+  {
+    "name": "Huyện Phước Long",
+    "normalized_name": "huyen_phuoc_long"
+  },
+  {
+    "name": "Huyện Hữu Lũng",
+    "normalized_name": "huyen_huu_lung"
+  },
+  {
+    "name": "Thành phố Tam Kỳ",
+    "normalized_name": "thanh_pho_tam_ky"
+  },
+  {
+    "name": "Huyện Tu Mơ Rông",
+    "normalized_name": "huyen_tu_mo_rong"
+  },
+  {
+    "name": "Quận Đồ Sơn",
+    "normalized_name": "quan_o_son"
+  },
+  {
+    "name": "Thị xã An Nhơn",
+    "normalized_name": "thi_xa_an_nhon"
+  },
+  {
+    "name": "Huyện Krông Nô",
+    "normalized_name": "huyen_krong_no"
+  },
+  {
+    "name": "Quận Bình Thạnh",
+    "normalized_name": "quan_binh_thanh"
+  },
+  {
+    "name": "Huyện U Minh Thượng",
+    "normalized_name": "huyen_u_minh_thuong"
+  },
+  {
+    "name": "Huyện Kiến Xương",
+    "normalized_name": "huyen_kien_xuong"
+  },
+  {
+    "name": "Huyện Lục Nam",
+    "normalized_name": "huyen_luc_nam"
+  },
+  {
+    "name": "Huyện Hàm Thuận Bắc",
+    "normalized_name": "huyen_ham_thuan_bac"
+  },
+  {
+    "name": "Thành phố Châu Đốc",
+    "normalized_name": "thanh_pho_chau_oc"
+  },
+  {
+    "name": "Huyện U Minh",
+    "normalized_name": "huyen_u_minh"
+  },
+  {
+    "name": "Thành phố Phan Rang-Tháp Chàm",
+    "normalized_name": "thanh_pho_phan_rang_thap_cham"
+  },
+  {
+    "name": "Huyện Đắk Glei",
+    "normalized_name": "huyen_ak_glei"
+  },
+  {
+    "name": "Thành phố Trà Vinh",
+    "normalized_name": "thanh_pho_tra_vinh"
+  },
+  {
+    "name": "Huyện Sốp Cộp",
+    "normalized_name": "huyen_sop_cop"
+  },
+  {
+    "name": "Huyện Kim Sơn",
+    "normalized_name": "huyen_kim_son"
+  },
+  {
+    "name": "Thành phố Bắc Ninh",
+    "normalized_name": "thanh_pho_bac_ninh"
+  },
+  {
+    "name": "Huyện Xuân Trường",
+    "normalized_name": "huyen_xuan_truong"
+  },
+  {
+    "name": "Huyện Bình Tân",
+    "normalized_name": "huyen_binh_tan"
+  },
+  {
+    "name": "Huyện Yên Thủy",
+    "normalized_name": "huyen_yen_thuy"
+  },
+  {
+    "name": "Huyện Mỏ Cày Nam",
+    "normalized_name": "huyen_mo_cay_nam"
+  },
+  {
+    "name": "Huyện Gia Bình",
+    "normalized_name": "huyen_gia_binh"
+  },
+  {
+    "name": "Huyện Tuy Phong",
+    "normalized_name": "huyen_tuy_phong"
+  },
+  {
+    "name": "Huyện Thới Bình",
+    "normalized_name": "huyen_thoi_binh"
+  },
+  {
+    "name": "Huyện Gia Lộc",
+    "normalized_name": "huyen_gia_loc"
+  },
+  {
+    "name": "Huyện Sơn Tịnh",
+    "normalized_name": "huyen_son_tinh"
+  },
+  {
+    "name": "Huyện Krông Bông",
+    "normalized_name": "huyen_krong_bong"
+  },
+  {
+    "name": "Huyện Nam Trực",
+    "normalized_name": "huyen_nam_truc"
+  },
+  {
+    "name": "Huyện Hoành Bồ",
+    "normalized_name": "huyen_hoanh_bo"
+  },
+  {
+    "name": "Huyện Khánh Vĩnh",
+    "normalized_name": "huyen_khanh_vinh"
+  },
+  {
+    "name": "Huyện Vĩnh Lộc",
+    "normalized_name": "huyen_vinh_loc"
+  },
+  {
+    "name": "Thành phố Tân An",
+    "normalized_name": "thanh_pho_tan_an"
+  },
+  {
+    "name": "Huyện Mộ Đức",
+    "normalized_name": "huyen_mo_uc"
+  },
+  {
+    "name": "Quận Kiến An",
+    "normalized_name": "quan_kien_an"
+  },
+  {
+    "name": "Huyện Quế Phong",
+    "normalized_name": "huyen_que_phong"
+  },
+  {
+    "name": "Huyện Tam Dương",
+    "normalized_name": "huyen_tam_duong"
+  },
+  {
+    "name": "Huyện Vũng Liêm",
+    "normalized_name": "huyen_vung_liem"
+  },
+  {
+    "name": "Huyện Đức Huệ",
+    "normalized_name": "huyen_uc_hue"
+  },
+  {
+    "name": "Thành phố Sông Công",
+    "normalized_name": "thanh_pho_song_cong"
+  },
+  {
+    "name": "Huyện Trường Sa",
+    "normalized_name": "huyen_truong_sa"
+  },
+  {
+    "name": "Thành phố Mỹ Tho",
+    "normalized_name": "thanh_pho_my_tho"
+  },
+  {
+    "name": "Huyện Bù Đăng",
+    "normalized_name": "huyen_bu_ang"
+  },
+  {
+    "name": "Quận 11",
+    "normalized_name": "quan_11"
+  },
+  {
+    "name": "Huyện Chợ Gạo",
+    "normalized_name": "huyen_cho_gao"
+  },
+  {
+    "name": "Huyện Chơn Thành",
+    "normalized_name": "huyen_chon_thanh"
+  },
+  {
+    "name": "Huyện Yên Phong",
+    "normalized_name": "huyen_yen_phong"
+  },
+  {
+    "name": "Huyện Thanh Liêm",
+    "normalized_name": "huyen_thanh_liem"
+  },
+  {
+    "name": "Thành phố Hà Giang",
+    "normalized_name": "thanh_pho_ha_giang"
+  },
+  {
+    "name": "Huyện Bình Liêu",
+    "normalized_name": "huyen_binh_lieu"
+  },
+  {
+    "name": "Huyện Sông Hinh",
+    "normalized_name": "huyen_song_hinh"
+  },
+  {
+    "name": "Huyện Phú Quí",
+    "normalized_name": "huyen_phu_qui"
+  },
+  {
+    "name": "Huyện Chợ Lách",
+    "normalized_name": "huyen_cho_lach"
+  },
+  {
+    "name": "Huyện Tiên Yên",
+    "normalized_name": "huyen_tien_yen"
+  },
+  {
+    "name": "Huyện Văn Bàn",
+    "normalized_name": "huyen_van_ban"
+  },
+  {
+    "name": "Huyện Phú Quốc",
+    "normalized_name": "huyen_phu_quoc"
+  },
+  {
+    "name": "Huyện Phục Hoà",
+    "normalized_name": "huyen_phuc_hoa"
+  },
+  {
+    "name": "Thành phố Hội An",
+    "normalized_name": "thanh_pho_hoi_an"
+  },
+  {
+    "name": "Huyện Nam Giang",
+    "normalized_name": "huyen_nam_giang"
+  },
+  {
+    "name": "Huyện Mường Nhé",
+    "normalized_name": "huyen_muong_nhe"
+  },
+  {
+    "name": "Huyện Mỹ Tú",
+    "normalized_name": "huyen_my_tu"
+  },
+  {
+    "name": "Huyện Lục Ngạn",
+    "normalized_name": "huyen_luc_ngan"
+  },
+  {
+    "name": "Huyện Vũ Thư",
+    "normalized_name": "huyen_vu_thu"
+  },
+  {
+    "name": "Huyện Vĩnh Tường",
+    "normalized_name": "huyen_vinh_tuong"
+  },
+  {
+    "name": "Huyện Sơn Hà",
+    "normalized_name": "huyen_son_ha"
+  },
+  {
+    "name": "Thành phố Uông Bí",
+    "normalized_name": "thanh_pho_uong_bi"
+  },
+  {
+    "name": "Thành phố Lai Châu",
+    "normalized_name": "thanh_pho_lai_chau"
+  },
+  {
+    "name": "Huyện Quảng Uyên",
+    "normalized_name": "huyen_quang_uyen"
+  },
+  {
+    "name": "Huyện Chư Pưh",
+    "normalized_name": "huyen_chu_puh"
+  },
+  {
+    "name": "Huyện Cần Giuộc",
+    "normalized_name": "huyen_can_giuoc"
+  },
+  {
+    "name": "Quận Ninh Kiều",
+    "normalized_name": "quan_ninh_kieu"
+  },
+  {
+    "name": "Huyện Tĩnh Gia",
+    "normalized_name": "huyen_tinh_gia"
+  },
+  {
+    "name": "Huyện Cù Lao Dung",
+    "normalized_name": "huyen_cu_lao_dung"
+  },
+  {
+    "name": "Huyện Vân Canh",
+    "normalized_name": "huyen_van_canh"
+  },
+  {
+    "name": "Huyện Bù Gia Mập",
+    "normalized_name": "huyen_bu_gia_map"
+  },
+  {
+    "name": "Thành phố Hưng Yên",
+    "normalized_name": "thanh_pho_hung_yen"
+  },
+  {
+    "name": "Huyện Bù Đốp",
+    "normalized_name": "huyen_bu_op"
+  },
+  {
+    "name": "Huyện Cờ Đỏ",
+    "normalized_name": "huyen_co_o"
+  },
+  {
+    "name": "Thành phố Cao Lãnh",
+    "normalized_name": "thanh_pho_cao_lanh"
+  },
+  {
+    "name": "Huyện Hàm Yên",
+    "normalized_name": "huyen_ham_yen"
+  },
+  {
+    "name": "Huyện Tân Biên",
+    "normalized_name": "huyen_tan_bien"
+  },
+  {
+    "name": "Huyện Bác Ái",
+    "normalized_name": "huyen_bac_ai"
+  },
+  {
+    "name": "Huyện Thống Nhất",
+    "normalized_name": "huyen_thong_nhat"
+  },
+  {
+    "name": "Huyện Mường Khương",
+    "normalized_name": "huyen_muong_khuong"
+  },
+  {
+    "name": "Thị xã Nghĩa Lộ",
+    "normalized_name": "thi_xa_nghia_lo"
+  },
+  {
+    "name": "Huyện Kiên Lương",
+    "normalized_name": "huyen_kien_luong"
+  },
+  {
+    "name": "Huyện Trạm Tấu",
+    "normalized_name": "huyen_tram_tau"
+  },
+  {
+    "name": "Huyện Quảng Điền",
+    "normalized_name": "huyen_quang_ien"
+  },
+  {
+    "name": "Huyện Tiên Phước",
+    "normalized_name": "huyen_tien_phuoc"
+  },
+  {
+    "name": "Thành phố Bảo Lộc",
+    "normalized_name": "thanh_pho_bao_loc"
+  },
+  {
+    "name": "Huyện Hưng Nguyên",
+    "normalized_name": "huyen_hung_nguyen"
+  },
+  {
+    "name": "Huyện Thuỷ Nguyên",
+    "normalized_name": "huyen_thuy_nguyen"
+  },
+  {
+    "name": "Huyện Phù Yên",
+    "normalized_name": "huyen_phu_yen"
+  },
+  {
+    "name": "Huyện Sơn Hòa",
+    "normalized_name": "huyen_son_hoa"
+  },
+  {
+    "name": "Huyện Tuần Giáo",
+    "normalized_name": "huyen_tuan_giao"
+  },
+  {
+    "name": "Thành phố Sóc Trăng",
+    "normalized_name": "thanh_pho_soc_trang"
+  },
+  {
+    "name": "Huyện Gò Quao",
+    "normalized_name": "huyen_go_quao"
+  },
+  {
+    "name": "Thành phố Đồng Xoài",
+    "normalized_name": "thanh_pho_ong_xoai"
+  },
+  {
+    "name": "Huyện Bắc Yên",
+    "normalized_name": "huyen_bac_yen"
+  },
+  {
+    "name": "Huyện Phong Thổ",
+    "normalized_name": "huyen_phong_tho"
+  },
+  {
+    "name": "Quận Nam Từ Liêm",
+    "normalized_name": "quan_nam_tu_liem"
+  },
+  {
+    "name": "Quận Cái Răng",
+    "normalized_name": "quan_cai_rang"
+  },
+  {
+    "name": "Huyện Hà Trung",
+    "normalized_name": "huyen_ha_trung"
+  },
+  {
+    "name": "Huyện Krông Pa",
+    "normalized_name": "huyen_krong_pa"
+  },
+  {
+    "name": "Thị xã Sông Cầu",
+    "normalized_name": "thi_xa_song_cau"
+  },
+  {
+    "name": "Huyện Krông A Na",
+    "normalized_name": "huyen_krong_a_na"
+  },
+  {
+    "name": "Huyện Điện Biên",
+    "normalized_name": "huyen_ien_bien"
+  },
+  {
+    "name": "Thành phố Cẩm Phả",
+    "normalized_name": "thanh_pho_cam_pha"
+  },
+  {
+    "name": "Huyện Yên Định",
+    "normalized_name": "huyen_yen_inh"
+  },
+  {
+    "name": "Thị xã Duyên Hải",
+    "normalized_name": "thi_xa_duyen_hai"
+  },
+  {
+    "name": "Thị xã Phước Long",
+    "normalized_name": "thi_xa_phuoc_long"
+  },
+  {
+    "name": "Huyện Ia H' Drai",
+    "normalized_name": "huyen_ia_huyen_drai"
+  },
+  {
+    "name": "Huyện Thường Tín",
+    "normalized_name": "huyen_thuong_tin"
+  },
+  {
+    "name": "Quận 7",
+    "normalized_name": "quan_7"
+  },
+  {
+    "name": "Huyện Cái Bè",
+    "normalized_name": "huyen_cai_be"
+  },
+  {
+    "name": "Huyện An Minh",
+    "normalized_name": "huyen_an_minh"
+  },
+  {
+    "name": "Thành phố Hòa Bình",
+    "normalized_name": "thanh_pho_hoa_binh"
+  },
+  {
+    "name": "Thị xã Tân Châu",
+    "normalized_name": "thi_xa_tan_chau"
+  },
+  {
+    "name": "Huyện Quảng Ninh",
+    "normalized_name": "huyen_quang_ninh"
+  },
+  {
+    "name": "Huyện Duy Tiên",
+    "normalized_name": "huyen_duy_tien"
+  },
+  {
+    "name": "Huyện Đại Từ",
+    "normalized_name": "huyen_ai_tu"
+  },
+  {
+    "name": "Thành phố Vinh",
+    "normalized_name": "thanh_pho_vinh"
+  },
+  {
+    "name": "Huyện Phú Lộc",
+    "normalized_name": "huyen_phu_loc"
+  },
+  {
+    "name": "Huyện Cư Jút",
+    "normalized_name": "huyen_cu_jut"
+  },
+  {
+    "name": "Huyện Nhà Bè",
+    "normalized_name": "huyen_nha_be"
+  },
+  {
+    "name": "Huyện Nam Trà My",
+    "normalized_name": "huyen_nam_tra_my"
+  },
+  {
+    "name": "Huyện Đại Lộc",
+    "normalized_name": "huyen_ai_loc"
+  },
+  {
+    "name": "Huyện Can Lộc",
+    "normalized_name": "huyen_can_loc"
+  },
+  {
+    "name": "Huyện Đa Krông",
+    "normalized_name": "huyen_a_krong"
+  },
+  {
+    "name": "Thành Phố Đồng Hới",
+    "normalized_name": "thanh_pho_ong_hoi"
+  },
+  {
+    "name": "Huyện Khánh Sơn",
+    "normalized_name": "huyen_khanh_son"
+  },
+  {
+    "name": "Quận Gò Vấp",
+    "normalized_name": "quan_go_vap"
+  },
+  {
+    "name": "Huyện Định Hóa",
+    "normalized_name": "huyen_inh_hoa"
+  },
+  {
+    "name": "Huyện Trực Ninh",
+    "normalized_name": "huyen_truc_ninh"
+  },
+  {
+    "name": "Huyện Ninh Hải",
+    "normalized_name": "huyen_ninh_hai"
+  },
+  {
+    "name": "Huyện Bạch Thông",
+    "normalized_name": "huyen_bach_thong"
+  },
+  {
+    "name": "Huyện Mù Căng Chải",
+    "normalized_name": "huyen_mu_cang_chai"
+  },
+  {
+    "name": "Huyện Văn Lâm",
+    "normalized_name": "huyen_van_lam"
+  },
+  {
+    "name": "Huyện Phú Ninh",
+    "normalized_name": "huyen_phu_ninh"
+  },
+  {
+    "name": "Huyện Như Xuân",
+    "normalized_name": "huyen_nhu_xuan"
+  },
+  {
+    "name": "Thành phố Lào Cai",
+    "normalized_name": "thanh_pho_lao_cai"
+  },
+  {
+    "name": "Huyện Thuận Châu",
+    "normalized_name": "huyen_thuan_chau"
+  },
+  {
+    "name": "Huyện Nam Sách",
+    "normalized_name": "huyen_nam_sach"
+  },
+  {
+    "name": "Huyện Nậm Pồ",
+    "normalized_name": "huyen_nam_po"
+  },
+  {
+    "name": "Huyện Phú Lương",
+    "normalized_name": "huyen_phu_luong"
+  },
+  {
+    "name": "Huyện Đô Lương",
+    "normalized_name": "huyen_o_luong"
+  },
+  {
+    "name": "Thị xã Từ Sơn",
+    "normalized_name": "thi_xa_tu_son"
+  },
+  {
+    "name": "Huyện Sơn Dương",
+    "normalized_name": "huyen_son_duong"
+  },
+  {
+    "name": "Huyện Vân Đồn",
+    "normalized_name": "huyen_van_on"
+  },
+  {
+    "name": "Huyện Hương Sơn",
+    "normalized_name": "huyen_huong_son"
+  },
+  {
+    "name": "Thành phố Pleiku",
+    "normalized_name": "thanh_pho_pleiku"
+  },
+  {
+    "name": "Huyện Mê Linh",
+    "normalized_name": "huyen_me_linh"
+  },
+  {
+    "name": "Huyện Kon Rẫy",
+    "normalized_name": "huyen_kon_ray"
+  },
+  {
+    "name": "Quận Thốt Nốt",
+    "normalized_name": "quan_thot_not"
+  },
+  {
+    "name": "Thành phố Bến Tre",
+    "normalized_name": "thanh_pho_ben_tre"
+  },
+  {
+    "name": "Huyện Thuận Nam",
+    "normalized_name": "huyen_thuan_nam"
+  },
+  {
+    "name": "Huyện Mường La",
+    "normalized_name": "huyen_muong_la"
+  },
+  {
+    "name": "Thị xã Bến Cát",
+    "normalized_name": "thi_xa_ben_cat"
+  },
+  {
+    "name": "Thị xã Ngã Năm",
+    "normalized_name": "thi_xa_nga_nam"
+  },
+  {
+    "name": "Huyện Cô Tô",
+    "normalized_name": "huyen_co_to"
+  },
+  {
+    "name": "Huyện Dương Minh Châu",
+    "normalized_name": "huyen_duong_minh_chau"
+  },
+  {
+    "name": "Thành phố Tuy Hoà",
+    "normalized_name": "thanh_pho_tuy_hoa"
+  },
+  {
+    "name": "Huyện Trảng Bàng",
+    "normalized_name": "huyen_trang_bang"
+  },
+  {
+    "name": "Huyện Mường Tè",
+    "normalized_name": "huyen_muong_te"
+  },
+  {
+    "name": "Huyện Tứ Kỳ",
+    "normalized_name": "huyen_tu_ky"
+  },
+  {
+    "name": "Huyện Đông Anh",
+    "normalized_name": "huyen_ong_anh"
+  },
+  {
+    "name": "Huyện Tân Lạc",
+    "normalized_name": "huyen_tan_lac"
+  },
+  {
+    "name": "Quận Hoàng Mai",
+    "normalized_name": "quan_hoang_mai"
+  },
+  {
+    "name": "Huyện Mộc Châu",
+    "normalized_name": "huyen_moc_chau"
+  },
+  {
+    "name": "Huyện Lạc Dương",
+    "normalized_name": "huyen_lac_duong"
+  },
+  {
+    "name": "Huyện Vụ Bản",
+    "normalized_name": "huyen_vu_ban"
+  },
+  {
+    "name": "Huyện Tân Hiệp",
+    "normalized_name": "huyen_tan_hiep"
+  },
+  {
+    "name": "Huyện Trấn Yên",
+    "normalized_name": "huyen_tran_yen"
+  },
+  {
+    "name": "Huyện Phú Tân",
+    "normalized_name": "huyen_phu_tan"
+  },
+  {
+    "name": "Huyện Than Uyên",
+    "normalized_name": "huyen_than_uyen"
+  },
+  {
+    "name": "Huyện Tuy Phước",
+    "normalized_name": "huyen_tuy_phuoc"
+  },
+  {
+    "name": "Huyện Di Linh",
+    "normalized_name": "huyen_di_linh"
+  },
+  {
+    "name": "Quận Ba Đình",
+    "normalized_name": "quan_ba_inh"
+  },
+  {
+    "name": "Huyện Hiệp Đức",
+    "normalized_name": "huyen_hiep_uc"
+  },
+  {
+    "name": "Huyện Phù Cát",
+    "normalized_name": "huyen_phu_cat"
+  },
+  {
+    "name": "Huyện Thanh Miện",
+    "normalized_name": "huyen_thanh_mien"
+  },
+  {
+    "name": "Huyện Phú Giáo",
+    "normalized_name": "huyen_phu_giao"
+  },
+  {
+    "name": "Thị xã An Khê",
+    "normalized_name": "thi_xa_an_khe"
+  },
+  {
+    "name": "Huyện Mang Yang",
+    "normalized_name": "huyen_mang_yang"
+  },
+  {
+    "name": "Huyện Văn Chấn",
+    "normalized_name": "huyen_van_chan"
+  },
+  {
+    "name": "Thành phố Quảng Ngãi",
+    "normalized_name": "thanh_pho_quang_ngai"
+  },
+  {
+    "name": "Huyện Hàm Tân",
+    "normalized_name": "huyen_ham_tan"
+  },
+  {
+    "name": "Thành phố Tuyên Quang",
+    "normalized_name": "thanh_pho_tuyen_quang"
+  },
+  {
+    "name": "Thị xã Ba Đồn",
+    "normalized_name": "thi_xa_ba_on"
+  },
+  {
+    "name": "Huyện Duyên Hải",
+    "normalized_name": "huyen_duyen_hai"
+  },
+  {
+    "name": "Huyện Hóc Môn",
+    "normalized_name": "huyen_hoc_mon"
+  },
+  {
+    "name": "Huyện Tam Bình",
+    "normalized_name": "huyen_tam_binh"
+  },
+  {
+    "name": "Huyện Chiêm Hóa",
+    "normalized_name": "huyen_chiem_hoa"
+  },
+  {
+    "name": "Huyện Hà Quảng",
+    "normalized_name": "huyen_ha_quang"
+  },
+  {
+    "name": "Thành phố Tây Ninh",
+    "normalized_name": "thanh_pho_tay_ninh"
+  },
+  {
+    "name": "Huyện Yên Minh",
+    "normalized_name": "huyen_yen_minh"
+  },
+  {
+    "name": "Huyện Bình Sơn",
+    "normalized_name": "huyen_binh_son"
+  },
+  {
+    "name": "Huyện Đức Cơ",
+    "normalized_name": "huyen_uc_co"
+  },
+  {
+    "name": "Huyện Quỳnh Nhai",
+    "normalized_name": "huyen_quynh_nhai"
+  },
+  {
+    "name": "Huyện Yên Mô",
+    "normalized_name": "huyen_yen_mo"
+  },
+  {
+    "name": "Huyện Yên Dũng",
+    "normalized_name": "huyen_yen_dung"
+  },
+  {
+    "name": "Huyện Vĩnh Linh",
+    "normalized_name": "huyen_vinh_linh"
+  },
+  {
+    "name": "Huyện Hoài Ân",
+    "normalized_name": "huyen_hoai_an"
+  },
+  {
+    "name": "Thành phố Vị Thanh",
+    "normalized_name": "thanh_pho_vi_thanh"
+  },
+  {
+    "name": "Huyện Nga Sơn",
+    "normalized_name": "huyen_nga_son"
+  },
+  {
+    "name": "Huyện Kông Chro",
+    "normalized_name": "huyen_kong_chro"
+  },
+  {
+    "name": "Quận 12",
+    "normalized_name": "quan_12"
+  },
+  {
+    "name": "Huyện Đông Sơn",
+    "normalized_name": "huyen_ong_son"
+  },
+  {
+    "name": "Huyện Lang Chánh",
+    "normalized_name": "huyen_lang_chanh"
+  },
+  {
+    "name": "Huyện Vĩnh Thuận",
+    "normalized_name": "huyen_vinh_thuan"
+  },
+  {
+    "name": "Huyện Châu Thành A",
+    "normalized_name": "huyen_chau_thanh_a"
+  },
+  {
+    "name": "Huyện Trần Đề",
+    "normalized_name": "huyen_tran_e"
+  },
+  {
+    "name": "Thành phố Thanh Hóa",
+    "normalized_name": "thanh_pho_thanh_hoa"
+  },
+  {
+    "name": "Huyện Nghĩa Hành",
+    "normalized_name": "huyen_nghia_hanh"
+  },
+  {
+    "name": "Huyện Hải Hậu",
+    "normalized_name": "huyen_hai_hau"
+  },
+  {
+    "name": "Huyện Phù Cừ",
+    "normalized_name": "huyen_phu_cu"
+  },
+  {
+    "name": "Huyện Kỳ Anh",
+    "normalized_name": "huyen_ky_anh"
+  },
+  {
+    "name": "Thị xã Phú Mỹ",
+    "normalized_name": "thi_xa_phu_my"
+  },
+  {
+    "name": "Quận Long Biên",
+    "normalized_name": "quan_long_bien"
+  },
+  {
+    "name": "Quận 6",
+    "normalized_name": "quan_6"
+  },
+  {
+    "name": "Thị xã Phổ Yên",
+    "normalized_name": "thi_xa_pho_yen"
+  },
+  {
+    "name": "Huyện Mèo Vạc",
+    "normalized_name": "huyen_meo_vac"
+  },
+  {
+    "name": "Huyện Đăk Đoa",
+    "normalized_name": "huyen_ak_oa"
+  },
+  {
+    "name": "Huyện Ea H'leo",
+    "normalized_name": "huyen_ea_huyen_leo"
+  },
+  {
+    "name": "Huyện Tân Phú",
+    "normalized_name": "huyen_tan_phu"
+  },
+  {
+    "name": "Huyện Giồng Riềng",
+    "normalized_name": "huyen_giong_rieng"
+  },
+  {
+    "name": "Huyện Sông Mã",
+    "normalized_name": "huyen_song_ma"
+  },
+  {
+    "name": "Huyện Nghĩa Đàn",
+    "normalized_name": "huyen_nghia_an"
+  },
+  {
+    "name": "Huyện Lục Yên",
+    "normalized_name": "huyen_luc_yen"
+  },
+  {
+    "name": "Huyện Quỳ Châu",
+    "normalized_name": "huyen_quy_chau"
+  },
+  {
+    "name": "Huyện Cẩm Mỹ",
+    "normalized_name": "huyen_cam_my"
+  },
+  {
+    "name": "Huyện Vĩnh Cửu",
+    "normalized_name": "huyen_vinh_cuu"
+  },
+  {
+    "name": "Huyện Bảo Thắng",
+    "normalized_name": "huyen_bao_thang"
+  },
+  {
+    "name": "Huyện Bình Gia",
+    "normalized_name": "huyen_binh_gia"
+  },
+  {
+    "name": "Huyện Đắk Mil",
+    "normalized_name": "huyen_ak_mil"
+  },
+  {
+    "name": "Huyện Đầm Dơi",
+    "normalized_name": "huyen_am_doi"
+  },
+  {
+    "name": "Quận Ngô Quyền",
+    "normalized_name": "quan_ngo_quyen"
+  },
+  {
+    "name": "Huyện Trảng Bom",
+    "normalized_name": "huyen_trang_bom"
+  },
+  {
+    "name": "Huyện Ba Bể",
+    "normalized_name": "huyen_ba_be"
+  },
+  {
+    "name": "Huyện Phú Bình",
+    "normalized_name": "huyen_phu_binh"
+  },
+  {
+    "name": "Huyện Quan Hóa",
+    "normalized_name": "huyen_quan_hoa"
+  },
+  {
+    "name": "Huyện Châu Đức",
+    "normalized_name": "huyen_chau_uc"
+  },
+  {
+    "name": "Huyện Long Thành",
+    "normalized_name": "huyen_long_thanh"
+  },
+  {
+    "name": "Huyện Bảo Lạc",
+    "normalized_name": "huyen_bao_lac"
+  },
+  {
+    "name": "Huyện Hòa Thành",
+    "normalized_name": "huyen_hoa_thanh"
+  },
+  {
+    "name": "Huyện KBang",
+    "normalized_name": "huyen_kbang"
+  },
+  {
+    "name": "Huyện Bắc Quang",
+    "normalized_name": "huyen_bac_quang"
+  },
+  {
+    "name": "Quận Dương Kinh",
+    "normalized_name": "quan_duong_kinh"
+  },
+  {
+    "name": "Huyện Đạ Huoai",
+    "normalized_name": "huyen_a_huoai"
+  },
+  {
+    "name": "Thành phố Long Xuyên",
+    "normalized_name": "thanh_pho_long_xuyen"
+  },
+  {
+    "name": "Thị xã La Gi",
+    "normalized_name": "thi_xa_la_gi"
+  },
+  {
+    "name": "Huyện Ia Pa",
+    "normalized_name": "huyen_ia_pa"
+  },
+  {
+    "name": "Huyện Minh Hóa",
+    "normalized_name": "huyen_minh_hoa"
+  },
+  {
+    "name": "Huyện Ứng Hòa",
+    "normalized_name": "huyen_ung_hoa"
+  },
+  {
+    "name": "Huyện Thạch An",
+    "normalized_name": "huyen_thach_an"
+  },
+  {
+    "name": "Huyện Nam Đông",
+    "normalized_name": "huyen_nam_ong"
+  },
+  {
+    "name": "Huyện Tịnh Biên",
+    "normalized_name": "huyen_tinh_bien"
+  },
+  {
+    "name": "Quận 9",
+    "normalized_name": "quan_9"
+  },
+  {
+    "name": "Huyện Đắk Hà",
+    "normalized_name": "huyen_ak_ha"
+  },
+  {
+    "name": "Quận Bắc Từ Liêm",
+    "normalized_name": "quan_bac_tu_liem"
+  },
+  {
+    "name": "Quận Thanh Xuân",
+    "normalized_name": "quan_thanh_xuan"
+  },
+  {
+    "name": "Huyện Hoàng Su Phì",
+    "normalized_name": "huyen_hoang_su_phi"
+  },
+  {
+    "name": "Quận Lê Chân",
+    "normalized_name": "quan_le_chan"
+  },
+  {
+    "name": "Huyện Chương Mỹ",
+    "normalized_name": "huyen_chuong_my"
+  },
+  {
+    "name": "Huyện Phong Điền",
+    "normalized_name": "huyen_phong_ien"
+  },
+  {
+    "name": "Huyện Phú Thiện",
+    "normalized_name": "huyen_phu_thien"
+  },
+  {
+    "name": "Huyện Long Phú",
+    "normalized_name": "huyen_long_phu"
+  },
+  {
+    "name": "Thành phố Vũng Tàu",
+    "normalized_name": "thanh_pho_vung_tau"
+  },
+  {
+    "name": "Huyện Tủa Chùa",
+    "normalized_name": "huyen_tua_chua"
+  },
+  {
+    "name": "Huyện Việt Yên",
+    "normalized_name": "huyen_viet_yen"
+  },
+  {
+    "name": "Thị xã Phú Thọ",
+    "normalized_name": "thi_xa_phu_tho"
+  },
+  {
+    "name": "Huyện Châu Phú",
+    "normalized_name": "huyen_chau_phu"
+  },
+  {
+    "name": "Huyện Cầu Ngang",
+    "normalized_name": "huyen_cau_ngang"
+  },
+  {
+    "name": "Huyện Gia Viễn",
+    "normalized_name": "huyen_gia_vien"
+  },
+  {
+    "name": "Huyện Quỳnh Phụ",
+    "normalized_name": "huyen_quynh_phu"
+  },
+  {
+    "name": "Huyện Duy Xuyên",
+    "normalized_name": "huyen_duy_xuyen"
+  },
+  {
+    "name": "Thành phố Rạch Giá",
+    "normalized_name": "thanh_pho_rach_gia"
+  },
+  {
+    "name": "Huyện Đan Phượng",
+    "normalized_name": "huyen_an_phuong"
+  },
+  {
+    "name": "Huyện Bắc Mê",
+    "normalized_name": "huyen_bac_me"
+  },
+  {
+    "name": "Huyện Giao Thủy",
+    "normalized_name": "huyen_giao_thuy"
+  },
+  {
+    "name": "Quận Tân Bình",
+    "normalized_name": "quan_tan_binh"
+  },
+  {
+    "name": "Thành phố Tam Điệp",
+    "normalized_name": "thanh_pho_tam_iep"
+  },
+  {
+    "name": "Thị xã Thái Hoà",
+    "normalized_name": "thi_xa_thai_hoa"
+  },
+  {
+    "name": "Thành phố Đông Hà",
+    "normalized_name": "thanh_pho_ong_ha"
+  },
+  {
+    "name": "Huyện Tây Giang",
+    "normalized_name": "huyen_tay_giang"
+  },
+  {
+    "name": "Huyện Đức Hòa",
+    "normalized_name": "huyen_uc_hoa"
+  },
+  {
+    "name": "Thành phố Long Khánh",
+    "normalized_name": "thanh_pho_long_khanh"
+  },
+  {
+    "name": "Quận Thủ Đức",
+    "normalized_name": "quan_thu_uc"
+  },
+  {
+    "name": "Huyện Đăk Glong",
+    "normalized_name": "huyen_ak_glong"
+  },
+  {
+    "name": "Huyện Văn Giang",
+    "normalized_name": "huyen_van_giang"
+  },
+  {
+    "name": "Huyện Lập Thạch",
+    "normalized_name": "huyen_lap_thach"
+  },
+  {
+    "name": "Huyện Quế Võ",
+    "normalized_name": "huyen_que_vo"
+  },
+  {
+    "name": "Huyện Khoái Châu",
+    "normalized_name": "huyen_khoai_chau"
+  },
+  {
+    "name": "Thị Xã Buôn Hồ",
+    "normalized_name": "thi_xa_buon_ho"
+  },
+  {
+    "name": "Thành phố Đà Lạt",
+    "normalized_name": "thanh_pho_a_lat"
+  },
+  {
+    "name": "Huyện Diễn Châu",
+    "normalized_name": "huyen_dien_chau"
+  },
+  {
+    "name": "Huyện Đông Hòa",
+    "normalized_name": "huyen_ong_hoa"
+  },
+  {
+    "name": "Huyện Buôn Đôn",
+    "normalized_name": "huyen_buon_on"
+  },
+  {
+    "name": "Huyện Ia Grai",
+    "normalized_name": "huyen_ia_grai"
+  },
+  {
+    "name": "Huyện M'Đrắk",
+    "normalized_name": "huyen_m_rak"
+  },
+  {
+    "name": "Huyện Lấp Vò",
+    "normalized_name": "huyen_lap_vo"
+  },
+  {
+    "name": "Huyện Cát Tiên",
+    "normalized_name": "huyen_cat_tien"
+  },
+  {
+    "name": "Huyện An Phú",
+    "normalized_name": "huyen_an_phu"
+  },
+  {
+    "name": "Quận Phú Nhuận",
+    "normalized_name": "quan_phu_nhuan"
+  },
+  {
+    "name": "Huyện Kim Bảng",
+    "normalized_name": "huyen_kim_bang"
+  },
+  {
+    "name": "Huyện Hoằng Hóa",
+    "normalized_name": "huyen_hoang_hoa"
+  },
+  {
+    "name": "Huyện Đam Rông",
+    "normalized_name": "huyen_am_rong"
+  },
+  {
+    "name": "Huyện Lộc Bình",
+    "normalized_name": "huyen_loc_binh"
+  },
+  {
+    "name": "Quận 3",
+    "normalized_name": "quan_3"
+  },
+  {
+    "name": "Huyện Dầu Tiếng",
+    "normalized_name": "huyen_dau_tieng"
+  },
+  {
+    "name": "Thành phố Thái Nguyên",
+    "normalized_name": "thanh_pho_thai_nguyen"
+  },
+  {
+    "name": "Huyện Năm Căn",
+    "normalized_name": "huyen_nam_can"
+  },
+  {
+    "name": "Huyện Đồng Phú",
+    "normalized_name": "huyen_ong_phu"
+  },
+  {
+    "name": "Quận Tây Hồ",
+    "normalized_name": "quan_tay_ho"
+  },
+  {
+    "name": "Huyện Na Hang",
+    "normalized_name": "huyen_na_hang"
+  },
+  {
+    "name": "Huyện Diên Khánh",
+    "normalized_name": "huyen_dien_khanh"
+  },
+  {
+    "name": "Thị xã Giá Rai",
+    "normalized_name": "thi_xa_gia_rai"
+  },
+  {
+    "name": "Thị xã Bình Minh",
+    "normalized_name": "thi_xa_binh_minh"
+  },
+  {
+    "name": "Huyện Lạc Sơn",
+    "normalized_name": "huyen_lac_son"
+  },
+  {
+    "name": "Huyện Tân Uyên",
+    "normalized_name": "huyen_tan_uyen"
+  },
+  {
+    "name": "Thị xã Bình Long",
+    "normalized_name": "thi_xa_binh_long"
+  },
+  {
+    "name": "Huyện Krông Pắc",
+    "normalized_name": "huyen_krong_pac"
+  },
+  {
+    "name": "Huyện Đức Trọng",
+    "normalized_name": "huyen_uc_trong"
+  },
+  {
+    "name": "Huyện Quốc Oai",
+    "normalized_name": "huyen_quoc_oai"
+  },
+  {
+    "name": "Huyện Mường Chà",
+    "normalized_name": "huyen_muong_cha"
+  },
+  {
+    "name": "Huyện Giồng Trôm",
+    "normalized_name": "huyen_giong_trom"
+  },
+  {
+    "name": "Quận 10",
+    "normalized_name": "quan_10"
+  },
+  {
+    "name": "Thành Phố Bắc Kạn",
+    "normalized_name": "thanh_pho_bac_kan"
+  },
+  {
+    "name": "Huyện Sông Lô",
+    "normalized_name": "huyen_song_lo"
+  },
+  {
+    "name": "Thị xã Gia Nghĩa",
+    "normalized_name": "thi_xa_gia_nghia"
+  },
+  {
+    "name": "Huyện Lý Nhân",
+    "normalized_name": "huyen_ly_nhan"
+  },
+  {
+    "name": "Huyện Yên Thế",
+    "normalized_name": "huyen_yen_the"
+  },
+  {
+    "name": "Huyện Cư Kuin",
+    "normalized_name": "huyen_cu_kuin"
+  },
+  {
+    "name": "Huyện Mộc Hóa",
+    "normalized_name": "huyen_moc_hoa"
+  },
+  {
+    "name": "Thị xã Tân Uyên",
+    "normalized_name": "thi_xa_tan_uyen"
+  },
+  {
+    "name": "Quận Thanh Khê",
+    "normalized_name": "quan_thanh_khe"
+  },
+  {
+    "name": "Huyện Vĩnh Hưng",
+    "normalized_name": "huyen_vinh_hung"
+  },
+  {
+    "name": "Huyện Tây Trà",
+    "normalized_name": "huyen_tay_tra"
+  },
+  {
+    "name": "Huyện Hương Khê",
+    "normalized_name": "huyen_huong_khe"
+  },
+  {
+    "name": "Huyện Văn Quan",
+    "normalized_name": "huyen_van_quan"
+  },
+  {
+    "name": "Huyện Thanh Bình",
+    "normalized_name": "huyen_thanh_binh"
+  },
+  {
+    "name": "Huyện Vũ Quang",
+    "normalized_name": "huyen_vu_quang"
+  },
+  {
+    "name": "Huyện Giang Thành",
+    "normalized_name": "huyen_giang_thanh"
+  },
+  {
+    "name": "Thành phố Phủ Lý",
+    "normalized_name": "thanh_pho_phu_ly"
+  },
+  {
+    "name": "Huyện Đắk Tô",
+    "normalized_name": "huyen_ak_to"
+  },
+  {
+    "name": "Huyện Tuy Đức",
+    "normalized_name": "huyen_tuy_uc"
+  },
+  {
+    "name": "Thành phố Buôn Ma Thuột",
+    "normalized_name": "thanh_pho_buon_ma_thuot"
+  },
+  {
+    "name": "Quận Hoàn Kiếm",
+    "normalized_name": "quan_hoan_kiem"
+  },
+  {
+    "name": "Huyện Na Rì",
+    "normalized_name": "huyen_na_ri"
+  },
+  {
+    "name": "Huyện Lâm Thao",
+    "normalized_name": "huyen_lam_thao"
+  },
+  {
+    "name": "Huyện Yên Lạc",
+    "normalized_name": "huyen_yen_lac"
+  },
+  {
+    "name": "Huyện Yên Mỹ",
+    "normalized_name": "huyen_yen_my"
+  },
+  {
+    "name": "Thành phố Hạ Long",
+    "normalized_name": "thanh_pho_ha_long"
+  },
+  {
+    "name": "Thị xã Hương Trà",
+    "normalized_name": "thi_xa_huong_tra"
+  },
+  {
+    "name": "Huyện Đắk Song",
+    "normalized_name": "huyen_ak_song"
+  },
+  {
+    "name": "Huyện Đoan Hùng",
+    "normalized_name": "huyen_oan_hung"
+  },
+  {
+    "name": "Thành phố Vĩnh Long",
+    "normalized_name": "thanh_pho_vinh_long"
+  },
+  {
+    "name": "Huyện Tiên Du",
+    "normalized_name": "huyen_tien_du"
+  },
+  {
+    "name": "Huyện Vân Hồ",
+    "normalized_name": "huyen_van_ho"
+  },
+  {
+    "name": "Huyện Mường Ảng",
+    "normalized_name": "huyen_muong_ang"
+  },
+  {
+    "name": "Huyện Xín Mần",
+    "normalized_name": "huyen_xin_man"
+  },
+  {
+    "name": "Huyện Phú Hoà",
+    "normalized_name": "huyen_phu_hoa"
+  },
+  {
+    "name": "Huyện Gò Công Đông",
+    "normalized_name": "huyen_go_cong_ong"
+  },
+  {
+    "name": "Huyện Ngọc Hồi",
+    "normalized_name": "huyen_ngoc_hoi"
+  },
+  {
+    "name": "Huyện Đồng Xuân",
+    "normalized_name": "huyen_ong_xuan"
+  },
+  {
+    "name": "Huyện Kon Plông",
+    "normalized_name": "huyen_kon_plong"
+  },
+  {
+    "name": "Huyện Sóc Sơn",
+    "normalized_name": "huyen_soc_son"
+  },
+  {
+    "name": "Huyện Tân Trụ",
+    "normalized_name": "huyen_tan_tru"
+  },
+  {
+    "name": "Huyện Mỏ Cày Bắc",
+    "normalized_name": "huyen_mo_cay_bac"
+  },
+  {
+    "name": "Thành phố Qui Nhơn",
+    "normalized_name": "thanh_pho_qui_nhon"
+  },
+  {
+    "name": "Huyện Thạch Thành",
+    "normalized_name": "huyen_thach_thanh"
+  },
+  {
+    "name": "Huyện Thạnh Phú",
+    "normalized_name": "huyen_thanh_phu"
+  },
+  {
+    "name": "Thị xã Vĩnh Châu",
+    "normalized_name": "thi_xa_vinh_chau"
+  },
+  {
+    "name": "Thành phố Bắc Giang",
+    "normalized_name": "thanh_pho_bac_giang"
+  },
+  {
+    "name": "Huyện Kiên Hải",
+    "normalized_name": "huyen_kien_hai"
+  },
+  {
+    "name": "Huyện Đầm Hà",
+    "normalized_name": "huyen_am_ha"
+  },
+  {
+    "name": "Huyện Đồng Hỷ",
+    "normalized_name": "huyen_ong_hy"
+  },
+  {
+    "name": "Huyện Đình Lập",
+    "normalized_name": "huyen_inh_lap"
+  },
+  {
+    "name": "Huyện Thuận Bắc",
+    "normalized_name": "huyen_thuan_bac"
+  },
+  {
+    "name": "Huyện Bát Xát",
+    "normalized_name": "huyen_bat_xat"
+  },
+  {
+    "name": "Quận Hải An",
+    "normalized_name": "quan_hai_an"
+  },
+  {
+    "name": "Huyện Thạnh Hóa",
+    "normalized_name": "huyen_thanh_hoa"
+  },
+  {
+    "name": "Huyện Cầu Kè",
+    "normalized_name": "huyen_cau_ke"
+  },
+  {
+    "name": "Thị xã Ayun Pa",
+    "normalized_name": "thi_xa_ayun_pa"
+  },
+  {
+    "name": "Huyện Quang Bình",
+    "normalized_name": "huyen_quang_binh"
+  },
+  {
+    "name": "Huyện Bá Thước",
+    "normalized_name": "huyen_ba_thuoc"
+  },
+  {
+    "name": "Huyện Ngân Sơn",
+    "normalized_name": "huyen_ngan_son"
+  },
+  {
+    "name": "Thành phố Điện Biên Phủ",
+    "normalized_name": "thanh_pho_ien_bien_phu"
+  },
+  {
+    "name": "Thành phố Nha Trang",
+    "normalized_name": "thanh_pho_nha_trang"
+  },
+  {
+    "name": "Huyện Nho Quan",
+    "normalized_name": "huyen_nho_quan"
+  },
+  {
+    "name": "Huyện Xuân Lộc",
+    "normalized_name": "huyen_xuan_loc"
+  },
+  {
+    "name": "Huyện Gò Dầu",
+    "normalized_name": "huyen_go_dau"
+  },
+  {
+    "name": "Huyện Đông Hưng",
+    "normalized_name": "huyen_ong_hung"
+  },
+  {
+    "name": "Huyện Tam Đường",
+    "normalized_name": "huyen_tam_uong"
+  },
+  {
+    "name": "Quận 8",
+    "normalized_name": "quan_8"
+  },
+  {
+    "name": "Huyện Lương Sơn",
+    "normalized_name": "huyen_luong_son"
+  },
+  {
+    "name": "Huyện Bắc Sơn",
+    "normalized_name": "huyen_bac_son"
+  },
+  {
+    "name": "Thị xã Quảng Trị",
+    "normalized_name": "thi_xa_quang_tri"
+  },
+  {
+    "name": "Huyện Trần Văn Thời",
+    "normalized_name": "huyen_tran_van_thoi"
+  },
+  {
+    "name": "Huyện Đắk R'Lấp",
+    "normalized_name": "huyen_ak_r_lap"
+  },
+  {
+    "name": "Quận Hải Châu",
+    "normalized_name": "quan_hai_chau"
+  },
+  {
+    "name": "Huyện Lộc Hà",
+    "normalized_name": "huyen_loc_ha"
+  },
+  {
+    "name": "Huyện Ba Chẽ",
+    "normalized_name": "huyen_ba_che"
+  },
+  {
+    "name": "Thành phố Phan Thiết",
+    "normalized_name": "thanh_pho_phan_thiet"
+  },
+  {
+    "name": "Huyện Tháp Mười",
+    "normalized_name": "huyen_thap_muoi"
+  },
+  {
+    "name": "Huyện Bình Giang",
+    "normalized_name": "huyen_binh_giang"
+  },
+  {
+    "name": "Huyện Cam Lâm",
+    "normalized_name": "huyen_cam_lam"
+  },
+  {
+    "name": "Quận Liên Chiểu",
+    "normalized_name": "quan_lien_chieu"
+  },
+  {
+    "name": "Huyện Lắk",
+    "normalized_name": "huyen_lak"
+  },
+  {
+    "name": "Huyện Bàu Bàng",
+    "normalized_name": "huyen_bau_bang"
+  },
+  {
+    "name": "Huyện Thanh Ba",
+    "normalized_name": "huyen_thanh_ba"
+  },
+  {
+    "name": "Huyện Thanh Hà",
+    "normalized_name": "huyen_thanh_ha"
+  },
+  {
+    "name": "Huyện Tân Hưng",
+    "normalized_name": "huyen_tan_hung"
+  },
+  {
+    "name": "Thành phố Bà Rịa",
+    "normalized_name": "thanh_pho_ba_ria"
+  },
+  {
+    "name": "Huyện Mai Sơn",
+    "normalized_name": "huyen_mai_son"
+  },
+  {
+    "name": "Huyện Chư Păh",
+    "normalized_name": "huyen_chu_pah"
+  },
+  {
+    "name": "Huyện Hưng Hà",
+    "normalized_name": "huyen_hung_ha"
+  },
+  {
+    "name": "Thị xã Thuận An",
+    "normalized_name": "thi_xa_thuan_an"
+  },
+  {
+    "name": "Huyện Nghi Lộc",
+    "normalized_name": "huyen_nghi_loc"
+  },
+  {
+    "name": "Quận Hồng Bàng",
+    "normalized_name": "quan_hong_bang"
+  },
+  {
+    "name": "Huyện Hòn Đất",
+    "normalized_name": "huyen_hon_at"
+  },
+  {
+    "name": "Huyện Mỹ Xuyên",
+    "normalized_name": "huyen_my_xuyen"
+  },
+  {
+    "name": "Huyện Thới Lai",
+    "normalized_name": "huyen_thoi_lai"
+  },
+  {
+    "name": "Thành phố Cà Mau",
+    "normalized_name": "thanh_pho_ca_mau"
+  },
+  {
+    "name": "Huyện Kiến Thuỵ",
+    "normalized_name": "huyen_kien_thuy"
+  },
+  {
+    "name": "Huyện Yên Bình",
+    "normalized_name": "huyen_yen_binh"
+  },
+  {
+    "name": "Huyện Ninh Giang",
+    "normalized_name": "huyen_ninh_giang"
+  },
+  {
+    "name": "Huyện Phước Sơn",
+    "normalized_name": "huyen_phuoc_son"
+  },
+  {
+    "name": "Huyện Ba Vì",
+    "normalized_name": "huyen_ba_vi"
+  },
+  {
+    "name": "Huyện Gia Lâm",
+    "normalized_name": "huyen_gia_lam"
+  },
+  {
+    "name": "Huyện Lý Sơn",
+    "normalized_name": "huyen_ly_son"
+  },
+  {
+    "name": "Huyện Thanh Sơn",
+    "normalized_name": "huyen_thanh_son"
+  },
+  {
+    "name": "Huyện Bắc Bình",
+    "normalized_name": "huyen_bac_binh"
+  },
+  {
+    "name": "Huyện Ngọc Hiển",
+    "normalized_name": "huyen_ngoc_hien"
+  },
+  {
+    "name": "Huyện Điện Biên Đông",
+    "normalized_name": "huyen_ien_bien_ong"
+  },
+  {
+    "name": "Quận 4",
+    "normalized_name": "quan_4"
+  },
+  {
+    "name": "Thành phố Hà Tĩnh",
+    "normalized_name": "thanh_pho_ha_tinh"
+  },
+  {
+    "name": "Huyện Kim Thành",
+    "normalized_name": "huyen_kim_thanh"
+  },
+  {
+    "name": "Huyện Chợ Đồn",
+    "normalized_name": "huyen_cho_on"
+  },
+  {
+    "name": "Huyện Vĩnh Thạnh",
+    "normalized_name": "huyen_vinh_thanh"
+  },
+  {
+    "name": "Huyện Tư Nghĩa",
+    "normalized_name": "huyen_tu_nghia"
+  },
+  {
+    "name": "Huyện Núi Thành",
+    "normalized_name": "huyen_nui_thanh"
+  },
+  {
+    "name": "Huyện Sơn Động",
+    "normalized_name": "huyen_son_ong"
+  },
+  {
+    "name": "Huyện Đức Phổ",
+    "normalized_name": "huyen_uc_pho"
+  },
+  {
+    "name": "Thành phố Thủ Dầu Một",
+    "normalized_name": "thanh_pho_thu_dau_mot"
+  },
+  {
+    "name": "Huyện Vị Xuyên",
+    "normalized_name": "huyen_vi_xuyen"
+  },
+  {
+    "name": "Huyện Kim Bôi",
+    "normalized_name": "huyen_kim_boi"
+  },
+  {
+    "name": "Thành phố Cao Bằng",
+    "normalized_name": "thanh_pho_cao_bang"
+  },
+  {
+    "name": "Huyện Thuận Thành",
+    "normalized_name": "huyen_thuan_thanh"
+  },
+  {
+    "name": "Thị xã Kiến Tường",
+    "normalized_name": "thi_xa_kien_tuong"
+  },
+  {
+    "name": "Thị xã Ninh Hòa",
+    "normalized_name": "thi_xa_ninh_hoa"
+  },
+  {
+    "name": "Huyện Tiên Lãng",
+    "normalized_name": "huyen_tien_lang"
+  },
+  {
+    "name": "Huyện Vạn Ninh",
+    "normalized_name": "huyen_van_ninh"
+  },
+  {
+    "name": "Huyện Pác Nặm",
+    "normalized_name": "huyen_pac_nam"
+  },
+  {
+    "name": "Thành phố Hà Tiên",
+    "normalized_name": "thanh_pho_ha_tien"
+  },
+  {
+    "name": "Thành phố Sơn La",
+    "normalized_name": "thanh_pho_son_la"
+  },
+  {
+    "name": "Huyện Minh Long",
+    "normalized_name": "huyen_minh_long"
+  },
+  {
+    "name": "Thành phố Thái Bình",
+    "normalized_name": "thanh_pho_thai_binh"
+  },
+  {
+    "name": "Huyện Chợ Mới",
+    "normalized_name": "huyen_cho_moi"
+  },
+  {
+    "name": "Huyện Cao Lãnh",
+    "normalized_name": "huyen_cao_lanh"
+  },
+  {
+    "name": "Thị xã Cai Lậy",
+    "normalized_name": "thi_xa_cai_lay"
+  },
+  {
+    "name": "Huyện Quảng Trạch",
+    "normalized_name": "huyen_quang_trach"
+  },
+  {
+    "name": "Huyện Hồng Dân",
+    "normalized_name": "huyen_hong_dan"
+  },
+  {
+    "name": "Huyện Phú Riềng",
+    "normalized_name": "huyen_phu_rieng"
+  },
+  {
+    "name": "Huyện Vị Thuỷ",
+    "normalized_name": "huyen_vi_thuy"
+  },
+  {
+    "name": "Huyện Đơn Dương",
+    "normalized_name": "huyen_on_duong"
+  },
+  {
+    "name": "Thị xã Điện Bàn",
+    "normalized_name": "thi_xa_ien_ban"
+  },
+  {
+    "name": "Huyện Phú Vang",
+    "normalized_name": "huyen_phu_vang"
+  },
+  {
+    "name": "Huyện Hải Hà",
+    "normalized_name": "huyen_hai_ha"
+  },
+  {
+    "name": "Huyện Ninh Phước",
+    "normalized_name": "huyen_ninh_phuoc"
+  },
+  {
+    "name": "Huyện Chi Lăng",
+    "normalized_name": "huyen_chi_lang"
+  },
+  {
+    "name": "Quận Ngũ Hành Sơn",
+    "normalized_name": "quan_ngu_hanh_son"
+  },
+  {
+    "name": "Thị xã Long Mỹ",
+    "normalized_name": "thi_xa_long_my"
+  },
+  {
+    "name": "Huyện Tiểu Cần",
+    "normalized_name": "huyen_tieu_can"
+  },
+  {
+    "name": "Huyện Kim Động",
+    "normalized_name": "huyen_kim_ong"
+  },
+  {
+    "name": "Huyện Hớn Quản",
+    "normalized_name": "huyen_hon_quan"
+  },
+  {
+    "name": "Huyện Bố Trạch",
+    "normalized_name": "huyen_bo_trach"
+  },
+  {
+    "name": "Huyện Phù Ninh",
+    "normalized_name": "huyen_phu_ninh"
+  },
+  {
+    "name": "Huyện Ý Yên",
+    "normalized_name": "huyen_y_yen"
+  },
+  {
+    "name": "Huyện Krông Búk",
+    "normalized_name": "huyen_krong_buk"
+  },
+  {
+    "name": "Huyện Mang Thít",
+    "normalized_name": "huyen_mang_thit"
+  },
+  {
+    "name": "Huyện Nông Sơn",
+    "normalized_name": "huyen_nong_son"
+  },
+  {
+    "name": "Quận Hà Đông",
+    "normalized_name": "quan_ha_ong"
+  },
+  {
+    "name": "Thị xã Hương Thủy",
+    "normalized_name": "thi_xa_huong_thuy"
+  },
+  {
+    "name": "Quận Cẩm Lệ",
+    "normalized_name": "quan_cam_le"
+  },
+  {
+    "name": "Huyện Hoà An",
+    "normalized_name": "huyen_hoa_an"
+  },
+  {
+    "name": "Thị xã Mỹ Hào",
+    "normalized_name": "thi_xa_my_hao"
+  },
+  {
+    "name": "Huyện Đức Linh",
+    "normalized_name": "huyen_uc_linh"
+  },
+  {
+    "name": "Huyện Thạch Thất",
+    "normalized_name": "huyen_thach_that"
+  },
+  {
+    "name": "Huyện Hồng Ngự",
+    "normalized_name": "huyen_hong_ngu"
+  },
+  {
+    "name": "Huyện Ân Thi",
+    "normalized_name": "huyen_an_thi"
+  },
+  {
+    "name": "Huyện Đà Bắc",
+    "normalized_name": "huyen_a_bac"
+  },
+  {
+    "name": "Thị xã Cửa Lò",
+    "normalized_name": "thi_xa_cua_lo"
+  },
+  {
+    "name": "Huyện Lâm Bình",
+    "normalized_name": "huyen_lam_binh"
+  },
+  {
+    "name": "Huyện Yên Lập",
+    "normalized_name": "huyen_yen_lap"
+  },
+  {
+    "name": "Huyện Tân Châu",
+    "normalized_name": "huyen_tan_chau"
+  },
+  {
+    "name": "Huyện Bến Lức",
+    "normalized_name": "huyen_ben_luc"
+  },
+  {
+    "name": "Thành phố Biên Hòa",
+    "normalized_name": "thanh_pho_bien_hoa"
+  },
+  {
+    "name": "Huyện Đức Thọ",
+    "normalized_name": "huyen_uc_tho"
+  },
+  {
+    "name": "Huyện Bình Xuyên",
+    "normalized_name": "huyen_binh_xuyen"
+  },
+  {
+    "name": "Huyện Thạch Hà",
+    "normalized_name": "huyen_thach_ha"
+  },
+  {
+    "name": "Huyện Kinh Môn",
+    "normalized_name": "huyen_kinh_mon"
+  },
+  {
+    "name": "Thị xã Quảng Yên",
+    "normalized_name": "thi_xa_quang_yen"
+  },
+  {
+    "name": "Huyện Hiệp Hòa",
+    "normalized_name": "huyen_hiep_hoa"
+  },
+  {
+    "name": "Huyện Đạ Tẻh",
+    "normalized_name": "huyen_a_teh"
+  },
+  {
+    "name": "Huyện Tiên Lữ",
+    "normalized_name": "huyen_tien_lu"
+  },
+  {
+    "name": "Huyện Hướng Hóa",
+    "normalized_name": "huyen_huong_hoa"
+  },
+  {
+    "name": "Huyện Lạng Giang",
+    "normalized_name": "huyen_lang_giang"
+  },
+  {
+    "name": "Huyện Cát Hải",
+    "normalized_name": "huyen_cat_hai"
+  },
+  {
+    "name": "Huyện An Lão",
+    "normalized_name": "huyen_an_lao"
+  },
+  {
+    "name": "Thị xã Sơn Tây",
+    "normalized_name": "thi_xa_son_tay"
+  },
+  {
+    "name": "Huyện Bình Đại",
+    "normalized_name": "huyen_binh_ai"
+  },
+  {
+    "name": "Huyện Hoài Nhơn",
+    "normalized_name": "huyen_hoai_nhon"
+  },
+  {
+    "name": "Huyện Tuy An",
+    "normalized_name": "huyen_tuy_an"
+  },
+  {
+    "name": "Thành phố Sa Đéc",
+    "normalized_name": "thanh_pho_sa_ec"
+  },
+  {
+    "name": "Huyện Vĩnh Lợi",
+    "normalized_name": "huyen_vinh_loi"
+  },
+  {
+    "name": "Thành phố Ninh Bình",
+    "normalized_name": "thanh_pho_ninh_binh"
+  },
+  {
+    "name": "Huyện Cẩm Giàng",
+    "normalized_name": "huyen_cam_giang"
+  },
+  {
+    "name": "Quận 1",
+    "normalized_name": "quan_1"
+  },
+  {
+    "name": "Huyện Mường Lát",
+    "normalized_name": "huyen_muong_lat"
+  },
+  {
+    "name": "Huyện Long Hồ",
+    "normalized_name": "huyen_long_ho"
+  },
+  {
+    "name": "Thị xã Đông Triều",
+    "normalized_name": "thi_xa_ong_trieu"
+  },
+  {
+    "name": "Huyện Tân Phước",
+    "normalized_name": "huyen_tan_phuoc"
+  },
+  {
+    "name": "Quận Ô Môn",
+    "normalized_name": "quan_o_mon"
+  },
+  {
+    "name": "Huyện Tương Dương",
+    "normalized_name": "huyen_tuong_duong"
+  },
+  {
+    "name": "Huyện Nguyên Bình",
+    "normalized_name": "huyen_nguyen_binh"
+  },
+  {
+    "name": "Huyện Tân Kỳ",
+    "normalized_name": "huyen_tan_ky"
+  },
+  {
+    "name": "Huyện Cao Lộc",
+    "normalized_name": "huyen_cao_loc"
+  },
+  {
+    "name": "Huyện Thọ Xuân",
+    "normalized_name": "huyen_tho_xuan"
+  },
+  {
+    "name": "Huyện Bắc Hà",
+    "normalized_name": "huyen_bac_ha"
+  },
+  {
+    "name": "Huyện Phù Mỹ",
+    "normalized_name": "huyen_phu_my"
+  },
+  {
+    "name": "Huyện Cần Đước",
+    "normalized_name": "huyen_can_uoc"
+  },
+  {
+    "name": "Huyện Hạ Hoà",
+    "normalized_name": "huyen_ha_hoa"
+  },
+  {
+    "name": "Huyện Võ Nhai",
+    "normalized_name": "huyen_vo_nhai"
+  },
+  {
+    "name": "Huyện Nam Đàn",
+    "normalized_name": "huyen_nam_an"
+  },
+  {
+    "name": "Thành phố Móng Cái",
+    "normalized_name": "thanh_pho_mong_cai"
+  },
+  {
+    "name": "Huyện Tây Hoà",
+    "normalized_name": "huyen_tay_hoa"
+  },
+  {
+    "name": "Huyện Cai Lậy",
+    "normalized_name": "huyen_cai_lay"
+  },
+  {
+    "name": "Huyện Tân Sơn",
+    "normalized_name": "huyen_tan_son"
+  },
+  {
+    "name": "Huyện Thường Xuân",
+    "normalized_name": "huyen_thuong_xuan"
+  },
+  {
+    "name": "Quận 5",
+    "normalized_name": "quan_5"
+  },
+  {
+    "name": "Quận Đống Đa",
+    "normalized_name": "quan_ong_a"
+  },
+  {
+    "name": "Huyện Tân Yên",
+    "normalized_name": "huyen_tan_yen"
+  },
+  {
+    "name": "Huyện Anh Sơn",
+    "normalized_name": "huyen_anh_son"
+  },
+  {
+    "name": "Thành phố Lạng Sơn",
+    "normalized_name": "thanh_pho_lang_son"
+  },
+  {
+    "name": "Huyện Đất Đỏ",
+    "normalized_name": "huyen_at_o"
+  },
+  {
+    "name": "Huyện Tam Đảo",
+    "normalized_name": "huyen_tam_ao"
+  },
+  {
+    "name": "Huyện A Lưới",
+    "normalized_name": "huyen_a_luoi"
+  },
+  {
+    "name": "Huyện Hải Lăng",
+    "normalized_name": "huyen_hai_lang"
+  },
+  {
+    "name": "Thành phố Huế",
+    "normalized_name": "thanh_pho_hue"
+  },
+  {
+    "name": "Huyện Hạ Lang",
+    "normalized_name": "huyen_ha_lang"
+  },
+  {
+    "name": "Huyện Quế Sơn",
+    "normalized_name": "huyen_que_son"
+  },
+  {
+    "name": "Huyện Sơn Tây",
+    "normalized_name": "huyen_son_tay"
+  },
+  {
+    "name": "Huyện Cẩm Khê",
+    "normalized_name": "huyen_cam_khe"
+  },
+  {
+    "name": "Huyện Bảo Lâm",
+    "normalized_name": "huyen_bao_lam"
+  },
+  {
+    "name": "Huyện Con Cuông",
+    "normalized_name": "huyen_con_cuong"
+  },
+  {
+    "name": "Quận Cầu Giấy",
+    "normalized_name": "quan_cau_giay"
+  },
+  {
+    "name": "Huyện Phúc Thọ",
+    "normalized_name": "huyen_phuc_tho"
+  },
+  {
+    "name": "Huyện Đăk Pơ",
+    "normalized_name": "huyen_ak_po"
+  },
+  {
+    "name": "Huyện Yên Khánh",
+    "normalized_name": "huyen_yen_khanh"
+  },
+  {
+    "name": "Huyện Châu Thành",
+    "normalized_name": "huyen_chau_thanh"
+  },
+  {
+    "name": "Huyện Văn Lãng",
+    "normalized_name": "huyen_van_lang"
+  },
+  {
+    "name": "Huyện Hoa Lư",
+    "normalized_name": "huyen_hoa_lu"
+  },
+  {
+    "name": "Huyện Cao Phong",
+    "normalized_name": "huyen_cao_phong"
+  },
+  {
+    "name": "Huyện Cái Nước",
+    "normalized_name": "huyen_cai_nuoc"
+  },
+  {
+    "name": "Huyện Tuyên Hóa",
+    "normalized_name": "huyen_tuyen_hoa"
+  },
+  {
+    "name": "Quận Tân Phú",
+    "normalized_name": "quan_tan_phu"
+  },
+  {
+    "name": "Huyện Thái Thụy",
+    "normalized_name": "huyen_thai_thuy"
+  },
+  {
+    "name": "Huyện Sa Thầy",
+    "normalized_name": "huyen_sa_thay"
+  },
+  {
+    "name": "Huyện Krông Năng",
+    "normalized_name": "huyen_krong_nang"
+  },
+  {
+    "name": "Huyện Triệu Sơn",
+    "normalized_name": "huyen_trieu_son"
+  },
+  {
+    "name": "Huyện Gio Linh",
+    "normalized_name": "huyen_gio_linh"
+  },
+  {
+    "name": "Huyện Chư Sê",
+    "normalized_name": "huyen_chu_se"
+  },
+  {
+    "name": "Huyện Vĩnh Bảo",
+    "normalized_name": "huyen_vinh_bao"
+  },
+  {
+    "name": "Huyện Lâm Hà",
+    "normalized_name": "huyen_lam_ha"
+  },
+  {
+    "name": "Huyện Tây Sơn",
+    "normalized_name": "huyen_tay_son"
+  },
+  {
+    "name": "Huyện Tri Tôn",
+    "normalized_name": "huyen_tri_ton"
+  },
+  {
+    "name": "Thị xã Hoàng Mai",
+    "normalized_name": "thi_xa_hoang_mai"
+  },
+  {
+    "name": "Thị xã Gò Công",
+    "normalized_name": "thi_xa_go_cong"
+  },
+  {
+    "name": "Huyện Thăng Bình",
+    "normalized_name": "huyen_thang_binh"
+  },
+  {
+    "name": "Huyện Tân Phú Đông",
+    "normalized_name": "huyen_tan_phu_ong"
+  },
+  {
+    "name": "Thành phố Cam Ranh",
+    "normalized_name": "thanh_pho_cam_ranh"
+  },
+  {
+    "name": "Quận Bình Thuỷ",
+    "normalized_name": "quan_binh_thuy"
+  },
+  {
+    "name": "Thị xã Hồng Ngự",
+    "normalized_name": "thi_xa_hong_ngu"
+  },
+  {
+    "name": "Huyện Bảo Yên",
+    "normalized_name": "huyen_bao_yen"
+  },
+  {
+    "name": "Huyện Triệu Phong",
+    "normalized_name": "huyen_trieu_phong"
+  },
+  {
+    "name": "Huyện Thủ Thừa",
+    "normalized_name": "huyen_thu_thua"
+  },
+  {
+    "name": "Huyện Sìn Hồ",
+    "normalized_name": "huyen_sin_ho"
+  },
+  {
+    "name": "Huyện Si Ma Cai",
+    "normalized_name": "huyen_si_ma_cai"
+  },
+  {
+    "name": "Thành phố Việt Trì",
+    "normalized_name": "thanh_pho_viet_tri"
+  },
+  {
+    "name": "Huyện Cẩm Xuyên",
+    "normalized_name": "huyen_cam_xuyen"
+  },
+  {
+    "name": "Thành phố Phúc Yên",
+    "normalized_name": "thanh_pho_phuc_yen"
+  },
+  {
+    "name": "Huyện Hòa Vang",
+    "normalized_name": "huyen_hoa_vang"
+  },
+  {
+    "name": "Huyện Ea Kar",
+    "normalized_name": "huyen_ea_kar"
+  },
+  {
+    "name": "Huyện Lai Vung",
+    "normalized_name": "huyen_lai_vung"
+  }
+]
