@@ -21,8 +21,8 @@ class Supplier(BaseModel, SoftDeleteMixin):
     available_locations = models.JSONField(default=list, null=True, blank=True)
 
     contact_profile = models.JSONField(default=dict, null=True, blank=True)
-    contact_phone_number = models.CharField(max_length=128, null=True, blank=True, unique=True)
-    contact_email = models.EmailField(null=True, blank=True, unique=True)
+    contact_phone_number = models.CharField(max_length=128, null=True, blank=True)
+    contact_email = models.EmailField(null=True, blank=True)
     website = models.URLField(null=True, blank=True, unique=True)
     logo_url = models.URLField(null=True, blank=True)
     nationality = models.CharField(max_length=128, null=True, blank=True)
