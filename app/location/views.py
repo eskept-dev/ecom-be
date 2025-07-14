@@ -271,3 +271,11 @@ class OpenStreetMapSearchAPIView(APIView):
             )
 
         return transformed_results
+
+
+class AirportListView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        airports_data = json.load(open("app/location/__data__/airports.json"))
+        return Response({ "data": airports_data}, status=200)

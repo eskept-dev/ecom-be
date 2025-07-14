@@ -14,7 +14,7 @@ urlpatterns = [
     path('auth/refresh', views.RefreshTokenView.as_view(), name='refresh'),
     # Reset Password
     path('auth/send_reset_password_email', views.SendResetPasswordEmailView.as_view(), name='send_reset_password_email'),
-    path('auth/reset_password', views.ResetPasswordView.as_view(), name='reset_password'),
+    path('auth/reset_password', views.ResetPasswordAPIView.as_view(), name='reset_password'),
     # Token
     path('auth/pairs_token', views.GetPairsTokenView.as_view(), name='get_pairs_token'),
 
@@ -22,4 +22,5 @@ urlpatterns = [
     path('auth/admin/sign_in', views.AdminSignInView.as_view(), name='admin_sign_in'),
     path('auth/admin/internal_user', views.AdminCreateInternalUserView.as_view(), name='admin_create_internal_user'),
     path('auth/admin/activate_user', views.AdminActivateUserView.as_view(), name='admin_activate_user'),
+    path('auth/admin/reset_password', views.AdminResetPasswordAPIView.as_view(), name='admin_reset_password'),
 ]

@@ -7,7 +7,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from app.auth import serializers
 from app.auth import services as auth_services
 from app.auth import tasks as auth_tasks
-from app.auth.permissions import IsAdminUser
+from app.auth.permissions import IsAdminUser, IsInternalUser
 from app.auth.enums import VerificationTypeEnum
 from app.user.models import User
 
@@ -40,8 +40,7 @@ class SignUpView(APIView):
 
 
 class AdminCreateInternalUserView(APIView):
-    # permission_classes = [IsAuthenticated, IsAdminUser]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminUser]
 
     def post(self, request):
         serializer = serializers.AdminCreateInternalUserSerializer(data=request.data)
@@ -291,16 +290,42 @@ class SendResetPasswordEmailView(APIView):
         )
 
 
-class ResetPasswordView(APIView):
-    permission_classes = [AllowAny]
+class ResetPasswordAPIView(APIView):
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         serializer = serializers.ResetPasswordSerializer(data=request.data)
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
+
         auth_services.reset_password(
             user=request.user,
+            password=serializer.validated_data['password']
+        )
+
+        return Response(
+            {'message': 'Password reset successfully'},
+            status=status.HTTP_200_OK
+        )
+        
+
+class AdminResetPasswordAPIView(APIView):
+    permission_classes = [IsAuthenticated, IsInternalUser]
+
+    def post(self, request):
+        serializer = serializers.AdminResetPasswordSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        user = User.objects.filter(id=serializer.validated_data['user_id']).first()
+        if not user:
+            return Response(
+                {'error': 'User not found'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        auth_services.reset_password(
+            user=user,
             password=serializer.validated_data['password']
         )
 

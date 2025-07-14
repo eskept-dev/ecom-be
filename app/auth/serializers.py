@@ -180,3 +180,14 @@ class ResetPasswordSerializer(serializers.Serializer):
         if not password:
             raise serializers.ValidationError('Password is required.')
         return attrs
+    
+    
+class AdminResetPasswordSerializer(serializers.Serializer):
+    user_id = serializers.IntegerField()
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        password = attrs.get('password')
+        if not password:
+            raise serializers.ValidationError('Password is required.')
+        return attrs

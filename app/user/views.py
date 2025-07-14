@@ -21,7 +21,7 @@ class UserModelViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = serializers.UserSerializer
     permission_classes = [IsAuthenticated]
-    http_method_names = ['get', 'put', 'delete']
+    http_method_names = ['get', 'put', 'patch', 'delete']
     
     def get_queryset(self):
         return User.objects.filter(id=self.request.user.id)
@@ -121,6 +121,12 @@ class UserModelViewSet(ModelViewSet):
             serializer.errors, 
             status=status.HTTP_400_BAD_REQUEST,
         )
+
+
+class InternalUserModelViewSet(ModelViewSet):
+    queryset = User.objects.filter(role__in=[UserRole.ADMIN, UserRole.STAFF])
+    serializer_class = serializers.UserSerializer
+    permission_classes = [IsInternalUser]
 
 
 class CustomerModelViewSet(ModelViewSet, SoftDeleteViewSetMixin):

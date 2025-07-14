@@ -22,6 +22,18 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+    
+    def update(self, instance, validated_data):
+        if 'password' in validated_data:
+            instance.set_password(validated_data['password'])
+            del validated_data['password']
+
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+
+        instance.save(update_fields=validated_data.keys())
+
+        return instance
 
 
 class ActivationCodeSerializer(serializers.Serializer):
