@@ -10,6 +10,7 @@ brevo-python==1.1.2
 celery==5.5.0
 certifi==2025.1.31
 cffi==1.17.1
+charset-normalizer==3.4.2
 click==8.1.8
 click-didyoumean==0.3.1
 click-plugins==1.1.1
@@ -28,6 +29,7 @@ ecdsa==0.19.1
 geographiclib==2.0
 geopy==2.4.1
 h11==0.16.0
+idna==3.10
 inflection==0.5.1
 jmespath==1.0.1
 jsonschema==4.23.0
@@ -45,6 +47,7 @@ python-http-client==3.3.7
 PyYAML==6.0.2
 redis==5.2.1
 referencing==0.36.2
+requests==2.32.4
 rest-framework-simplejwt==0.0.2
 rpds-py==0.23.1
 s3transfer==0.13.0
