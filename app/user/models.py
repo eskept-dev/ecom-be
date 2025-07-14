@@ -108,9 +108,7 @@ class User(AbstractUser, SoftDeleteMixin):
     
     @property
     def can_sign_in_by_password(self):
-        if self.password is None:
-            return False
-        return self.is_active and not self.password.startswith('!')
+        return self.password and not self.password.startswith('!')
 
     def activate(self):
         if self.role == UserRole.CUSTOMER:
@@ -124,6 +122,11 @@ class User(AbstractUser, SoftDeleteMixin):
     def admin_activate(self):
         self.status = UserStatus.ACTIVE
         self.activated_at = timezone.now()
+        self.activation_code = None
+        self.save()
+
+    def admin_deactivate(self):
+        self.status = UserStatus.INACTIVE
         self.activation_code = None
         self.save()
 

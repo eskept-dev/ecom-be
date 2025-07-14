@@ -5,7 +5,7 @@ from app.core.utils.logger import logger
 
 
 @celery_app.task(name='auth.tasks.send_verification_email_for_sign_up_task')
-def send_verification_email_for_sign_up_task(user_id, redirect_to):
+def send_verification_email_for_sign_up_task(user_id, redirect_to = None):
     logger.info(f"Sending verification email for sign up to user #{user_id}")
     user = User.objects.get(id=user_id)
     auth_services.send_verification_email_for_sign_up(user, redirect_to)
@@ -13,7 +13,7 @@ def send_verification_email_for_sign_up_task(user_id, redirect_to):
 
 
 @celery_app.task(name='auth.tasks.send_sign_in_email_task')
-def send_sign_in_email_task(user_id, redirect_to):
+def send_sign_in_email_task(user_id, redirect_to = None):
     logger.info(f"Sending sign in email to user #{user_id}")
     user = User.objects.get(id=user_id)
     auth_services.send_sign_in_email(user, redirect_to)

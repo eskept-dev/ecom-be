@@ -200,3 +200,21 @@ class CustomerModelViewSet(ModelViewSet, SoftDeleteViewSetMixin):
             serializers.UserProfileSerializer(customer.userprofile).data, 
             status=status.HTTP_200_OK,
         )
+
+    @action(detail=True, methods=['post'], url_path='activate')
+    def activate(self, request, *args, **kwargs):
+        user = self.get_object()
+        user.admin_activate()
+        return Response(
+            serializers.UserSerializer(user).data, 
+            status=status.HTTP_200_OK,
+        )
+        
+    @action(detail=True, methods=['post'], url_path='deactivate')
+    def deactivate(self, request, *args, **kwargs):
+        user = self.get_object()
+        user.admin_deactivate()
+        return Response(
+            serializers.UserSerializer(user).data, 
+            status=status.HTTP_200_OK,
+        )
