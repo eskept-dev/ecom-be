@@ -1,15 +1,18 @@
 from django.urls import include, path
 from rest_framework import routers
 
-from app.product import views  
+from app.product import apis
 
 
-router = routers.DefaultRouter(trailing_slash=False)
-router.register(r'', views.ProductModelViewSet, basename='product')
+product_router = routers.DefaultRouter(trailing_slash=False)
+product_router.register(r'', apis.ProductModelViewSet, basename='product')
 
+price_configuration_router = routers.DefaultRouter(trailing_slash=False)
+price_configuration_router.register(r'', apis.ProductPriceConfigurationModelViewSet, basename='price-configuration')
 
 urlpatterns = [
-    path('product/unit', views.ProductUnitAPIView.as_view(), name='product-units'),
+    path('product/unit', apis.ProductUnitAPIView.as_view(), name='product-units'),
 
-    path('product/', include(router.urls)),
+    path('product/', include(product_router.urls)),
+    path('price_configuration', include(price_configuration_router.urls)),
 ]

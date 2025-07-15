@@ -5,6 +5,10 @@ from .product import (
     ProductStatus,
     ProductUnit,
 )
+from .price_configuration import (
+    ProductPriceConfiguration,
+    PriceAdjustmentType,
+)
 
 __all__ = [
     # Product
@@ -13,4 +17,8 @@ __all__ = [
     'Currency',
     'ProductStatus',
     'ProductUnit',
+
+    # Product Pricing
+    'ProductPriceConfiguration',
+    'PriceAdjustmentType',
 ]
