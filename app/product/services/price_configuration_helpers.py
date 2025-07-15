@@ -5,21 +5,6 @@ from app.product.models.price_configuration import PriceAdjustmentType
 from app.product.services.schemas import AppliedProductPrice
 
 
-def apply_price_configuration_to_product(product_id: int) -> AppliedProductPrice:
-    """
-    This function will get the price configuration for a given product
-    Input:
-        product_id: int
-    Output:
-        AppliedProductPrice
-    """
-    price_configuration_ids = get_price_configuration_ids_by_product_id(product_id)
-
-    applied_product_price = select_optimal_price_configuration(product_id, price_configuration_ids)
-    
-    return applied_product_price
-
-
 def get_price_configuration_ids_by_product_id(product_id: int) -> list[int]:
     """
     This function will get the price configuration for a given product
@@ -43,28 +28,6 @@ def get_price_configuration_ids_by_product_id(product_id: int) -> list[int]:
                 break
 
     return result
-
-
-def apply_price_configuration_to_products(product_ids: list[int]) -> dict[str, AppliedProductPrice]:
-    """
-    This function will apply the price configuration to the products
-    Input:
-        products: list[Product]
-    Output:
-        dict[str, AppliedProductPrice]
-    """
-    
-    classified_price_configurations_ids = list_price_configurations_by_product_ids(product_ids)
-
-    applied_product_prices = {}
-    for product_id in product_ids:
-        price_configuration_ids = classified_price_configurations_ids[str(product_id)] + classified_price_configurations_ids['all']
-
-        optimal_price_configuration = select_optimal_price_configuration(product_id, price_configuration_ids)
-
-        applied_product_prices[str(product_id)] = optimal_price_configuration
-
-    return applied_product_prices
 
     
 def list_price_configurations_by_product_ids(product_ids: list[int]) -> dict:

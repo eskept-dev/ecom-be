@@ -16,7 +16,8 @@ from app.base.mixins import SoftDeleteViewSetMixin
 from app.product import serializers
 from app.product.filters import ProductFilter
 from app.product.models import Product, ProductUnit
-from app.product.services import products as products_service
+from app.product.services.apply_price_configuration_for_products import ApplyPriceConfigurationForProductsService
+from app.product.services.apply_price_configuration_for_single_product import ApplyPriceConfigurationForSingleProductService
 
 
 class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):    
@@ -55,7 +56,7 @@ class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):
         products = page if page is not None else queryset
         product_ids = [product.id for product in products]
 
-        applied_prices = products_service.apply_price_configuration_to_products(product_ids)
+        applied_prices = ApplyPriceConfigurationForProductsService(product_ids).perform()
 
         serializer = serializers.ProductWithPriceConfigurationSerializer(
             products,
@@ -71,7 +72,7 @@ class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):
     @method_decorator(cache_page(60 * 60 * 24, key_prefix="product_retrieve"))
     def retrieve(self, request, *args, **kwargs):
         product = self.get_object()
-        applied_product_price = products_service.get_applied_product_price(product.id)
+        applied_product_price = ApplyPriceConfigurationForSingleProductService(product.id).perform()
         
         serializer = serializers.ProductWithPriceConfigurationSerializer(
             product,
