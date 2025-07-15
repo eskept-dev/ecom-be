@@ -36,8 +36,6 @@ class PaymentTransactionModelViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
 
     def get_permissions(self):
-        from app.core.utils.logger import logger
-        logger.info(f'self.action: {self.action}')
         if self.action in ['retrieve', 'purchase']:
             return [AllowAny()]
         else:

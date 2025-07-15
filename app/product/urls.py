@@ -12,7 +12,9 @@ price_configuration_router.register(r'', apis.ProductPriceConfigurationModelView
 
 urlpatterns = [
     path('product/unit', apis.ProductUnitAPIView.as_view(), name='product-units'),
+    path('price_configuration/preview', apis.ProductPricePreviewAPIView.as_view(), name='price-configuration-preview'),
 
     path('product/', include(product_router.urls)),
-    path('price_configuration', include(price_configuration_router.urls)),
+    path('price_configuration/', include(price_configuration_router.urls)),
+    
 ]

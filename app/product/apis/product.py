@@ -9,13 +9,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
+from app.core.utils.logger import logger
 from app.base.pagination import CustomPagination
 from app.base.mixins import SoftDeleteViewSetMixin
-from app.core.utils.logger import logger
 
 from app.product import serializers
 from app.product.filters import ProductFilter
 from app.product.models import Product, ProductUnit
+from app.product.services import products as products_service
 
 
 class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):    
@@ -26,8 +27,8 @@ class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):
     filterset_class = ProductFilter
     search_fields = ["id", "name", "code_name", "supplier__name"]
     ordering_fields = [
-        "price_vnd",
-        "price_usd",
+        "base_price_vnd",
+        "base_price_usd",
         "rating",
         "review_count",
         "name",
@@ -47,11 +48,37 @@ class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):
     
     @method_decorator(cache_page(60 * 60 * 24, key_prefix="product_list"))
     def list(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
+        queryset = self.filter_queryset(self.get_queryset())
+        paginator = CustomPagination()
+        page = paginator.paginate_queryset(queryset, request)
+
+        products = page if page is not None else queryset
+        product_ids = [product.id for product in products]
+
+        applied_prices = products_service.apply_price_configuration_to_products(product_ids)
+
+        serializer = serializers.ProductWithPriceConfigurationSerializer(
+            products,
+            many=True,
+            context={"applied_prices": applied_prices},
+        )
+
+        if page is not None:
+            return paginator.get_paginated_response(serializer.data)
+
+        return Response(serializer.data)
     
     @method_decorator(cache_page(60 * 60 * 24, key_prefix="product_retrieve"))
     def retrieve(self, request, *args, **kwargs):
-        return super().retrieve(request, *args, **kwargs)
+        product = self.get_object()
+        applied_product_price = products_service.get_applied_product_price(product.id)
+        
+        serializer = serializers.ProductWithPriceConfigurationSerializer(
+            product,
+            context={"applied_price": applied_product_price},
+        )
+        
+        return Response(serializer.data)
 
     def _clear_cache(self):
         keys = cache.keys(f"*product*")

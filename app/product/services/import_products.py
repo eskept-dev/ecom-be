@@ -7,9 +7,6 @@ from app.supplier.models import Supplier
 
 
 def import_products():
-    
-    
-    
     with open('app/product/__data__/product.json', 'r') as f:
         data = json.load(f)
 
@@ -64,8 +61,8 @@ def import_products():
                 'service_type': service,
                 'image_url': "https://placehold.co/300x200",
                 'unit': product['unit'],
-                'price_vnd': product['price_vnd'],
-                'price_usd': product['price_usd'],
+                'base_price_vnd': product['price_vnd'],
+                'base_price_usd': product['price_usd'],
                 'rating': product['rating'],
                 'review_count': product['review_count'],
                 'details': formated_details,

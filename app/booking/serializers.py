@@ -164,7 +164,7 @@ class DeleteBookingItemsPayloadSerializer(serializers.Serializer):
 class BookingItemProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'code_name', 'name', 'image_url', 'price_vnd', 'price_usd']
+        fields = ['id', 'code_name', 'name', 'image_url', 'base_price_vnd', 'base_price_usd']
 
 
 class BookingItemSerializer(serializers.ModelSerializer):

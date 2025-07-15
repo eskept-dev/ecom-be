@@ -49,8 +49,8 @@ class Product(BaseModel, SoftDeleteMixin):
     image_url = models.URLField(null=True, blank=True)
     unit = models.CharField(max_length=20, choices=ProductUnit.choices)
 
-    price_vnd = models.DecimalField(max_digits=10, decimal_places=2)
-    price_usd = models.DecimalField(max_digits=10, decimal_places=2)
+    base_price_vnd = models.DecimalField(max_digits=10, decimal_places=2)
+    base_price_usd = models.DecimalField(max_digits=10, decimal_places=2)
     rating = models.DecimalField(max_digits=3, decimal_places=2, default=0)
     review_count = models.IntegerField(default=0)
 
@@ -75,17 +75,3 @@ class Product(BaseModel, SoftDeleteMixin):
     @property
     def is_active(self):
         return self.status == ProductStatus.ACTIVE
-    
-    def get_price_vnd(self):
-        return self.price_vnd
-    
-    def get_price_usd(self):
-        return self.price_usd
-    
-    def get_price(self, currency):
-        if currency == Currency.VND:
-            return self.price_vnd
-        elif currency == Currency.USD:
-            return self.price_usd
-        else:
-            raise ValueError(f'Invalid currency: {currency}')

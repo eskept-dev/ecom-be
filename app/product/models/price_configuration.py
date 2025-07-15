@@ -51,9 +51,6 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
 
     is_active = models.BooleanField(default=True)
 
-    def __str__(self):
-        return f"{self.name} ({self.adjustment_type}: {self.value})"
-    
     def save(self, *args, **kwargs):
         if not self.code:
             self.code = self.generate_unique_code()
@@ -93,9 +90,6 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
         return True
     
     def validate_time_range_period(self):
-        if not self.time_range_value:
-            raise ValueError('Time range value is required')
-        
         return True
     
     def validate_time_range_recurring(self):

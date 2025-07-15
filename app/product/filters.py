@@ -6,6 +6,7 @@ from app.product.models import Product, ServiceType, Currency
 
 class ProductFilter(django_filters.FilterSet):
     # Shared
+    product_ids = django_filters.CharFilter(method='filter_by_product_ids')
     service = django_filters.CharFilter(method='filter_by_service')
     services = django_filters.CharFilter(method='filter_by_services')
     statuses = django_filters.CharFilter(method='filter_by_statuses')
@@ -36,6 +37,10 @@ class ProductFilter(django_filters.FilterSet):
             'service', 'services', 'rating', 'price_min', 'price_max',
             'suppliers', 'currency', 'province', 'city', 'district', 'ward',
         ]
+        
+    def filter_by_product_ids(self, queryset, name, value):
+        product_ids = value.split(',')
+        return queryset.filter(id__in=product_ids)
 
     def filter_by_suppliers(self, queryset, name, value):
         supplier_names = value.split(',')
@@ -75,15 +80,15 @@ class ProductFilter(django_filters.FilterSet):
         currency_selected = self.form.cleaned_data.get('currency')
         
         if currency_selected == Currency.VND.value:
-            return queryset.filter(price_vnd__gte=value)
-        return queryset.filter(price_usd__gte=value)
+            return queryset.filter(base_price_vnd__gte=value)
+        return queryset.filter(base_price_usd__gte=value)
 
     def filter_by_price_max(self, queryset, name, value):
         currency_selected = self.form.cleaned_data.get('currency')
         
         if currency_selected == Currency.VND.value:
-            return queryset.filter(price_vnd__lte=value)
-        return queryset.filter(price_usd__lte=value)
+            return queryset.filter(base_price_vnd__lte=value)
+        return queryset.filter(base_price_usd__lte=value)
 
     def filter_by_statuses(self, queryset, name, value):
         statuses_to_filter = value.split(',')
