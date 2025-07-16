@@ -1,3 +1,4 @@
+from datetime import date
 from dataclasses import dataclass
 
 
@@ -11,3 +12,11 @@ class AppliedProductPrice:
     price_vnd: float
     base_price_usd: float
     price_usd: float
+
+
+@dataclass
+class ProductAvailability:
+    product_id: int
+    product_name: str
+    booking_count: int = 0
+    max_capacity: int = 0

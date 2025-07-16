@@ -1,8 +1,11 @@
+from .availability import (
+    ViewProductAvailabilityRequestSerializer,
+    ViewProductAvailabilityResponseSerializer,
+)
 from .product import (
     ProductSerializer,
     ProductWithPriceConfigurationSerializer,
 )
-
 from .price_configuration import (
     ProductPriceConfigurationSerializer,
     ProductPricePreviewRequestSerializer,
@@ -11,6 +14,10 @@ from .price_configuration import (
 
 
 __all__ = [
+    # Availability
+    'ViewProductAvailabilityRequestSerializer',
+    'ViewProductAvailabilityResponseSerializer',
+    
     # Product
     'ProductSerializer',
     'ProductWithPriceConfigurationSerializer',
