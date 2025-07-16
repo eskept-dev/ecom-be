@@ -1,6 +1,7 @@
-from .availability import (
-    ViewProductAvailabilityRequestSerializer,
-    ViewProductAvailabilityResponseSerializer,
+from .availability_configuration import (
+    ProductAvailabilityConfigurationSerializer,
+    GetAvailabilityCalendarRequestSerializer,
+    ProductAvailabilityItemSerializer,
 )
 from .product import (
     ProductSerializer,
@@ -15,8 +16,9 @@ from .price_configuration import (
 
 __all__ = [
     # Availability
-    'ViewProductAvailabilityRequestSerializer',
-    'ViewProductAvailabilityResponseSerializer',
+    'ProductAvailabilityConfigurationSerializer',
+    'GetAvailabilityCalendarRequestSerializer',
+    'ProductAvailabilityItemSerializer',
     
     # Product
     'ProductSerializer',

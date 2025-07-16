@@ -1,3 +1,7 @@
+from .availability_configuration import (
+    ProductAvailabilityConfiguration,
+    ProductAvailabilityConfigurationType,
+)
 from .product import (
     Product,
     ServiceType,
@@ -11,6 +15,10 @@ from .price_configuration import (
 )
 
 __all__ = [
+    # Product Availability
+    'ProductAvailabilityConfiguration',
+    'ProductAvailabilityConfigurationType',
+    
     # Product
     'Product',
     'ServiceType',

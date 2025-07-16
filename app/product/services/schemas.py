@@ -1,6 +1,8 @@
 from datetime import date
 from dataclasses import dataclass
 
+from app.product.models import Product, ProductAvailabilityConfiguration
+
 
 @dataclass
 class AppliedProductPrice:
@@ -20,3 +22,10 @@ class ProductAvailability:
     product_name: str
     booking_count: int = 0
     max_capacity: int = 0
+
+
+@dataclass
+class ComputedProductAvailability:
+    product: Product
+    availability_configuration: ProductAvailabilityConfiguration
+    max_capacity: int
