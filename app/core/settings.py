@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'app.payment',
     'app.product',
     'app.service',
+    'app.setting',
     'app.supplier',
     'app.user',
 ]
