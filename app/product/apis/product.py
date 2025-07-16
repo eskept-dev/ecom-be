@@ -16,8 +16,7 @@ from app.base.mixins import SoftDeleteViewSetMixin
 from app.product import serializers
 from app.product.filters import ProductFilter
 from app.product.models import Product, ProductUnit
-from app.product.services.apply_price_configuration_for_products import ApplyPriceConfigurationForProductsService
-from app.product.services.apply_price_configuration_for_single_product import ApplyPriceConfigurationForSingleProductService
+from app.product.services.get_applied_price_configuration_product_service import GetAppliedPriceConfigurationProductService
 
 
 class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):    
@@ -56,7 +55,7 @@ class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):
         products = page if page is not None else queryset
         product_ids = [product.id for product in products]
 
-        applied_prices = ApplyPriceConfigurationForProductsService(product_ids).perform()
+        applied_prices = GetAppliedPriceConfigurationProductService(product_ids=product_ids).perform()
 
         serializer = serializers.ProductWithPriceConfigurationSerializer(
             products,
@@ -72,7 +71,7 @@ class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):
     @method_decorator(cache_page(60 * 60 * 24, key_prefix="product_retrieve"))
     def retrieve(self, request, *args, **kwargs):
         product = self.get_object()
-        applied_product_price = ApplyPriceConfigurationForSingleProductService(product.id).perform()
+        applied_product_price = GetAppliedPriceConfigurationProductService(product_id=product.id).perform()
         
         serializer = serializers.ProductWithPriceConfigurationSerializer(
             product,
@@ -82,8 +81,14 @@ class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):
         return Response(serializer.data)
 
     def _clear_cache(self):
-        keys = cache.keys(f"*product*")
-        cache.delete_many(keys)
+        prefixes = [
+            "product_list",
+            "product_retrieve",
+        ]
+        
+        for prefix in prefixes:
+            keys = cache.keys(f"*{prefix}*")
+            cache.delete_many(keys)
 
     def create(self, request, *args, **kwargs):
         self._clear_cache()

@@ -70,7 +70,9 @@ class ProductWithPriceConfigurationSerializer(ProductSerializer):
         data = super().to_representation(instance)
 
         applied_prices = self.context.get("applied_prices", {})
-        applied_price = applied_prices.get(str(instance.id), {})
+        applied_price = applied_prices.get(str(instance.id), None)
+        if not applied_price:
+            return data
 
         data['price_configuration_id'] = applied_price.price_configuration_id
         data['price_configuration_name'] = applied_price.price_configuration_name

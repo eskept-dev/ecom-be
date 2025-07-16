@@ -40,8 +40,14 @@ class SupplierModelViewSet(ModelViewSet, SoftDeleteViewSetMixin):
         return super().retrieve(request, *args, **kwargs)
     
     def _clear_cache(self):
-        keys = cache.keys(f"*supplier*")
-        cache.delete_many(keys)
+        prefixes = [
+            "supplier_list",
+            "supplier_retrieve",
+        ]
+        
+        for prefix in prefixes:
+            keys = cache.keys(f"*{prefix}*")
+            cache.delete_many(keys)
     
     def create(self, request, *args, **kwargs):
         self._clear_cache()

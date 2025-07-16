@@ -1,7 +1,5 @@
 from dataclasses import dataclass
 
-from app.product.models.product import Product
-
 
 @dataclass
 class AppliedProductPrice:

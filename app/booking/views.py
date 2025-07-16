@@ -68,8 +68,14 @@ class BookingModelViewSet(viewsets.ModelViewSet, SoftDeleteViewSetMixin):
         return super().retrieve(request, *args, **kwargs)
 
     def _clear_cache(self):
-        keys = cache.keys(f"*booking*")
-        cache.delete_many(keys)
+        prefixes = [
+            "booking_list",
+            "booking_retrieve",
+        ]
+        
+        for prefix in prefixes:
+            keys = cache.keys(f"*{prefix}*")
+            cache.delete_many(keys)
 
     def create(self, request, *args, **kwargs):
         self._clear_cache()

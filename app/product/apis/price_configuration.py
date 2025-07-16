@@ -12,7 +12,7 @@ from app.base.pagination import CustomPagination
 from app.base.mixins import SoftDeleteViewSetMixin
 from app.product import serializers
 from app.product.models import ProductPriceConfiguration
-from app.product.services.product_price_preview_service import ProductPricePreviewService
+from app.product.services.get_applied_price_configuration_product_service import GetAppliedPriceConfigurationProductService
 
 
 class ProductPriceConfigurationModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):
@@ -62,9 +62,9 @@ class ProductPricePreviewAPIView(APIView):
 
         product_ids = serializer.validated_data.get('product_ids')
         
-        applied_product_prices = ProductPricePreviewService(product_ids).perform()
+        applied_product_prices = GetAppliedPriceConfigurationProductService(product_ids=product_ids).perform()
         
-        serializer = serializers.ProductPricePreviewResponseSerializer(applied_product_prices, many=True)
+        serializer = serializers.ProductPricePreviewResponseSerializer(applied_product_prices.values(), many=True)
         
         paginator = CustomPagination()
         page = paginator.paginate_queryset(serializer.data, request)

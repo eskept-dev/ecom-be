@@ -3,6 +3,7 @@ from datetime import timezone, datetime
 from django.db import models
 
 from app.base.models import BaseModel, SoftDeleteMixin  
+from app.base.enums import BaseEnum
 
 
 class PriceAdjustmentType(models.TextChoices):
@@ -16,11 +17,14 @@ class PriceAdjustmentTimeRangeType(models.TextChoices):
     RECURRING_DAY_OF_MONTH = "recurring_day_of_month"
 
 
-class PriceAdjustmentRecurringType(models.TextChoices):
-    DAILY = "daily"
-    WEEKLY = "weekly"
-    MONTHLY = "monthly"
-    YEARLY = "yearly"
+class DayOfWeek(BaseEnum):
+    MONDAY = "monday"
+    TUESDAY = "tuesday"
+    WEDNESDAY = "wednesday"
+    THURSDAY = "thursday"
+    FRIDAY = "friday"
+    SATURDAY = "saturday"
+    SUNDAY = "sunday"
 
 
 class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
@@ -72,31 +76,108 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
         return f'{self.PREFIX_CODE}{today}{new_price_configuration_number:04d}'
     
     def validate(self):
+        self._validate_adjustment()
+        self._validate_time_range()
+        
+    def _validate_adjustment(self):
         if self.adjustment_type == PriceAdjustmentType.FIXED:
-            if not self.adjustment_value:
-                raise ValueError('Adjustment value is required')
+            self._validate_adjustment_fixed()
         elif self.adjustment_type == PriceAdjustmentType.PERCENTAGE:
-            if not self.adjustment_value:
-                raise ValueError('Adjustment value is required')
-            
-        if self.time_range_type == PriceAdjustmentTimeRangeType.PERIOD:
-            if not self.validate_time_range_period():
-                raise ValueError('Start datetime and end datetime are required')
-        elif self.time_range_type == PriceAdjustmentTimeRangeType.RECURRING_DAY_OF_WEEK \
-                or self.time_range_type == PriceAdjustmentTimeRangeType.RECURRING_DAY_OF_MONTH:
-            if not self.validate_time_range_recurring():
-                raise ValueError('Time range value is required')
+            self._validate_adjustment_percentage()
+        else:
+            raise ValueError('Invalid adjustment type')
 
-        return True
+    def _validate_adjustment_fixed(self):
+        if not self.adjustment_value:
+            raise ValueError('Adjustment value is required')
+        
+        if not isinstance(self.adjustment_value, dict):
+            raise ValueError('Invalid fixed adjustment value')
+        
+        fixed_vnd = self.adjustment_value.get('fixed_vnd')
+        fixed_usd = self.adjustment_value.get('fixed_usd')
+        
+        if not fixed_vnd and not fixed_usd:
+            raise ValueError('fixed_vnd or fixed_usd is required')
+        
+        if fixed_vnd and not isinstance(fixed_vnd, (int, float)):
+            raise ValueError('fixed_vnd must be a number')
+        
+        if fixed_usd and not isinstance(fixed_usd, (int, float)):
+            raise ValueError('fixed_usd must be a number')
+        
+        if fixed_vnd < 0 or fixed_usd < 0:
+            raise ValueError('fixed_vnd and fixed_usd must be greater than 0')
+        
+    def _validate_adjustment_percentage(self):
+        if not self.adjustment_value:
+            raise ValueError('Adjustment value is required')
+        
+        if not isinstance(self.adjustment_value, dict):
+            raise ValueError('Invalid percentage adjustment value')
+        
+        percentage = self.adjustment_value.get('percentage')
+        if not percentage:
+            raise ValueError('percentage is required')
+        
+        if not isinstance(percentage, (int, float)):
+            raise ValueError('percentage must be a number')
+        
+        if percentage < 0 or percentage > 100:
+            raise ValueError('percentage must be between 0 and 100')
+            
+    def _validate_time_range(self):
+        if self.time_range_type == PriceAdjustmentTimeRangeType.PERIOD:
+            self._validate_time_range_period()
+        elif self.time_range_type == PriceAdjustmentTimeRangeType.RECURRING_DAY_OF_WEEK:
+            self._validate_time_range_recurring_day_of_week()
+        elif self.time_range_type == PriceAdjustmentTimeRangeType.RECURRING_DAY_OF_MONTH:
+            self._validate_time_range_recurring_day_of_month()
     
-    def validate_time_range_period(self):
-        return True
+    def _validate_time_range_period(self):
+        if not self.time_range_value:
+            raise ValueError('Time range value is required')
+        
+        if not isinstance(self.time_range_value, dict):
+            raise ValueError('Invalid time range value')
+        
+        if not self.time_range_value.get('start_datetime') and not self.time_range_value.get('end_datetime'):
+            raise ValueError('Start datetime and end datetime are required')
     
-    def validate_time_range_recurring(self):
+    def _validate_time_range_recurring_day_of_week(self):
         if not self.time_range_value:
             raise ValueError('Time range value is required')
 
-        return True
+        if not isinstance(self.time_range_value, dict):
+            raise ValueError('Invalid time range value')
+        
+        day_of_week = self.time_range_value.get('day_of_week')
+        if not day_of_week:
+            raise ValueError('Day of week is required')
+        
+        if not isinstance(day_of_week, list):
+            raise ValueError('Day of week must be a list')
+        
+        for day in day_of_week:
+            if day not in DayOfWeek.choices():
+                raise ValueError('Invalid day of week')
+
+    def _validate_time_range_recurring_day_of_month(self):
+        if not self.time_range_value:
+            raise ValueError('Time range value is required')
+        
+        if not isinstance(self.time_range_value, dict):
+            raise ValueError('Invalid time range value')
+        
+        day_of_month = self.time_range_value.get('day_of_month')
+        if not day_of_month:
+            raise ValueError('Day of month is required')
+        
+        if not isinstance(day_of_month, int):
+            raise ValueError('Day of month must be a number')
+        
+        if day_of_month < 1 or day_of_month > 31:
+            raise ValueError('Day of month must be between 1 and 31')
 
     def can_apply(self, product):
         if not self.is_active:
@@ -109,25 +190,3 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
             return False
 
         return True
-
-    def is_validated_time_range_recurring(self):
-        if not self.time_range_value:
-            return False
-        
-        if self.time_range_value.get('type') not in PriceAdjustmentRecurringType.values:
-            return False
-        
-
-    def is_validated_time_range_period(self):
-        if not self.time_range_value:
-            return True
-
-        if self.time_range_value.get('start_datetime') and self.time_range_value.get('end_datetime'):
-            now = timezone.now()
-            return (self.time_range_value.get('start_datetime') <= now <= self.time_range_value.get('end_datetime'))
-
-        if self.time_range_value.get('start_datetime'):
-            now = timezone.now()
-            return self.time_range_value.get('start_datetime') <= now
-
-        return False
