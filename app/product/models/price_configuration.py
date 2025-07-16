@@ -78,7 +78,23 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
     def validate(self):
         self._validate_adjustment()
         self._validate_time_range()
+
+    def is_time_range_valid(self) -> bool:
+        if self.time_range_type == PriceAdjustmentTimeRangeType.PERIOD:
+            return self._verify_time_range_period()
+        elif self.time_range_type == PriceAdjustmentTimeRangeType.RECURRING_DAY_OF_WEEK:
+            return self._verify_time_range_recurring_day_of_week()
+        elif self.time_range_type == PriceAdjustmentTimeRangeType.RECURRING_DAY_OF_MONTH:
+            return self._verify_time_range_recurring_day_of_month()
+
+    def is_valid_products(self, product_id: int) -> bool:
+        if not self.products.all(): return True
         
+        return self.products.filter(id=product_id).exists()
+
+    def can_apply_to_product(self, product_id: int) -> bool:
+        return self.is_valid_products(product_id) and self.is_time_range_valid()
+
     def _validate_adjustment(self):
         if self.adjustment_type == PriceAdjustmentType.FIXED:
             self._validate_adjustment_fixed()
@@ -179,14 +195,48 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
         if day_of_month < 1 or day_of_month > 31:
             raise ValueError('Day of month must be between 1 and 31')
 
-    def can_apply(self, product):
-        if not self.is_active:
+    def _verify_time_range_period(self) -> bool:
+        if not isinstance(self.time_range_value, dict):
             return False
         
-        if not self.is_validated_time_range():
-            return False
-
-        if self.products.count() > 0 and product not in self.products.all():
-            return False
+        start_date = self.time_range_value.get('start_date')
+        end_date = self.time_range_value.get('end_date')
+        
+        # if no time range, it means the price configuration is always valid
+        if not start_date or not end_date:
+            return True
+        
+        if start_date and end_date:
+            return start_date <= datetime.now() <= end_date
+        elif start_date:
+            return start_date <= datetime.now()
+        elif end_date:
+            return datetime.now() <= end_date
 
         return True
+
+    def _verify_time_range_recurring_day_of_week(self) -> bool:
+        if not isinstance(self.time_range_value, list):
+            return False
+        
+        day_of_week_list = self.time_range_value
+        
+        for day_of_week in day_of_week_list:   
+            if day_of_week not in DayOfWeek.choices(): 
+                return False
+
+        now = datetime.now()
+        return now.weekday() in day_of_week_list
+
+    def _verify_time_range_recurring_day_of_month(self) -> bool:
+        if not isinstance(self.time_range_value, list):
+            return False
+        
+        day_of_month_list = self.time_range_value
+        
+        for day_of_month in day_of_month_list:
+            if day_of_month < 1 or day_of_month > 31:
+                return False
+
+        now = datetime.now()
+        return now.day in day_of_month_list
