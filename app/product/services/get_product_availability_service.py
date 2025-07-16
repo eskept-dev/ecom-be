@@ -1,4 +1,5 @@
 from datetime import date, timedelta
+from venv import logger
 
 from django.core.cache import cache
 
@@ -58,16 +59,25 @@ class GetProductAvailabilityService(BaseService):
     
     def get_cached_computed_product_availability_calendars_by_day(self) -> dict[date, list[ComputedProductAvailability]]:
         cached_data = cache.get(PRODUCT_AVAILABILITY_CONFIGURATION_CACHE_KEY)
+
+        from app.core.utils.logger import logger
+        logger.info(f"Cached data: {cached_data.keys()}")
         
+        filtered_time_range_data = {}
         for date, availabilities in cached_data.items():
-            filtered_availabilities = []
+            if date < self.start_date or date > self.end_date:
+                continue
+            filtered_time_range_data[date] = availabilities
+
+        for date, availabilities in filtered_time_range_data.items():
+            filter_product_availabilities = []
             for availability in availabilities:
                 if availability.product.id not in self.product_ids:
                     continue
-                filtered_availabilities.append(availability)
-            cached_data[date] = filtered_availabilities
-        
-        return cached_data
+                filter_product_availabilities.append(availability)
+            filtered_time_range_data[date] = filter_product_availabilities
+
+        return filtered_time_range_data
 
     def store_computed_product_availability_calendars_by_day(self, computed_product_availability_calendars_by_day: dict[date, list[ComputedProductAvailability]]):
         cache.set(
@@ -91,7 +101,7 @@ class GetProductAvailabilityService(BaseService):
         if not cached_computed_product_ids:
             return False
         
-        return all(product_id in cached_computed_product_ids for product_id in self.product_ids)
+        return all(product_id in cached_computed_product_ids for product_id in product_ids)
     
     def is_cached_date_range(self, start_date: date, end_date: date) -> bool:
         cached_data = cache.get(PRODUCT_AVAILABILITY_CONFIGURATION_CACHE_KEY, [])
