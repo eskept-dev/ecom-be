@@ -17,23 +17,25 @@ from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-APP_ENV = os.environ.get('APP_ENV')
+APP_ENV = os.environ.get("APP_ENV")
+
 
 # Load config.yaml
 def load_config():
     if APP_ENV:
-        config_file_name = f'config.{APP_ENV}.yaml'
+        config_file_name = f"config.{APP_ENV}.yaml"
     else:
-        config_file_name = 'config.yaml'
-        
+        config_file_name = "config.yaml"
+
     print(f"Loading config from {config_file_name}")
 
     config_path = BASE_DIR.parent / config_file_name
     if not config_path.exists():
         raise FileNotFoundError(f"{config_file_name} not found at {config_path}")
-    
-    with open(config_path, 'r') as f:
+
+    with open(config_path, "r") as f:
         return yaml.safe_load(f)
+
 
 config = load_config()
 
@@ -41,127 +43,125 @@ config = load_config()
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['server']['secret_key']
+SECRET_KEY = config["server"]["secret_key"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config['server']['debug']
+DEBUG = config["server"]["debug"]
 
-ALLOWED_HOSTS = config['server']['allowed_hosts']
+ALLOWED_HOSTS = config["server"]["allowed_hosts"]
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
     # Third party apps
-    'rest_framework',
-    'corsheaders',
-    'drf_spectacular',
-    'rest_framework_simplejwt',
-    
+    "rest_framework",
+    "corsheaders",
+    "drf_spectacular",
+    "rest_framework_simplejwt",
     # Local apps
-    'app.base',
-    'app.booking',
-    'app.file',
-    'app.location',
-    'app.payment',
-    'app.product',
-    'app.service',
-    'app.setting',
-    'app.supplier',
-    'app.user',
+    "app.base",
+    "app.booking",
+    "app.file",
+    "app.location",
+    "app.payment",
+    "app.product",
+    "app.service",
+    "app.setting",
+    "app.supplier",
+    "app.user",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'app.core.urls'
+ROOT_URLCONF = "app.core.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'app.core.wsgi.application'
+WSGI_APPLICATION = "app.core.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config['postgres']['db_name'],
-        'USER': config['postgres']['user'],
-        'PASSWORD': config['postgres']['password'],
-        'HOST': config['postgres']['host'],
-        'PORT': config['postgres']['port'],
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config["postgres"]["db_name"],
+        "USER": config["postgres"]["user"],
+        "PASSWORD": config["postgres"]["password"],
+        "HOST": config["postgres"]["host"],
+        "PORT": config["postgres"]["port"],
     }
 }
 
 # Redis Configuration
-REDIS_HOST = config['redis']['host']
-REDIS_PORT = config['redis']['port']
-REDIS_USER = config['redis']['user']
-REDIS_PASSWORD = config['redis']['password']
+REDIS_HOST = config["redis"]["host"]
+REDIS_PORT = config["redis"]["port"]
+REDIS_USER = config["redis"]["user"]
+REDIS_PASSWORD = config["redis"]["password"]
 if REDIS_USER and REDIS_PASSWORD:
-    REDIS_URL = f'redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0'
+    REDIS_URL = f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0"
 else:
-    REDIS_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}/0'
+    REDIS_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
 
 # MinIO Configuration
-MINIO_UPLOAD_ENDPOINT = config['minio']['upload_endpoint']
-MINIO_PUBLIC_ENDPOINT = config['minio']['public_endpoint']
-MINIO_ACCESS_KEY = config['minio']['access_key']
-MINIO_SECRET_KEY = config['minio']['secret_key']
-MINIO_BUCKET_NAME = config['minio']['bucket_name']
-MINIO_SECURE = config['minio']['secure']
-MINIO_MAX_SIZE = config['minio']['max_size']
+MINIO_UPLOAD_ENDPOINT = config["minio"]["upload_endpoint"]
+MINIO_PUBLIC_ENDPOINT = config["minio"]["public_endpoint"]
+MINIO_ACCESS_KEY = config["minio"]["access_key"]
+MINIO_SECRET_KEY = config["minio"]["secret_key"]
+MINIO_BUCKET_NAME = config["minio"]["bucket_name"]
+MINIO_SECURE = config["minio"]["secure"]
+MINIO_MAX_SIZE = config["minio"]["max_size"]
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = DEBUG
-CORS_ALLOWED_ORIGINS = config['server']['cors_allowed_origins']
-CORS_ALLOW_HEADERS = config['server']['cors_allowed_headers']
+CORS_ALLOWED_ORIGINS = config["server"]["cors_allowed_origins"]
+CORS_ALLOW_HEADERS = config["server"]["cors_allowed_headers"]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -169,9 +169,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = config['server']['language_code']
+LANGUAGE_CODE = config["server"]["language_code"]
 
-TIME_ZONE = config['server']['timezone']
+TIME_ZONE = config["server"]["timezone"]
 
 USE_I18N = True
 
@@ -181,159 +181,152 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Media files
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # REST Framework settings
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
     ],
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
     ],
-    'DEFAULT_PAGINATION_CLASS': 'app.base.pagination.CustomPagination',
-    'PAGE_SIZE': 10,
+    "DEFAULT_PAGINATION_CLASS": "app.base.pagination.CustomPagination",
+    "PAGE_SIZE": 10,
 }
 
 # JWT settings
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'ROTATE_REFRESH_TOKENS': True,
-    'BLACKLIST_AFTER_ROTATION': True,
-    'UPDATE_LAST_LOGIN': True,
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
-    'USER_ID_FIELD': 'id',
-    'USER_ID_CLAIM': 'user_id',
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
-    'TOKEN_TYPE_CLAIM': 'token_type',
-    'TOKEN_OBTAIN_SERIALIZER': ('rest_framework_simplejwt.serializers.TokenObtainPairSerializer',),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "UPDATE_LAST_LOGIN": True,
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": SECRET_KEY,
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
+    "USER_ID_FIELD": "id",
+    "USER_ID_CLAIM": "user_id",
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
+    "TOKEN_TYPE_CLAIM": "token_type",
+    "TOKEN_OBTAIN_SERIALIZER": (
+        "rest_framework_simplejwt.serializers.TokenObtainPairSerializer",
+    ),
 }
 
 # Swagger settings
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Eskept API',
-    'DESCRIPTION': 'Eskept E-commerce Backend API',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
-    'SWAGGER_UI_SETTINGS': {
-        'persistAuthorization': True,
+    "TITLE": "Eskept API",
+    "DESCRIPTION": "Eskept E-commerce Backend API",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "SWAGGER_UI_SETTINGS": {
+        "persistAuthorization": True,
     },
-    'COMPONENT_SPLIT_REQUEST': True,
-    'SCHEMA_PATH_PREFIX': '/api/v1',
+    "COMPONENT_SPLIT_REQUEST": True,
+    "SCHEMA_PATH_PREFIX": "/api/v1",
 }
 
 # Auth settings
-AUTH_USER_MODEL = 'user.User'
+AUTH_USER_MODEL = "user.User"
 
 # App settings
 APPEND_SLASH = False
-FRONTEND_URL = config['server']['frontend_url']
-ADMIN_URL = config['server']['admin_url']
+FRONTEND_URL = config["server"]["frontend_url"]
+ADMIN_URL = config["server"]["admin_url"]
 
 # Cache Configuration
 CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': REDIS_URL,
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        }
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": REDIS_URL,
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
     }
 }
 
 # Celery Configuration
 CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = TIME_ZONE 
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TIMEZONE = TIME_ZONE
 
 # Mailer settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_PROVIDER = config['smtp']['provider']
-EMAIL_HOST = config['smtp']['host']
-EMAIL_PORT = config['smtp']['port']
-EMAIL_USE_TLS = config['smtp']['use_tls']
-EMAIL_HOST_USER = config['smtp']['host_user']
-EMAIL_HOST_PASSWORD = config['smtp']['host_password']
-DEFAULT_FROM_EMAIL = config['smtp']['default_sender_email']
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_PROVIDER = config["smtp"]["provider"]
+EMAIL_HOST = config["smtp"]["host"]
+EMAIL_PORT = config["smtp"]["port"]
+EMAIL_USE_TLS = config["smtp"]["use_tls"]
+EMAIL_HOST_USER = config["smtp"]["host_user"]
+EMAIL_HOST_PASSWORD = config["smtp"]["host_password"]
+DEFAULT_FROM_EMAIL = config["smtp"]["default_sender_email"]
 
-SENDGRID_API_KEY = config['sendgrid']['api_key']
+SENDGRID_API_KEY = config["sendgrid"]["api_key"]
 
 # Logging Configuration
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
         },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": BASE_DIR / "logs" / "django.log",
+            "maxBytes": 1024 * 1024 * 5,  # 5 MB
+            "backupCount": 5,
         },
-    },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
-        'file': {
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': BASE_DIR / 'logs' / 'django.log',
-            'maxBytes': 1024 * 1024 * 5,  # 5 MB
-            'backupCount': 5,
-            'formatter': 'verbose',
-        },
-        'celery': {
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': BASE_DIR / 'logs' / 'celery.log',
-            'maxBytes': 1024 * 1024 * 5,  # 5 MB
-            'backupCount': 5,
-            'formatter': 'verbose',
+        "celery": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": BASE_DIR / "logs" / "celery.log",
+            "maxBytes": 1024 * 1024 * 5,  # 5 MB
+            "backupCount": 5,
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',
-            'propagate': True,
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
+            "propagate": False,
         },
-        'celery': {
-            'handlers': ['console', 'celery'],
-            'level': 'INFO',
-            'propagate': True,
+        "celery": {
+            "handlers": ["console", "celery"],
+            "level": "INFO",
+            "propagate": False,
         },
-        'app': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG' if DEBUG else 'INFO',
-            'propagate': True,
+        "app": {
+            "handlers": ["console", "file"],
+            "level": "DEBUG" if DEBUG else "INFO",
+            "propagate": False,
         },
     },
 }
 
 # Create logs directory if it doesn't exist
-LOGS_DIR = BASE_DIR / 'logs'
+LOGS_DIR = BASE_DIR / "logs"
 LOGS_DIR.mkdir(exist_ok=True)
 CELERYD_HIJACK_ROOT_LOGGER = False
