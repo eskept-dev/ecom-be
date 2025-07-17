@@ -49,8 +49,8 @@ class CalendarProductAvailabilityConfigurationItemSerializer(serializers.ModelSe
     class Meta:
         model = ProductAvailabilityConfiguration
         fields = ('id', 'code', 'name', 'type', 'value')
-        
-        
+
+
 class CalendarProductItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -65,3 +65,15 @@ class ProductAvailabilityItemDetailSerializer(serializers.Serializer):
 class ProductAvailabilityItemSerializer(serializers.Serializer):
     date = serializers.DateField(required=True)
     availabilities = serializers.ListField(child=ProductAvailabilityItemDetailSerializer(), required=True)
+
+
+class BlockProductAvailabilityRequestSerializer(serializers.Serializer):
+    product_ids = serializers.ListField(child=serializers.IntegerField(), required=True)
+    start_date = serializers.DateField(required=True)
+    end_date = serializers.DateField(required=True)
+
+
+class UnblockProductAvailabilityRequestSerializer(serializers.Serializer):
+    product_ids = serializers.ListField(child=serializers.IntegerField(), required=True)
+    start_date = serializers.DateField(required=True)
+    end_date = serializers.DateField(required=True)

@@ -15,7 +15,9 @@ availability_configuration_router.register(r'', apis.ProductAvailabilityConfigur
 
 urlpatterns = [
     path('availability_configuration/check_availability', apis.GetProductAvailabilityByDateRangeAPIView.as_view(), name='check_availability'),
-    
+    path('availability_configuration/block', apis.BlockProductAvailabilityAPIView.as_view(), name='block-availability'),
+    path('availability_configuration/unblock', apis.UnblockProductAvailabilityAPIView.as_view(), name='unblock-availability'),
+
     path('product/unit', apis.ProductUnitAPIView.as_view(), name='product-units'),
     path('price_configuration/preview', apis.ProductPricePreviewAPIView.as_view(), name='price-configuration-preview'),
 

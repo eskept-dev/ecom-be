@@ -1,6 +1,8 @@
 from .availability_configuration import (
     ProductAvailabilityConfigurationModelViewSet,
     GetProductAvailabilityByDateRangeAPIView,
+    BlockProductAvailabilityAPIView,
+    UnblockProductAvailabilityAPIView,
 )
 from .price_configuration import (
     ProductPriceConfigurationModelViewSet,
@@ -12,6 +14,8 @@ __all__ = [
     # Product Availability
     'ProductAvailabilityConfigurationModelViewSet',
     'GetProductAvailabilityByDateRangeAPIView',
+    'BlockProductAvailabilityAPIView',
+    'UnblockProductAvailabilityAPIView',
 
     # Product Pricing
     'ProductPriceConfigurationModelViewSet',
