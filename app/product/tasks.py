@@ -28,7 +28,11 @@ def precompute_product_availability_task(product_ids: list[int], start_date: str
         end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
         logger.info(f"Precompute product availability for {start_date} to {end_date}")
 
-        PrecomputeProductAvailabilityService(product_ids=product_ids, start_date=start_date, end_date=end_date).perform()
+        PrecomputeProductAvailabilityService(
+            product_ids=product_ids,
+            start_date=start_date,
+            end_date=end_date,
+        ).perform()
 
         logger.info("Precompute product availability completed")
     except Exception as e:

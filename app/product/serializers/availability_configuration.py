@@ -52,8 +52,13 @@ class CreateBulkProductAvailabilityConfigurationSerializer(serializers.Serialize
     value = serializers.IntegerField(default=0, required=False)
 
 
-class GetAvailabilityCalendarRequestSerializer(serializers.Serializer):
+class CheckProductAvailabilityRequestSerializer(serializers.Serializer):
     product_ids = serializers.ListField(child=serializers.IntegerField(), required=True)
+    start_date = serializers.DateField(required=True)
+    end_date = serializers.DateField(required=True)
+    
+    
+class CheckTimeRangeAvailabilityRequestSerializer(serializers.Serializer):
     start_date = serializers.DateField(required=True)
     end_date = serializers.DateField(required=True)
 

@@ -15,7 +15,8 @@ from app.base.pagination import CustomPagination
 from app.product import serializers
 from app.product.models import ProductAvailabilityConfiguration
 from app.product.services.schemas import ComputedProductAvailability
-from app.product.services.get_product_availability_service import GetProductAvailabilityService
+from app.product.services.check_time_range_availability_service import CheckTimeRangeAvailabilityService
+from app.product.services.check_product_availability_service import CheckProductAvailabilityService
 from app.product.services.block_product_availability import BlockProductAvailabilityService
 from app.product.services.unblock_product_availability import UnblockProductAvailabilityService
 from app.product.services.create_bulk_product_availability import CreateBulkProductAvailabilityConfigurationService
@@ -54,16 +55,40 @@ class CreateBulkProductAvailabilityConfigurationAPIView(APIView):
         return Response(response.data, status=status.HTTP_200_OK)
 
 
-class GetProductAvailabilityByDateRangeAPIView(APIView):
+class CheckProductAvailabilityAPIView(APIView):
     permission_classes = [IsInternalUser]
 
     def get(self, request):
-        serializer = serializers.GetAvailabilityCalendarRequestSerializer(data=request.query_params)
+        serializer = serializers.CheckProductAvailabilityRequestSerializer(data=request.query_params)
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        service = GetProductAvailabilityService(
+        service = CheckProductAvailabilityService(
             product_ids=serializer.validated_data['product_ids'],
+            start_date=serializer.validated_data['start_date'],
+            end_date=serializer.validated_data['end_date'],
+        )
+        availability_by_day: dict[date, ComputedProductAvailability] = service.perform()
+        
+        availability_items = [
+            {'date': day.strftime('%Y-%m-%d'), 'availabilities': availabilities}
+            for day, availabilities in availability_by_day.items()
+        ]
+
+        serializer = serializers.ProductAvailabilityItemSerializer(availability_items, many=True)
+
+        return Response({'data': serializer.data}, status=status.HTTP_200_OK)
+
+
+class CheckTimeRangeAvailabilityAPIView(APIView):
+    permission_classes = [IsInternalUser]
+    
+    def get(self, request):
+        serializer = serializers.CheckTimeRangeAvailabilityRequestSerializer(data=request.query_params)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        service = CheckTimeRangeAvailabilityService(
             start_date=serializer.validated_data['start_date'],
             end_date=serializer.validated_data['end_date'],
         )

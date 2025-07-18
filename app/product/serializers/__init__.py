@@ -1,10 +1,11 @@
 from .availability_configuration import (
     ProductAvailabilityConfigurationSerializer,
-    GetAvailabilityCalendarRequestSerializer,
     ProductAvailabilityItemSerializer,
     BlockProductAvailabilityRequestSerializer,
     UnblockProductAvailabilityRequestSerializer,
     CreateBulkProductAvailabilityConfigurationSerializer,
+    CheckProductAvailabilityRequestSerializer,
+    CheckTimeRangeAvailabilityRequestSerializer,
 )
 from .product import (
     ProductSerializer,
@@ -20,11 +21,12 @@ from .price_configuration import (
 __all__ = [
     # Availability
     'ProductAvailabilityConfigurationSerializer',
-    'GetAvailabilityCalendarRequestSerializer',
     'ProductAvailabilityItemSerializer',
     'BlockProductAvailabilityRequestSerializer',
     'UnblockProductAvailabilityRequestSerializer',
     'CreateBulkProductAvailabilityConfigurationSerializer',
+    'CheckProductAvailabilityRequestSerializer',
+    'CheckTimeRangeAvailabilityRequestSerializer',
 
     # Product
     'ProductSerializer',

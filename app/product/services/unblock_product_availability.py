@@ -11,9 +11,18 @@ class UnblockProductAvailabilityService(BaseService):
         self.end_date = end_date
 
     def perform(self):
-        self.clean_up_existing_configurations()
+        if self.product_ids:
+            self.clean_up_by_product_ids()
+        else:
+            self.clean_up_by_time_range()
+    
+    def clean_up_by_time_range(self):
+        ProductAvailabilityConfiguration.objects.filter(
+            day__gte=self.start_date,
+            day__lte=self.end_date,
+        ).delete()
 
-    def clean_up_existing_configurations(self):
+    def clean_up_by_product_ids(self):
         ProductAvailabilityConfiguration.objects.filter(
             product_id__in=self.product_ids,
             day__gte=self.start_date,

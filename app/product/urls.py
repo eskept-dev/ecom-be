@@ -14,7 +14,8 @@ availability_configuration_router = routers.DefaultRouter(trailing_slash=False)
 availability_configuration_router.register(r'', apis.ProductAvailabilityConfigurationModelViewSet, basename='availability-configuration')
 
 urlpatterns = [
-    path('availability_configuration/check_availability', apis.GetProductAvailabilityByDateRangeAPIView.as_view(), name='check_availability'),
+    path('availability_configuration/check_product_availability', apis.CheckProductAvailabilityAPIView.as_view(), name='check_product_availability'),
+    path('availability_configuration/check_time_range_availability', apis.CheckTimeRangeAvailabilityAPIView.as_view(), name='check_time_range_availability'),
     path('availability_configuration/block', apis.BlockProductAvailabilityAPIView.as_view(), name='block-availability'),
     path('availability_configuration/unblock', apis.UnblockProductAvailabilityAPIView.as_view(), name='unblock-availability'),
     path('availability_configuration/bulk', apis.CreateBulkProductAvailabilityConfigurationAPIView.as_view(), name='create-bulk-availability'),

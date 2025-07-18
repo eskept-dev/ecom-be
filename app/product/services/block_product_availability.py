@@ -4,6 +4,7 @@ from app.base.service import BaseService
 from app.product.models import (
     ProductAvailabilityConfiguration,
     ProductAvailabilityConfigurationType,
+    Product,
 )
 
 
@@ -12,9 +13,15 @@ class BlockProductAvailabilityService(BaseService):
         self.product_ids = product_ids
         self.start_date = start_date
         self.end_date = end_date
-
+        
     def perform(self):
-        self.clean_up_existing_configurations()
+        if self.product_ids:
+            self.block_by_product_ids()
+        else:
+            self.block_by_time_range()
+
+    def block_by_product_ids(self):
+        self.clean_up_by_product_ids()
 
         self.block_product_availability()
     
@@ -39,3 +46,16 @@ class BlockProductAvailabilityService(BaseService):
                 day += timedelta(days=1)
 
         ProductAvailabilityConfiguration.objects.bulk_create(bulk)
+
+    def block_by_time_range(self):
+        self.clean_up_by_time_range()
+        
+        self.product_ids = Product.objects.filter(is_deleted=False).values_list('id', flat=True)
+
+        self.block_product_availability()
+
+    def clean_up_by_time_range(self):
+        ProductAvailabilityConfiguration.objects.filter(
+            day__gte=self.start_date,
+            day__lte=self.end_date,
+        ).delete()

@@ -1,6 +1,7 @@
 from .availability_configuration import (
     ProductAvailabilityConfigurationModelViewSet,
-    GetProductAvailabilityByDateRangeAPIView,
+    CheckProductAvailabilityAPIView,
+    CheckTimeRangeAvailabilityAPIView,
     BlockProductAvailabilityAPIView,
     UnblockProductAvailabilityAPIView,
     CreateBulkProductAvailabilityConfigurationAPIView,
@@ -14,7 +15,8 @@ from .product import ProductModelViewSet, ProductUnitAPIView
 __all__ = [
     # Product Availability
     'ProductAvailabilityConfigurationModelViewSet',
-    'GetProductAvailabilityByDateRangeAPIView',
+    'CheckProductAvailabilityAPIView',
+    'CheckTimeRangeAvailabilityAPIView',
     'BlockProductAvailabilityAPIView',
     'UnblockProductAvailabilityAPIView',
     'CreateBulkProductAvailabilityConfigurationAPIView',

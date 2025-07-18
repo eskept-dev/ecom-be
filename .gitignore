@@ -5,6 +5,7 @@ secret/*
 
 # AI Agent
 .cursor
+app/logs/
 
 # Python
 __pycache__/
@@ -103,3 +104,5 @@ dmypy.json
 
 # VS Code
 .vscode/
+
+app/logs/
