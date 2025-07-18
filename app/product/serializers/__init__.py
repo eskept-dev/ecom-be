@@ -4,6 +4,7 @@ from .availability_configuration import (
     ProductAvailabilityItemSerializer,
     BlockProductAvailabilityRequestSerializer,
     UnblockProductAvailabilityRequestSerializer,
+    CreateBulkProductAvailabilityConfigurationSerializer,
 )
 from .product import (
     ProductSerializer,
@@ -23,7 +24,8 @@ __all__ = [
     'ProductAvailabilityItemSerializer',
     'BlockProductAvailabilityRequestSerializer',
     'UnblockProductAvailabilityRequestSerializer',
-    
+    'CreateBulkProductAvailabilityConfigurationSerializer',
+
     # Product
     'ProductSerializer',
     'ProductWithPriceConfigurationSerializer',

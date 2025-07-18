@@ -18,6 +18,7 @@ from app.product.services.schemas import ComputedProductAvailability
 from app.product.services.get_product_availability_service import GetProductAvailabilityService
 from app.product.services.block_product_availability import BlockProductAvailabilityService
 from app.product.services.unblock_product_availability import UnblockProductAvailabilityService
+from app.product.services.create_bulk_product_availability import CreateBulkProductAvailabilityConfigurationService
 
 
 class ProductAvailabilityConfigurationModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):
@@ -26,10 +27,31 @@ class ProductAvailabilityConfigurationModelViewSet(SoftDeleteViewSetMixin, Model
     permission_classes = [IsInternalUser]
     pagination_class = CustomPagination
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    search_fields = ['code', 'name']
-    ordering_fields = [
-        'created_at', 'code', 'name', 'type', 'start_date', 'end_date']
+    search_fields = ['code']
+    ordering_fields = ['created_at', 'code', 'type', 'day']
     ordering = ['-created_at']
+
+
+class CreateBulkProductAvailabilityConfigurationAPIView(APIView):
+    permission_classes = [IsInternalUser]
+    
+    def post(self, request):
+        serializer = serializers.CreateBulkProductAvailabilityConfigurationSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        service = CreateBulkProductAvailabilityConfigurationService(
+            product_ids=serializer.validated_data['product_ids'],
+            start_date=serializer.validated_data['start_date'],
+            end_date=serializer.validated_data['end_date'],
+            type=serializer.validated_data['type'],
+            value=serializer.validated_data['value'],
+        )
+        product_availability_configurations = service.perform()
+        
+        response = serializers.ProductAvailabilityConfigurationSerializer(product_availability_configurations, many=True)
+
+        return Response(response.data, status=status.HTTP_200_OK)
 
 
 class GetProductAvailabilityByDateRangeAPIView(APIView):

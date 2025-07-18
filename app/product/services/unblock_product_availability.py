@@ -1,12 +1,7 @@
 from datetime import date
 
-from rest_framework.exceptions import ValidationError
-
 from app.base.service import BaseService
-from app.product.models import (
-    ProductAvailabilityConfiguration,
-    ProductAvailabilityConfigurationType,
-)
+from app.product.models import ProductAvailabilityConfiguration
 
 
 class UnblockProductAvailabilityService(BaseService):
@@ -16,16 +11,11 @@ class UnblockProductAvailabilityService(BaseService):
         self.end_date = end_date
 
     def perform(self):
-        block_configurations = ProductAvailabilityConfiguration.objects.filter(
-            products__id__in=self.product_ids,
-            type=ProductAvailabilityConfigurationType.BLOCK,
-            start_date__lte=self.start_date,
-            end_date__gte=self.end_date,
-        )
+        self.clean_up_existing_configurations()
 
-        if block_configurations.count() == 0:
-            raise ValidationError("Products are not blocked for the given date range")
-        
-        for config in block_configurations:
-            config.products.remove(self.product_ids)
-            config.save()
+    def clean_up_existing_configurations(self):
+        ProductAvailabilityConfiguration.objects.filter(
+            product_id__in=self.product_ids,
+            day__gte=self.start_date,
+            day__lte=self.end_date,
+        ).delete()

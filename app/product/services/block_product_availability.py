@@ -1,6 +1,4 @@
-from datetime import date
-
-from rest_framework.exceptions import ValidationError
+from datetime import date, timedelta
 
 from app.base.service import BaseService
 from app.product.models import (
@@ -16,29 +14,28 @@ class BlockProductAvailabilityService(BaseService):
         self.end_date = end_date
 
     def perform(self):
-        if self.check_if_product_availability_is_blocked():
-            raise ValidationError("Products are already blocked for the given date range")
+        self.clean_up_existing_configurations()
 
         self.block_product_availability()
-
-    def check_if_product_availability_is_blocked(self) -> bool:
-        blocked_product_ids = set(
-            ProductAvailabilityConfiguration.objects.filter(
-                products__id__in=self.product_ids,
-                type=ProductAvailabilityConfigurationType.BLOCK,
-                start_date__lte=self.start_date,
-                end_date__gte=self.end_date,
-            )
-            .values_list("products__id", flat=True)
-            .distinct()
-        )
-
-        return len(blocked_product_ids) == len(self.product_ids)
-
+    
+    def clean_up_existing_configurations(self):
+        ProductAvailabilityConfiguration.objects.filter(
+            product_id__in=self.product_ids,
+            day__gte=self.start_date,
+            day__lte=self.end_date,
+        ).delete()
+        
     def block_product_availability(self):
-        config = ProductAvailabilityConfiguration.objects.create(
-            type=ProductAvailabilityConfigurationType.BLOCK,
-            start_date=self.start_date,
-            end_date=self.end_date,
-        )
-        config.products.set(self.product_ids)
+        bulk = []
+        
+        for product_id in self.product_ids:
+            day = self.start_date
+            while day <= self.end_date:
+                bulk.append(ProductAvailabilityConfiguration(
+                    product_id=product_id,
+                    day=day,
+                    type=ProductAvailabilityConfigurationType.BLOCK,
+                ))
+                day += timedelta(days=1)
+
+        ProductAvailabilityConfiguration.objects.bulk_create(bulk)
