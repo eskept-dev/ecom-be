@@ -78,12 +78,29 @@ services:
     volumes:
       - /var/log/ecommerce/backend:/app/app/logs
 
-  celery:
-    image: eskeptdev/ecommerce-backend:20250531_174320_0ca2d56
-    container_name: celery
+  celery_worker:
+    image: eskeptdev/ecommerce-worker:20250719_114413_5efb870
+    container_name: celery_worker
     env_file:
       - .env
     command: celery -A app.core.celery worker --loglevel=info --logfile=./app/logs/celery.log
+    environment:
+      APP_ENV: production
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      MINIO_BUCKET_NAME: ${MINIO_BUCKET_NAME}
+    volumes:
+      - /var/log/ecommerce/celery:/app/app/logs
+
+  celery_beat:
+    image: eskeptdev/ecommerce-worker:20250719_114413_5efb870
+    container_name: celery_beat
+    env_file:
+      - .env
+    command: celery -A app.core.celery beat --loglevel=info --logfile=./app/logs/celery.log
     environment:
       APP_ENV: production
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
