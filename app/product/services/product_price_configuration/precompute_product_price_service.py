@@ -4,8 +4,8 @@ from app.core.utils.logger import logger
 from app.base.service import BaseService
 
 from app.product.models import Product
-from app.product.services.schemas import AppliedProductPrice
-from app.product.services.price_configuration_helpers import (
+from app.product.schemas import AppliedProductPrice
+from app.product.services.product_price_configuration.price_configuration_helpers import (
     list_price_configurations_by_products,
     select_optimal_price_configuration,
 )

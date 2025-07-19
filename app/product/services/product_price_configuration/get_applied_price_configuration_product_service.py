@@ -2,8 +2,8 @@ from django.core.cache import cache
 
 from app.base.service import BaseService
 
-from app.product.services.schemas import AppliedProductPrice
-from app.product.services.precompute_product_price_service import (
+from app.product.schemas import AppliedProductPrice
+from app.product.services.product_price_configuration.precompute_product_price_service import (
     PRECOMPUTE_PRODUCT_PRICE_CACHE_KEY,
     PrecomputeProductPriceService,
 )

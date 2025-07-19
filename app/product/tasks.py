@@ -1,8 +1,8 @@
 from datetime import datetime
 from app.core.celery import celery_app
 from app.core.utils.logger import logger
-from app.product.services.precompute_product_availability_service import PrecomputeProductAvailabilityService
-from app.product.services.precompute_product_price_service import PrecomputeProductPriceService
+from app.product.services.product_availability.precompute_product_availability_service import PrecomputeProductAvailabilityService
+from app.product.services.product_price_configuration.precompute_product_price_service import PrecomputeProductPriceService
 
 
 @celery_app.task(name="precompute_product_price_task")

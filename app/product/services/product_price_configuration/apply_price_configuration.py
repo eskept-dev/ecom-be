@@ -5,7 +5,7 @@ from app.product.models.price_configuration import (
     PriceAdjustmentType,
     PriceAdjustmentTimeRangeType,
 )
-from app.product.services.schemas import AppliedProductPrice
+from app.product.schemas import AppliedProductPrice
 
 
 def apply_price_configuration(product: Product, price_configuration: ProductPriceConfiguration) -> AppliedProductPrice:

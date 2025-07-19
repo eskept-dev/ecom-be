@@ -6,7 +6,7 @@ from app.product.models import (
     ProductAvailabilityConfigurationType,
     Product,
 )
-from app.product.services.schemas import ComputedProductAvailability
+from app.product.schemas import ComputedProductAvailability
 
 
 class ComputeProductAvailabilityService(BaseService):

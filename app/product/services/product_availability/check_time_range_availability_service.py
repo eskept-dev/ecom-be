@@ -4,8 +4,8 @@ from venv import logger
 from app.base.service import BaseService
 
 from app.product.models import ProductAvailabilityConfiguration
-from app.product.services.precompute_product_availability_service import PrecomputeProductAvailabilityService
-from app.product.services.schemas import ComputedProductAvailability
+from app.product.services.product_availability.precompute_product_availability_service import PrecomputeProductAvailabilityService
+from app.product.schemas import ComputedProductAvailability
 
 
 PRODUCT_AVAILABILITY_CONFIGURATION_CACHE_KEY = 'product_availability_configuration'

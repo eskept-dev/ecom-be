@@ -1,8 +1,8 @@
 from app.core.utils.logger import logger
 
 from app.product.models import ProductPriceConfiguration, Product
-from app.product.services.apply_price_configuration import apply_price_configuration
-from app.product.services.schemas import AppliedProductPrice
+from app.product.services.product_price_configuration.apply_price_configuration import apply_price_configuration
+from app.product.schemas import AppliedProductPrice
 
 
 def get_price_configurations_by_product(product: Product) -> list[ProductPriceConfiguration]:

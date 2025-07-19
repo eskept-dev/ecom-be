@@ -16,7 +16,7 @@ from app.base.mixins import SoftDeleteViewSetMixin
 from app.product import serializers
 from app.product.filters import ProductFilter
 from app.product.models import Product, ProductUnit
-from app.product.services.get_applied_price_configuration_product_service import GetAppliedPriceConfigurationProductService
+from app.product.services.product_price_configuration.get_applied_price_configuration_product_service import GetAppliedPriceConfigurationProductService
 
 
 class ProductModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):    

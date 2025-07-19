@@ -12,7 +12,7 @@ from app.base.pagination import CustomPagination
 from app.base.mixins import SoftDeleteViewSetMixin
 from app.product import serializers
 from app.product.models import ProductPriceConfiguration
-from app.product.services.get_applied_price_configuration_product_service import GetAppliedPriceConfigurationProductService
+from app.product.services.product_price_configuration.get_applied_price_configuration_product_service import GetAppliedPriceConfigurationProductService
 
 
 class ProductPriceConfigurationModelViewSet(SoftDeleteViewSetMixin, ModelViewSet):

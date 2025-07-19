@@ -7,8 +7,8 @@ from app.base.service import BaseService
 
 from app.core.utils.logger import logger
 from app.product.models import ProductAvailabilityConfiguration, Product
-from app.product.services.compute_product_availability_service import ComputeProductAvailabilityService
-from app.product.services.schemas import ComputedProductAvailability
+from app.product.services.product_availability.compute_product_availability_service import ComputeProductAvailabilityService
+from app.product.schemas import ComputedProductAvailability
 
 
 class PrecomputeProductAvailabilityService(BaseService):
