@@ -293,7 +293,7 @@ LOGGING = {
         "file": {
             "class": "app.core.logging_handlers.CustomRotatingFileHandler",
             "filename": BASE_DIR / "logs" / "django.log",
-            "maxBytes": 1024 * 1024 * 5,  # 5 MB
+            "maxBytes": 1024 * 1024 * 0.5,  # 5 MB
             "backupCount": 5,
         },
         "celery": {

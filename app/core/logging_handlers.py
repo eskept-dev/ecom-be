@@ -10,15 +10,18 @@ class CustomRotatingFileHandler(RotatingFileHandler):
         if self.stream:
             self.stream.close()
             self.stream = None
-
+            
+        base, ext = os.path.splitext(self.baseFilename)
         for i in range(self.backupCount - 1, 0, -1):
-            sfn = f"{self.baseFilename}.{i}.log"
-            dfn = f"{self.baseFilename}.{i+1}.log"
+            sfn = f"{base}.{i}{ext}"
+            dfn = f"{base}.{i+1}{ext}"
             if os.path.exists(sfn):
                 if os.path.exists(dfn):
                     os.remove(dfn)
                 os.rename(sfn, dfn)
-        dfn = f"{self.baseFilename}.1.log"
+
+        dfn = f"{base}.1{ext}"
+
         if os.path.exists(dfn):
             os.remove(dfn)
         if os.path.exists(self.baseFilename):
