@@ -212,7 +212,7 @@ REST_FRAMEWORK = {
 
 # JWT settings
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
@@ -291,13 +291,13 @@ LOGGING = {
             "class": "logging.StreamHandler",
         },
         "file": {
-            "class": "logging.handlers.RotatingFileHandler",
+            "class": "app.core.logging_handlers.CustomRotatingFileHandler",
             "filename": BASE_DIR / "logs" / "django.log",
             "maxBytes": 1024 * 1024 * 5,  # 5 MB
             "backupCount": 5,
         },
         "celery": {
-            "class": "logging.handlers.RotatingFileHandler",
+            "class": "app.core.logging_handlers.CustomRotatingFileHandler",
             "filename": BASE_DIR / "logs" / "celery.log",
             "maxBytes": 1024 * 1024 * 5,  # 5 MB
             "backupCount": 5,
