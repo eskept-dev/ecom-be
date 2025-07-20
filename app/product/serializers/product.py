@@ -54,16 +54,21 @@ class ProductWithPriceConfigurationSerializer(ProductSerializer):
     def to_representation_for_single_product(self, instance):
         data = super().to_representation(instance)
 
-        applied_price = self.context.get("applied_price", {})
+        applied_price = self.context.get("applied_price")
         if not applied_price:
-            applied_price = {}
+            data['price_configuration_id'] = None
+            data['price_configuration_name'] = None
+            data['base_price_vnd'] = float(instance.base_price_vnd)
+            data['price_vnd'] = float(instance.base_price_vnd)
+            data['base_price_usd'] = float(instance.base_price_usd)
+            data['price_usd'] = float(instance.base_price_usd)
 
-        data['price_configuration_id'] = applied_price.get("price_configuration_id", None)
-        data['price_configuration_name'] = applied_price.get("price_configuration_name", None)
+        data['price_configuration_id'] = applied_price.price_configuration_id
+        data['price_configuration_name'] = applied_price.price_configuration_name
         data['base_price_vnd'] = float(instance.base_price_vnd)
-        data['price_vnd'] = float(applied_price.get("price_vnd", float(instance.base_price_vnd)))
+        data['price_vnd'] = float(applied_price.price_vnd) if applied_price.price_vnd else float(instance.base_price_vnd)
         data['base_price_usd'] = float(instance.base_price_usd)
-        data['price_usd'] = float(applied_price.get("price_usd", float(instance.base_price_usd)))
+        data['price_usd'] = float(applied_price.price_usd) if applied_price.price_usd else float(instance.base_price_usd)
 
         return data
     
@@ -72,15 +77,20 @@ class ProductWithPriceConfigurationSerializer(ProductSerializer):
 
         applied_prices = self.context.get("applied_prices", {})
         applied_price = applied_prices.get(str(instance.id), {})
-        
-        if not applied_price:
-            applied_price = {}
 
-        data['price_configuration_id'] = applied_price.get("price_configuration_id", None)
-        data['price_configuration_name'] = applied_price.get("price_configuration_name", None)
+        if not applied_price:
+            data['price_configuration_id'] = None
+            data['price_configuration_name'] = None
+            data['base_price_vnd'] = float(instance.base_price_vnd)
+            data['price_vnd'] = float(instance.base_price_vnd)
+            data['base_price_usd'] = float(instance.base_price_usd)
+            data['price_usd'] = float(instance.base_price_usd)
+
+        data['price_configuration_id'] = applied_price.price_configuration_id
+        data['price_configuration_name'] = applied_price.price_configuration_name
         data['base_price_vnd'] = float(instance.base_price_vnd)
-        data['price_vnd'] = float(applied_price.get("price_vnd", float(instance.base_price_vnd)))
+        data['price_vnd'] = float(applied_price.price_vnd) if applied_price.price_vnd else float(instance.base_price_vnd)
         data['base_price_usd'] = float(instance.base_price_usd)
-        data['price_usd'] = float(applied_price.get("price_usd", float(instance.base_price_usd)))
+        data['price_usd'] = float(applied_price.price_usd) if applied_price.price_usd else float(instance.base_price_usd)
 
         return data

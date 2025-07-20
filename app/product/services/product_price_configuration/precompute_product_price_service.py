@@ -9,6 +9,7 @@ from app.product.services.product_price_configuration.price_configuration_helper
     list_price_configurations_by_products,
     select_optimal_price_configuration,
 )
+from app.product.services.product.clean_cached_product_api_service import CleanCachedProductAPIService
 
 
 PRECOMPUTE_PRODUCT_PRICE_CACHE_KEY = "precompute_product_price"
@@ -27,6 +28,8 @@ class PrecomputeProductPriceService(BaseService):
         new_applied_product_prices = self.get_applicable_price_configurations()
 
         self.store_cache(new_applied_product_prices)
+        
+        CleanCachedProductAPIService().perform()
 
         return self.applied_product_prices
 

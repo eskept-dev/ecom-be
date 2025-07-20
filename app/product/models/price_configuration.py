@@ -163,37 +163,29 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
     def _validate_time_range_recurring_day_of_week(self):
         if not self.time_range_value:
             raise ValueError('Time range value is required')
-
-        if not isinstance(self.time_range_value, dict):
+        
+        if not isinstance(self.time_range_value, list):
             raise ValueError('Invalid time range value')
-        
-        day_of_week = self.time_range_value.get('day_of_week')
-        if not day_of_week:
-            raise ValueError('Day of week is required')
-        
-        if not isinstance(day_of_week, list):
-            raise ValueError('Day of week must be a list')
-        
+
+        day_of_week = self.time_range_value
         for day in day_of_week:
-            if day not in DayOfWeek.choices():
+            if day not in DayOfWeek.values():
                 raise ValueError('Invalid day of week')
 
     def _validate_time_range_recurring_day_of_month(self):
         if not self.time_range_value:
             raise ValueError('Time range value is required')
         
-        if not isinstance(self.time_range_value, dict):
+        if not isinstance(self.time_range_value, list):
             raise ValueError('Invalid time range value')
         
-        day_of_month = self.time_range_value.get('day_of_month')
-        if not day_of_month:
-            raise ValueError('Day of month is required')
-        
-        if not isinstance(day_of_month, int):
-            raise ValueError('Day of month must be a number')
-        
-        if day_of_month < 1 or day_of_month > 31:
-            raise ValueError('Day of month must be between 1 and 31')
+        day_of_month = self.time_range_value
+        for day in day_of_month:
+            if not isinstance(day, int):
+                raise ValueError('Day of month must be a number')
+            
+            if day < 1 or day > 31:
+                raise ValueError('Day of month must be between 1 and 31')
 
     def _verify_time_range_period(self) -> bool:
         if not isinstance(self.time_range_value, dict):
@@ -222,7 +214,7 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
         day_of_week_list = self.time_range_value
         
         for day_of_week in day_of_week_list:   
-            if day_of_week not in DayOfWeek.choices(): 
+            if day_of_week not in DayOfWeek.values(): 
                 return False
 
         now = datetime.now()
