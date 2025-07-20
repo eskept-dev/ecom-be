@@ -30,7 +30,7 @@ TAG="${SERVICE_NAME}:${TIMESTAMP}_${GIT_HASH}"
 
 # Build the image
 echo "Building Docker image with tag: ${TAG}"
-docker build -t ${TAG} --platform linux/amd64 -f Dockerfile .
+docker build -t ${TAG} --platform linux/amd64 -f dockerfiles/backend.dockerfile .
 echo "Image built successfully!"
 
 # Tag as latest
