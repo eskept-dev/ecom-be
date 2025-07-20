@@ -9,11 +9,12 @@ class ArticlePage(models.TextChoices):
     BOOKING_CONFIRMATION = "booking_confirmation"
     PRODUCT_LIST = "product_list"
     PAYMENT = "payment"
-    
-    
+
+
 class ArticleStatus(models.TextChoices):
     DRAFT = "draft"
     PUBLISHED = "published"
+    UNPUBLISHED = "unpublished"
 
 
 class Article(BaseModel, SoftDeleteMixin):
@@ -54,3 +55,11 @@ class Article(BaseModel, SoftDeleteMixin):
             for page in self.pages:
                 if page not in ArticlePage.values:
                     raise ValidationError(f"Invalid page: {page}")
+                
+    def publish(self):
+        self.status = ArticleStatus.PUBLISHED
+        self.save()
+
+    def unpublish(self):
+        self.status = ArticleStatus.UNPUBLISHED
+        self.save()
