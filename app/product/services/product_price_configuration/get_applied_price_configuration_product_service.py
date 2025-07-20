@@ -1,6 +1,7 @@
 from django.core.cache import cache
 
 from app.base.service import BaseService
+from app.core.utils.logger import logger
 
 from app.product.schemas import AppliedProductPrice
 from app.product.services.product_price_configuration.precompute_product_price_service import (
@@ -32,7 +33,8 @@ class GetAppliedPriceConfigurationProductService(BaseService):
         applied_product_price = applied_product_prices.get(str(self.product_id), None)
 
         if not applied_product_price:
-            raise Exception("Applied product price not found")
+            logger.error(f"Applied product price not found for product {self.product_id}")
+            return {}
 
         return applied_product_price
     

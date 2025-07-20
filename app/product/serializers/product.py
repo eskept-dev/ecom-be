@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from app.product.models import Product
 
 
@@ -56,13 +55,15 @@ class ProductWithPriceConfigurationSerializer(ProductSerializer):
         data = super().to_representation(instance)
 
         applied_price = self.context.get("applied_price", {})
+        if not applied_price:
+            applied_price = {}
 
-        data['price_configuration_id'] = applied_price.price_configuration_id
-        data['price_configuration_name'] = applied_price.price_configuration_name
-        data['base_price_vnd'] = float(applied_price.base_price_vnd)
-        data['price_vnd'] = float(applied_price.price_vnd)
-        data['base_price_usd'] = float(applied_price.base_price_usd)
-        data['price_usd'] = float(applied_price.price_usd)
+        data['price_configuration_id'] = applied_price.get("price_configuration_id", None)
+        data['price_configuration_name'] = applied_price.get("price_configuration_name", None)
+        data['base_price_vnd'] = float(instance.base_price_vnd)
+        data['price_vnd'] = float(applied_price.get("price_vnd", float(instance.base_price_vnd)))
+        data['base_price_usd'] = float(instance.base_price_usd)
+        data['price_usd'] = float(applied_price.get("price_usd", float(instance.base_price_usd)))
 
         return data
     
@@ -70,15 +71,16 @@ class ProductWithPriceConfigurationSerializer(ProductSerializer):
         data = super().to_representation(instance)
 
         applied_prices = self.context.get("applied_prices", {})
-        applied_price = applied_prices.get(str(instance.id), None)
+        applied_price = applied_prices.get(str(instance.id), {})
+        
         if not applied_price:
-            return data
+            applied_price = {}
 
-        data['price_configuration_id'] = applied_price.price_configuration_id
-        data['price_configuration_name'] = applied_price.price_configuration_name
-        data['base_price_vnd'] = float(applied_price.base_price_vnd)
-        data['price_vnd'] = float(applied_price.price_vnd)
-        data['base_price_usd'] = float(applied_price.base_price_usd)
-        data['price_usd'] = float(applied_price.price_usd)
+        data['price_configuration_id'] = applied_price.get("price_configuration_id", None)
+        data['price_configuration_name'] = applied_price.get("price_configuration_name", None)
+        data['base_price_vnd'] = float(instance.base_price_vnd)
+        data['price_vnd'] = float(applied_price.get("price_vnd", float(instance.base_price_vnd)))
+        data['base_price_usd'] = float(instance.base_price_usd)
+        data['price_usd'] = float(applied_price.get("price_usd", float(instance.base_price_usd)))
 
         return data

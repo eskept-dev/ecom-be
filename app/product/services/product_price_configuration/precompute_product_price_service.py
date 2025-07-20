@@ -27,8 +27,7 @@ class PrecomputeProductPriceService(BaseService):
         new_applied_product_prices = self.get_applicable_price_configurations()
 
         self.store_cache(new_applied_product_prices)
-        logger.info(f"Precomputed product price for {len(new_applied_product_prices)} products successfully")
-        
+
         return self.applied_product_prices
 
     def get_products(self) -> list[Product]:
@@ -40,7 +39,7 @@ class PrecomputeProductPriceService(BaseService):
         return query
 
     def get_applicable_price_configurations(self) -> dict[str, AppliedProductPrice]:
-        applied_product_prices = {
+        self.applied_product_prices = {
             str(product.id): None for product in self.products
         }
 
@@ -49,14 +48,15 @@ class PrecomputeProductPriceService(BaseService):
             
             optimal_price_configuration = select_optimal_price_configuration(product, potential_price_configurations)
             
-            applied_product_prices[str(product.id)] = optimal_price_configuration
+            self.applied_product_prices[str(product.id)] = optimal_price_configuration
             
-        return applied_product_prices
+        return self.applied_product_prices
 
     def store_cache(self, new_applied_product_prices: dict[str, AppliedProductPrice]) -> None:
-        self.applied_product_prices = self.get_cached_applied_product_prices()
-        self.applied_product_prices.update(new_applied_product_prices)
-
+        cached_data = self.get_cached_applied_product_prices()
+        cached_data.update(new_applied_product_prices)
+        self.applied_product_prices = cached_data
+        
         cache.set(
             f"{PRECOMPUTE_PRODUCT_PRICE_CACHE_KEY}",
             self.applied_product_prices,
