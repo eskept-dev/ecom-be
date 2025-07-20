@@ -4,6 +4,7 @@ from django.db import models
 
 from app.base.models import BaseModel, SoftDeleteMixin  
 from app.base.enums import BaseEnum
+from app.core.utils.logger import logger
 
 
 class PriceAdjustmentType(models.TextChoices):
@@ -25,6 +26,17 @@ class DayOfWeek(BaseEnum):
     FRIDAY = "friday"
     SATURDAY = "saturday"
     SUNDAY = "sunday"
+    
+    
+DAY_OF_WEEK_MAP = {
+    "monday": 0,
+    "tuesday": 1,
+    "wednesday": 2,
+    "thursday": 3,
+    "friday": 4,
+    "saturday": 5,
+    "sunday": 6,
+}
 
 
 class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
@@ -191,19 +203,29 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
         if not isinstance(self.time_range_value, dict):
             return False
         
-        start_date = self.time_range_value.get('start_date')
-        end_date = self.time_range_value.get('end_date')
-        
-        # if no time range, it means the price configuration is always valid
-        if not start_date or not end_date:
+        try:
+            if self.time_range_value.get('start_datetime'):
+                start_datetime = datetime.strptime(self.time_range_value.get('start_datetime'), '%Y-%m-%dT%H:%M:%S.%fZ')
+            else:
+                start_datetime = None
+
+            if self.time_range_value.get('end_datetime'):
+                end_datetime = datetime.strptime(self.time_range_value.get('end_datetime'), '%Y-%m-%dT%H:%M:%S.%fZ')
+            else:
+                end_datetime = None
+        except Exception as e:
+            logger.error(f"Error parsing time range value: {e}")
+            return False
+
+        if not start_datetime or not end_datetime:
             return True
         
-        if start_date and end_date:
-            return start_date <= datetime.now() <= end_date
-        elif start_date:
-            return start_date <= datetime.now()
-        elif end_date:
-            return datetime.now() <= end_date
+        if start_datetime and end_datetime:
+            return start_datetime <= datetime.now() <= end_datetime
+        elif start_datetime:
+            return start_datetime <= datetime.now()
+        elif end_datetime:
+            return datetime.now() <= end_datetime
 
         return True
 
@@ -212,20 +234,20 @@ class ProductPriceConfiguration(BaseModel, SoftDeleteMixin):
             return False
         
         day_of_week_list = self.time_range_value
-        
+
         for day_of_week in day_of_week_list:   
             if day_of_week not in DayOfWeek.values(): 
                 return False
 
         now = datetime.now()
-        return now.weekday() in day_of_week_list
+        return now.strftime('%A').lower() in day_of_week_list
 
     def _verify_time_range_recurring_day_of_month(self) -> bool:
         if not isinstance(self.time_range_value, list):
             return False
         
         day_of_month_list = self.time_range_value
-        
+
         for day_of_month in day_of_month_list:
             if day_of_month < 1 or day_of_month > 31:
                 return False

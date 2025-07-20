@@ -52,7 +52,7 @@ class PrecomputeProductPriceService(BaseService):
             optimal_price_configuration = select_optimal_price_configuration(product, potential_price_configurations)
             
             self.applied_product_prices[str(product.id)] = optimal_price_configuration
-            
+
         return self.applied_product_prices
 
     def store_cache(self, new_applied_product_prices: dict[str, AppliedProductPrice]) -> None:

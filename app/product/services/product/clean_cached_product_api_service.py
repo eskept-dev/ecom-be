@@ -11,4 +11,5 @@ class CleanCachedProductAPIService(BaseService):
         ]
 
         for key_prefix in key_prefix:
-            cache.delete_many(cache.keys(key_prefix))
+            keys = cache.keys(f"*{key_prefix}*")
+            cache.delete_many(keys)

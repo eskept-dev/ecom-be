@@ -78,13 +78,11 @@ def select_optimal_price_configuration(product: Product, price_configurations: l
         except Exception as e:
             logger.error(f"Error applying price configuration {price_configuration.id} to product {product.id}: {e}")
             continue
-        
+
         if optimal_applied_product_price is None:
             optimal_applied_product_price = applied_product_price
         else:
-            if applied_product_price.price_vnd < optimal_applied_product_price.price_vnd:
-                optimal_applied_product_price = applied_product_price
-            elif applied_product_price.price_vnd == optimal_applied_product_price.price_vnd and applied_product_price.price_usd < optimal_applied_product_price.price_usd:
+            if applied_product_price.price_vnd > optimal_applied_product_price.price_vnd:
                 optimal_applied_product_price = applied_product_price
 
     return optimal_applied_product_price

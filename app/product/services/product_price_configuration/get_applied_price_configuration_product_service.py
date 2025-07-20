@@ -31,7 +31,7 @@ class GetAppliedPriceConfigurationProductService(BaseService):
             applied_product_prices = PrecomputeProductPriceService(product_ids=[self.product_id]).perform()
             
         applied_product_price = applied_product_prices.get(str(self.product_id), None)
-
+        
         if not applied_product_price:
             logger.error(f"Applied product price not found for product {self.product_id}")
             return {}
