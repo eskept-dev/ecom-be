@@ -7,6 +7,10 @@ secret/*
 .cursor
 app/logs/
 
+# Celery
+celerybeat-schedule.db
+celerybeat.pid
+
 # Python
 __pycache__/
 *.py[cod]
