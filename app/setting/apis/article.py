@@ -1,7 +1,7 @@
-from functools import cache
-from django_filters.rest_framework import DjangoFilterBackend
-from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
+from django.core.cache import cache
+from django.views.decorators.cache import cache_page
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import status
 from rest_framework.decorators import action
@@ -9,7 +9,6 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-
 
 from app.auth.permissions import IsInternalUser
 from app.base.pagination import CustomPagination
